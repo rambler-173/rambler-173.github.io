@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>BFC</title>
+    <link href="/2022/07/10/BFC/"/>
+    <url>/2022/07/10/BFC/</url>
+    
+    <content type="html"><![CDATA[<h2 id="FC"><a href="#FC" class="headerlink" title="FC"></a>FC</h2><p>formatting context</p><ul><li>感觉就是布局元素</li></ul><h2 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h2><p>Block Formatting Context</p><ul><li>块级元素布局环境</li><li>在以下情况会创建一个bfc</li><li><ul><li>根元素 （<html>)   </li><li>浮动元素</li><li>弹性元素</li><li>绝对定位元素</li><li>行内块元素</li><li>表格单元格</li><li>overflow</li><li>网格元素</li><li>display值为flow-root的元素</li></ul></li><li>影响布局的都会创建一个BFC</li><li>在BFC中，盒子会从顶部开始垂直方向上一个接一个排布</li><li>margin属性是由BFC定义</li></ul><h3 id="在同一个BFC中相邻的两个块级元素margin会折叠"><a href="#在同一个BFC中相邻的两个块级元素margin会折叠" class="headerlink" title="在同一个BFC中相邻的两个块级元素margin会折叠"></a>在同一个BFC中相邻的两个块级元素margin会折叠</h3><h3 id="盒子在默认情况下左边缘会紧挨着BFC左边缘"><a href="#盒子在默认情况下左边缘会紧挨着BFC左边缘" class="headerlink" title="盒子在默认情况下左边缘会紧挨着BFC左边缘"></a>盒子在默认情况下左边缘会紧挨着BFC左边缘</h3>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>HTML5</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>图片模糊</title>
+    <link href="/2022/07/10/%E5%9B%BE%E7%89%87%E6%A8%A1%E7%B3%8A/"/>
+    <url>/2022/07/10/%E5%9B%BE%E7%89%87%E6%A8%A1%E7%B3%8A/</url>
+    
+    <content type="html"><![CDATA[<h2 id="blur"><a href="#blur" class="headerlink" title="blur"></a>blur</h2><ul><li><p>将高斯模糊应用于输出图片或者元素</p></li><li><p>such as 给img元素添加模糊效果</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">img</span> &#123;<br><span class="hljs-attribute">filter</span>: <span class="hljs-built_in">blur</span>(<span class="hljs-number">5px</span>)<br>&#125;<br></code></pre></td></tr></table></figure></li><li><p>像素越大内容越模糊</p></li></ul><h2 id="添加有透明效果的模糊"><a href="#添加有透明效果的模糊" class="headerlink" title="添加有透明效果的模糊"></a>添加有透明效果的模糊</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">rgba</span>(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,.<span class="hljs-number">5</span>);<br> backdrop-<span class="hljs-attribute">filter</span>: <span class="hljs-built_in">blur</span>(<span class="hljs-number">10px</span>);<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>css</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>calc</title>
+    <link href="/2022/07/10/calc/"/>
+    <url>/2022/07/10/calc/</url>
+    
+    <content type="html"><![CDATA[<h2 id="calc"><a href="#calc" class="headerlink" title="calc"></a>calc</h2><ul><li><p>一个计算属性，常用于变量计算。</p></li><li><pre><code class="hljs">width: calc(100% - 100px)</code></pre></li><li><p>减号左右两边要有空格</p></li><li><p>其中100%是相对于包含块</p></li><li><p>像这样可以计算动态宽度</p></li></ul>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>html5</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>meta</title>
+    <link href="/2022/07/10/meta/"/>
+    <url>/2022/07/10/meta/</url>
+    
+    <content type="html"><![CDATA[<h3 id="meta元素用于定义元数据"><a href="#meta元素用于定义元数据" class="headerlink" title="meta元素用于定义元数据"></a>meta元素用于定义元数据</h3><ul><li>比如标签title，样式style，link外部资源等</li></ul><h4 id="charset"><a href="#charset" class="headerlink" title="charset"></a>charset</h4><ul><li>meta是一个字符集声明，告诉文档使用哪种字符编码</li></ul><h4 id="http-equiv"><a href="#http-equiv" class="headerlink" title="http-equiv"></a>http-equiv</h4><ul><li>meta是编译指令</li><li>主要是用于适配浏览器</li></ul><h4 id="name"><a href="#name" class="headerlink" title="name"></a>name</h4><ul><li>提供文档级别的元数据，应用于整个页面</li><li>robots</li><li><ul><li>告诉爬虫哪些可以爬</li></ul></li><li>author</li><li><ul><li>文档作者</li></ul></li><li>copyright</li><li><ul><li>版权声明</li></ul></li><li>description</li><li><ul><li>网站描述</li></ul></li><li>keywords</li><li><ul><li>关键字，主要用于SEO优化</li></ul></li></ul>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>html</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>文字前加小图标</title>
+    <link href="/2022/07/07/%E6%96%87%E5%AD%97%E5%89%8D%E5%8A%A0%E5%B0%8F%E5%9B%BE%E6%A0%87/"/>
+    <url>/2022/07/07/%E6%96%87%E5%AD%97%E5%89%8D%E5%8A%A0%E5%B0%8F%E5%9B%BE%E6%A0%87/</url>
+    
+    <content type="html"><![CDATA[<ul><li><p>w</p></li><li><p>有时候会有要在一行文字的前面加一个小图片的需求。</p></li><li><p>一般有两种方法，一种是添加一个:hover样式。还有一种就是添加个<i>。</p></li></ul><h3 id="i"><a href="#i" class="headerlink" title="i"></a>i</h3><ul><li><p>在文字前加个i标签，并给i标签设置样式。</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;icon_type icon_type_hot&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span> 游戏介绍<br><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="language-css"></span><br><span class="language-css"><span class="hljs-selector-class">.icon_type</span> &#123;</span><br><span class="language-css">  <span class="hljs-attribute">display</span>: inline-block;</span><br><span class="language-css">  <span class="hljs-attribute">height</span>: <span class="hljs-number">24px</span>;</span><br><span class="language-css">  <span class="hljs-attribute">width</span>: <span class="hljs-number">24px</span>;</span><br><span class="language-css">  <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">2px</span>;</span><br><span class="language-css">  <span class="hljs-comment">/* vertical-align: middle; */</span></span><br><span class="language-css">  <span class="hljs-attribute">background</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">../../img/main_sprite.png</span>) no-repeat;</span><br><span class="language-css">&#125;</span><br><span class="language-css"><span class="hljs-selector-class">.icon_type_hot</span> &#123;</span><br><span class="language-css">  <span class="hljs-attribute">background-position</span>: -<span class="hljs-number">161px</span> -<span class="hljs-number">67px</span>;</span><br><span class="language-css">&#125;</span><br><span class="language-css"></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br></code></pre></td></tr></table></figure></li><li><ul><li><p>先给i设置个块级元素以便设置宽高，给右边距和文字有间隔。用background引入图片。要是只有只有一张图片且只用一部分可以直接在background里面设置位置。上面是因为在这个精灵图中要引用几个不同的图标所有才位置分开设置。</p></li><li><p>设置后可能会发现图片没有垂直居中显示。这是因为图片默认设置为基线对齐，基线为文字的底部。这时候我们可以给图片加个vertical-align: middle来改变他的基线对齐。</p></li><li><p>也可以不设置vertical-align: middle。这时候我们可以给a标签加个flex布局</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">a</span> &#123;<br>      <span class="hljs-attribute">display</span>: flex;<br>      <span class="hljs-attribute">align-items</span>: center;<br>      <span class="hljs-comment">/* justify-content: center; */</span><br>&#125;<br></code></pre></td></tr></table></figure></li><li><p>这样也可以做到图片垂直居中对齐，不过可能会影响相同class的布局，使他们的居中对齐失效。那我们可以给他加个 justify-content: center;使他们恢复居中对齐</p></li></ul></li></ul>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>CSS</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>图层覆盖</title>
+    <link href="/2022/07/06/%E5%9B%BE%E5%B1%82%E8%A6%86%E7%9B%96/"/>
+    <url>/2022/07/06/%E5%9B%BE%E5%B1%82%E8%A6%86%E7%9B%96/</url>
+    
+    <content type="html"><![CDATA[<p>- </p><h2 id="图片的层叠性"><a href="#图片的层叠性" class="headerlink" title="图片的层叠性"></a>图片的层叠性</h2><ul><li><p>一般要一个图片在另一个图片之上我们可以给他加z-index</p></li><li><p>当加了z-index无效时查看是否有加定位元素</p></li></ul><h3 id="加了定位元素z-index才会生效"><a href="#加了定位元素z-index才会生效" class="headerlink" title="加了定位元素z-index才会生效"></a>加了定位元素z-index才会生效</h3><ul><li>当双方都没加z-index时，在后面的覆盖前面的</li></ul>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>CSS</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>vant组件库</title>
+    <link href="/2022/07/04/vant%E7%BB%84%E4%BB%B6%E5%BA%93/"/>
+    <url>/2022/07/04/vant%E7%BB%84%E4%BB%B6%E5%BA%93/</url>
+    
+    <content type="html"><![CDATA[<h2 id="小程序安装"><a href="#小程序安装" class="headerlink" title="小程序安装"></a>小程序安装</h2><ul><li><p>!()[<a href="https://vant-contrib.gitee.io/vant-weapp/#/home">介绍 - Vant Weapp (gitee.io)</a>]</p></li><li><p>npm安装  是在你使用项目的根目录</p><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript">先安装依赖<br><span class="hljs-built_in">npm</span> init -y<br>然后就可以安装了<br><span class="hljs-built_in">npm</span> i @vant/weapp -S --production<br><br></code></pre></td></tr></table></figure></li><li><p>安装完后会多出两个文件，package.json和node文件夹</p></li><li><p>之后将app.json 中的 “style”: “v2” 删了</p></li><li><p>找到 project.config.json 添加代码</p><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">&#123;<br>  <span class="hljs-string">...</span><br>  <span class="hljs-string">&quot;setting&quot;</span>: &#123;<br>    <span class="hljs-string">...</span><br>    <span class="hljs-string">&quot;packNpmManually&quot;</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-string">&quot;packNpmRelationList&quot;</span>: [<br>      &#123;<br>        <span class="hljs-string">&quot;packageJsonPath&quot;</span>: <span class="hljs-string">&quot;./package.json&quot;</span>,<br>        <span class="hljs-string">&quot;miniprogramNpmDistDir&quot;</span>: <span class="hljs-string">&quot;./&quot;</span><br>      &#125;<br>    ]<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li><li><p>添加代码后</p></li><li><p><img src="https://img.yzcdn.cn/public_files/2019/08/15/fa0549210055976cb63798503611ce3d.png" alt="构建npm包"></p></li></ul><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><ul><li><p>使用他要现在json中进行配置</p></li><li><p>如要全局使用，则在app.json中配置.只在特定页面中使用则在对应页面的json中配置</p></li></ul><h3 id="引入Button"><a href="#引入Button" class="headerlink" title="引入Button"></a>引入Button</h3>  <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css">&quot;usingComponents&quot;: &#123;<br>  &quot;van-<span class="hljs-selector-tag">button</span>&quot;: <span class="hljs-string">&quot;@vant/weapp/dist/button/index&quot;</span><br>&#125;<br></code></pre></td></tr></table></figure><p>  引入后,直接在wxml中使用组件</p>  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">van-button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;primary&quot;</span>&gt;</span>按钮<span class="hljs-tag">&lt;/<span class="hljs-name">van-button</span>&gt;</span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>小程序循环</title>
+    <link href="/2022/07/04/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BE%AA%E7%8E%AF/"/>
+    <url>/2022/07/04/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BE%AA%E7%8E%AF/</url>
+    
+    <content type="html"><![CDATA[<h2 id="简简单单的循环"><a href="#简简单单的循环" class="headerlink" title="简简单单的循环"></a>简简单单的循环</h2><ul><li><p>先在js的data中建立一个数组来存放请求来的数据或是自己定义的数据。</p></li><li><p>然后定义请求方法，定义完后在onLoad函数中调用。</p></li><li><p>在盒子中使用wx:for 用</p><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crystal"><span class="hljs-template-variable">&#123;&#123;&#125;&#125;</span><br></code></pre></td></tr></table></figure><p>包裹在data中定义的数组 wx:key，默认为数组的键。</p></li><li><p>data-自定义值   &#x3D;  要传递的值 主要用于事件？</p></li></ul><figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs handlebars"><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;product-item&quot;</span> <span class="hljs-attr">wx:for</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">product</span>&#125;&#125;</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span> <span class="hljs-attr">wx:key</span>=<span class="hljs-string">&quot;pid&quot;</span> <span class="hljs-attr">data-pid</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">item.pid</span>&#125;&#125;</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span>&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">image</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;product-coffee&quot;</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">&quot;widthFix&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">item.largeImg</span>&#125;&#125;</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">image</span>&gt;</span></span><br><span class="language-xml">      <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;product-title&quot;</span>&gt;</span></span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">item.name</span>&#125;&#125;</span><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span></span><br><span class="language-xml">      <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;product-enname&quot;</span>&gt;</span></span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">item.enname</span>&#125;&#125;</span><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span></span><br><span class="language-xml">      <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;product-price&quot;</span>&gt;</span></span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">item.price</span>&#125;&#125;</span><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span></span><br><span class="language-xml"> <span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span></span><br><span class="language-xml"> </span><br><span class="language-xml"> js</span><br><span class="language-xml"> data: &#123;</span><br><span class="language-xml">    banner: [],</span><br><span class="language-xml">    product: []</span><br><span class="language-xml">  &#125;,</span><br><span class="language-xml">  getProduct()&#123;</span><br><span class="language-xml">    wx.request(&#123;</span><br><span class="language-xml">      url: &#x27;http://www.kangliuyong.com:10002/banner&#x27;, //仅为示例，并非真实的接口地址</span><br><span class="language-xml">      data: &#123;</span><br><span class="language-xml">        appkey: &#x27;U2FsdGVkX19WSQ59Cg+Fj9jNZPxRC5y0xB1iV06BeNA=&#x27;</span><br><span class="language-xml">      &#125;,</span><br><span class="language-xml">      header: &#123;</span><br><span class="language-xml">        &#x27;content-type&#x27;: &#x27;application/json&#x27; // 默认值</span><br><span class="language-xml">      &#125;,</span><br><span class="language-xml">      success:(res)=&gt;&#123;</span><br><span class="language-xml">        console.log(res.data.result);</span><br><span class="language-xml">        this.setData(&#123;</span><br><span class="language-xml">          banner:res.data.result</span><br><span class="language-xml">        &#125;)</span><br><span class="language-xml">      &#125;</span><br><span class="language-xml">    &#125;)</span><br><span class="language-xml">  &#125;,</span><br><span class="language-xml">  /**</span><br><span class="language-xml">   * 生命周期函数--监听页面加载</span><br><span class="language-xml">   */</span><br><span class="language-xml">  onLoad: function (options) &#123;</span><br><span class="language-xml">    console.log();</span><br><span class="language-xml">    this.getProduct();</span><br><span class="language-xml">  &#125;,</span><br><span class="language-xml">  </span><br></code></pre></td></tr></table></figure><h2 id="双层循环"><a href="#双层循环" class="headerlink" title="双层循环"></a>双层循环</h2><ul><li>在datailData.handler中存在一个数组arr</li><li>在遍历了datailData.handler数组中再遍历arr数组</li><li>wx:for中填写的是item.该数组，后要跟wx:for-item&#x3D;自定义值，之后在盒子内填写 </li></ul><figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs handlebars"><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;choose-type&quot;</span>&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;type-box&quot;</span> <span class="hljs-attr">wx:for</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">datailData.handler</span>&#125;&#125;</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span> <span class="hljs-attr">wx:key</span>=<span class="hljs-string">&quot;index&quot;</span>&gt;</span></span><br><span class="language-xml">          <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tem&quot;</span>&gt;</span></span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">item.type</span>&#125;&#125;</span><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span></span><br><span class="language-xml">          <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;item-val&quot;</span>&gt;</span></span><br><span class="language-xml">            <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;val&quot;</span> <span class="hljs-attr">wx:for</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">item.arr</span>&#125;&#125;</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span> <span class="hljs-attr">wx:key</span>=<span class="hljs-string">&quot;count&quot;</span> <span class="hljs-attr">wx:for-index</span>=<span class="hljs-string">&quot;count&quot;</span>  <span class="hljs-attr">wx:for-item</span>=<span class="hljs-string">&quot;val&quot;</span> <span class="hljs-attr">data-index</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">index</span>&#125;&#125;</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span> <span class="hljs-attr">data-count</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">count</span>&#125;&#125;</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span>&gt;</span>  </span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">val</span>&#125;&#125;</span><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span></span><br><span class="language-xml">          <span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span></span><br><span class="language-xml"> <span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span></span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>小程序</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>后代选择器</title>
+    <link href="/2022/07/02/%E5%90%8E%E4%BB%A3%E9%80%89%E6%8B%A9%E5%99%A8/"/>
+    <url>/2022/07/02/%E5%90%8E%E4%BB%A3%E9%80%89%E6%8B%A9%E5%99%A8/</url>
+    
+    <content type="html"><![CDATA[<h2 id="施工中"><a href="#施工中" class="headerlink" title="施工中"></a>施工中</h2>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>VScode快捷键</title>
+    <link href="/2022/07/02/VScode%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    <url>/2022/07/02/VScode%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
+    
+    <content type="html"><![CDATA[<h2 id="选择相同"><a href="#选择相同" class="headerlink" title="选择相同"></a>选择相同</h2><ul><li><p>依次选择</p></li><li><pre><code class="hljs">Ctrl + D<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc"><br><span class="hljs-bullet">- </span>一次选择所有<br><br><span class="hljs-bullet">- </span><span class="hljs-code">```</span><br><span class="hljs-code">  Ctrl + Shift + L</span><br></code></pre></td></tr></table></figure></code></pre></li><li></li></ul>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>code</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>border动画</title>
+    <link href="/2022/07/01/border%E5%8A%A8%E7%94%BB/"/>
+    <url>/2022/07/01/border%E5%8A%A8%E7%94%BB/</url>
+    
+    <content type="html"><![CDATA[<ul><li><p>给标签加border动画的代码很简单</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">transition</span>: border-bottom <span class="hljs-number">150ms</span> ease-in;<br></code></pre></td></tr></table></figure><ul><li>当然前提得是你有个：hover之类得border变化</li></ul></li><li><p>这样一般动画效果都是从上往下加</p></li><li><p>而在你给标签加个</p></li><li><pre><code class="hljs">box-sizing: border-box;</code></pre></li><li><p>这样动画效果就会从下往上了</p></li></ul>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>CSS</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>杂项</title>
+    <link href="/2022/06/28/%E6%9D%82%E9%A1%B9/"/>
+    <url>/2022/06/28/%E6%9D%82%E9%A1%B9/</url>
+    
+    <content type="html"><![CDATA[<h2 id="6月28日"><a href="#6月28日" class="headerlink" title="6月28日"></a>6月28日</h2><p>​在制作样式时，要制作两行文字，一行a标签，一行span。</p><p>​在给a标签添加display：block后，发现他直接把一个盒子行占据了，把span挤出了盒子。给a添加16px的高度后，因为两行文字里的太近了，想添加些中间空隙。给a直接加margin没用，span元素又不支持margin-top。后面发现鼠标放a上不变形状。开F12检查，发现a在盒子最上面。百思不得其解，怎么跑那里去了。就在随便点点的时候把line-height点掉才发现a标签里的字回去了。</p><ul><li>line-height会影响block后的a标签，使其文字和a本身身首异处。</li><li>line-height是<strong>行高</strong>，而a在block后自成一行，所以会受影响。最好line-height别随便加</li></ul><h2 id="文字布局"><a href="#文字布局" class="headerlink" title="文字布局"></a>文字布局</h2><h3 id="使文字在超过两行的内容显示出。。。"><a href="#使文字在超过两行的内容显示出。。。" class="headerlink" title="使文字在超过两行的内容显示出。。。"></a>使文字在超过两行的内容显示出。。。</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">overflow</span>: hidden;<br><span class="hljs-attribute">text-overflow</span>: ellipsis;<br><span class="hljs-attribute">display</span>: -webkit-box;<br>-webkit-line-clamp: <span class="hljs-number">2</span>;<br>-webkit-box-orient: vertical;<br></code></pre></td></tr></table></figure><h3 id="使文字垂直显示"><a href="#使文字垂直显示" class="headerlink" title="使文字垂直显示"></a>使文字垂直显示</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">writing-mode</span>: vertical-lr;<br></code></pre></td></tr></table></figure><h3 id="文字偏移"><a href="#文字偏移" class="headerlink" title="文字偏移"></a>文字偏移</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript"><span class="hljs-built_in">text</span>-indent: Xpx<br></code></pre></td></tr></table></figure><ul><li><p>text-indent 属性规定文本块中首行文本的缩进。</p></li><li><p>负值是允许的。如果值是负数，将第一行左缩进。</p></li></ul><h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><h3 id="边框合并"><a href="#边框合并" class="headerlink" title="边框合并"></a>边框合并</h3><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs maxima"><span class="hljs-built_in">border</span>-<span class="hljs-built_in">collapse</span>: <span class="hljs-built_in">collapse</span><br></code></pre></td></tr></table></figure><ul><li>在设置背景色后可以使格子与格子的间隙消除</li></ul>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>认识精灵图</title>
+    <link href="/2022/06/24/%E8%AE%A4%E8%AF%86%E7%B2%BE%E7%81%B5%E5%9B%BE/"/>
+    <url>/2022/06/24/%E8%AE%A4%E8%AF%86%E7%B2%BE%E7%81%B5%E5%9B%BE/</url>
+    
+    <content type="html"><![CDATA[<h2 id="WHAT-IT"><a href="#WHAT-IT" class="headerlink" title="WHAT IT"></a>WHAT IT</h2><ul><li>是一种CSS图像合成技术，将各种小图片合并到一张图片上，然后利用网站获取代码来显示指定小图片</li></ul><h2 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h2><ul><li>减少网页的HTTP请求数量，加快网页响应速度，减轻服务器压力</li><li>减小图片总大小</li><li>解决了图片命名困扰，一张图片集合了许多小图片</li></ul><h2 id="怎么用"><a href="#怎么用" class="headerlink" title="怎么用"></a>怎么用</h2><ul><li><p><a href="http://www.spritecow.com/">方便</a></p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.sprite</span> &#123;<br><span class="hljs-attribute">background</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">&#x27;imgs/top_sprite.png&#x27;</span>) no-repeat -<span class="hljs-number">36px</span> -<span class="hljs-number">6px</span>;<br><span class="hljs-attribute">width</span>: <span class="hljs-number">18px</span>;<br><span class="hljs-attribute">height</span>: <span class="hljs-number">18px</span>;<br>&#125;<br></code></pre></td></tr></table></figure></li><li><p>直接复制就完事了</p></li><li><p>小图标可以用伪元素解决</p><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs less"><span class="hljs-selector-class">.X</span><span class="hljs-selector-pseudo">::after</span> &#123;<br><span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;&quot;</span><br><span class="hljs-attribute">position</span>:absoluta<br><span class="hljs-attribute">width</span>: X<br><span class="hljs-attribute">height</span>: Y<br><span class="hljs-attribute">right</span>: <span class="hljs-number">0</span><br><span class="hljs-attribute">top</span>: <span class="hljs-number">0</span><br><span class="hljs-attribute">bottom</span>: <span class="hljs-number">0</span><br><span class="hljs-attribute">margin</span>: auto <span class="hljs-number">0</span><br><span class="hljs-attribute">background</span>: url(<span class="hljs-string"></span>) no-repeat <span class="hljs-number">0</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure></li><li></li></ul>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>css</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>官方文档</title>
+    <link href="/2022/06/24/%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/"/>
+    <url>/2022/06/24/%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/</url>
+    
+    <content type="html"><![CDATA[<h2 id="W3"><a href="#W3" class="headerlink" title="W3"></a>W3</h2><p>[跳转](<a href="https://www.w3.org/">World Wide Web Consortium (W3C)</a>)</p><h2 id="MDN"><a href="#MDN" class="headerlink" title="MDN"></a>MDN</h2><p><a href="https://developer.mozilla.org/zh-CN/">MDN Web Docs (mozilla.org)</a></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>CSS编写顺序</title>
+    <link href="/2022/06/24/CSS%E7%BC%96%E5%86%99%E9%A1%BA%E5%BA%8F/"/>
+    <url>/2022/06/24/CSS%E7%BC%96%E5%86%99%E9%A1%BA%E5%BA%8F/</url>
+    
+    <content type="html"><![CDATA[<h2 id="代码规范"><a href="#代码规范" class="headerlink" title="代码规范"></a>代码规范</h2><ul><li>凹凸实验室</li><li><a href="https://guide.aotu.io/">跳转</a></li></ul><h3 id="属性书写顺序"><a href="#属性书写顺序" class="headerlink" title="属性书写顺序"></a>属性书写顺序</h3><ol><li>布局定位属性：display &#x2F; position &#x2F; float &#x2F; clear &#x2F; visibility &#x2F; overflow</li><li>自身属性：width &#x2F; height &#x2F; box-sizing &#x2F; margin &#x2F; padding &#x2F; border &#x2F; background</li><li>文本属性：color &#x2F; font &#x2F; text-decoration &#x2F; text-align &#x2F; vertical-align &#x2F; white- space &#x2F; break-word</li><li>其他属性（CSS3）：content &#x2F; cursor &#x2F; border-radius &#x2F; box-shadow &#x2F; text-shadow &#x2F; background:linear-gradient …</li></ol>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>CSS</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>vertical-align</title>
+    <link href="/2022/06/23/vertical-align/"/>
+    <url>/2022/06/23/vertical-align/</url>
+    
+    <content type="html"><![CDATA[<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><ul><li>影响行内块元素在行盒内的对齐方式</li></ul><h3 id="行盒"><a href="#行盒" class="headerlink" title="行盒"></a>行盒</h3><ul><li>一行内所有内容的高撑起来的盒子（图片和行内块元素的高度）</li></ul><h3 id="行内默认基线对齐"><a href="#行内默认基线对齐" class="headerlink" title="行内默认基线对齐"></a>行内默认基线对齐</h3><ul><li><p>没有盒子时，默认的基线是盒子的margin-bottom的底部</p></li><li><p>基线对齐，基线为最后一行文本的底部</p></li><li><p>如一个空盒子，内部没有文字时他的底部会和文字的底部对齐</p></li><li><p>而当盒子内有文字时，则会使盒子内的文字于基线对齐，因为默认底部对齐，而当处于盒子顶部的文字和基线对齐时，会将盒子挤下去</p></li></ul><h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><ul><li>baseline: (默认值)基线对齐</li><li>top：行内级盒子的顶部更line boxes顶部对齐</li><li>middle：行内级盒子的中心点与父盒基线加上X-height一半的线对齐</li><li>bottom：把行内级盒子的底部跟line box底部对齐</li></ul>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>css</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>transition动画</title>
+    <link href="/2022/06/23/transition%E5%8A%A8%E7%94%BB/"/>
+    <url>/2022/06/23/transition%E5%8A%A8%E7%94%BB/</url>
+    
+    <content type="html"><![CDATA[<h2 id="WHAT-IT"><a href="#WHAT-IT" class="headerlink" title="WHAT IT"></a>WHAT IT</h2><ul><li><p>提供了一种在更改CSS属性时控制动画速度的方法。</p></li><li><p>可以让CSS属性变化成为一个持续一段时间的过程，而不是立即生效；</p></li></ul><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-attribute">transition-property</span>: transform, left; <span class="hljs-comment">//指定动画的元素 设置为all时所有属性都执行动画</span><br><span class="hljs-attribute">transition-duration</span>: ; <span class="hljs-comment">// 时间</span><br><span class="hljs-attribute">transition-timing-function</span>: ease-in; <span class="hljs-comment">//指向速率</span><br><span class="hljs-attribute">transition-delay</span>: ; <span class="hljs-comment">//延迟</span><br><span class="hljs-attribute">transition</span>： <span class="hljs-attribute">all</span> <span class="hljs-number">1s</span> ease-in <span class="hljs-number">1s</span> <span class="hljs-comment">//简写属性</span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>css</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>水平居中和垂直居中方案</title>
+    <link href="/2022/06/23/%E6%B0%B4%E5%B9%B3%E5%B1%85%E4%B8%AD%E5%92%8C%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E6%96%B9%E6%A1%88/"/>
+    <url>/2022/06/23/%E6%B0%B4%E5%B9%B3%E5%B1%85%E4%B8%AD%E5%92%8C%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E6%96%B9%E6%A1%88/</url>
+    
+    <content type="html"><![CDATA[<h2 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h2><h4 id="行内级元素"><a href="#行内级元素" class="headerlink" title="行内级元素"></a>行内级元素</h4><ul><li>设置父元素的text-align: center</li></ul><h4 id="块级元素"><a href="#块级元素" class="headerlink" title="块级元素"></a>块级元素</h4><ul><li>设置当前margin：0 auto</li></ul><h4 id="绝对定位"><a href="#绝对定位" class="headerlink" title="绝对定位"></a>绝对定位</h4><ul><li>元素有宽度的情况下，left0&#x2F;right0&#x2F;margin：0 auto;</li></ul><h4 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h4><ul><li>justift-content: center</li></ul><h2 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h2><h4 id="绝对定位-1"><a href="#绝对定位-1" class="headerlink" title="绝对定位"></a>绝对定位</h4><ul><li>在元素有高度的情况下， top0&#x2F;bottom0&#x2F;margin：auto X；</li></ul><h3 id="transform"><a href="#transform" class="headerlink" title="transform"></a>transform</h3><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><span class="hljs-symbol">position:</span> relative<br><span class="hljs-symbol">top:</span> <span class="hljs-number">50</span>%<br><span class="hljs-symbol">transform:</span> translateY(<span class="hljs-number">-50</span>%)<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>css</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>transform</title>
+    <link href="/2022/06/23/transform/"/>
+    <url>/2022/06/23/transform/</url>
+    
+    <content type="html"><![CDATA[<h2 id="用处"><a href="#用处" class="headerlink" title="用处"></a>用处</h2><ul><li>对某些元素进行形变，如旋转，缩放，平移（通常行内级元素不能形变）</li></ul><h3 id="行内级元素无法形变"><a href="#行内级元素无法形变" class="headerlink" title="行内级元素无法形变"></a>行内级元素无法形变</h3><h3 id="常见的有"><a href="#常见的有" class="headerlink" title="常见的有"></a>常见的有</h3><ul><li>平移： translate（x ,y) &#x2F;&#x2F;可以用%参照为自身宽高</li><li>缩放：scale(x ,y)</li><li>旋转：rotate( x ,y)</li><li>倾斜：skew (deg ,deg)</li></ul><h3 id="缩放-scale"><a href="#缩放-scale" class="headerlink" title="缩放 - scale"></a>缩放 - scale</h3><ul><li>改变大小，不影响布局</li></ul><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">transform</span>: scale(<span class="hljs-number">1</span>,<span class="hljs-number">1</span>) //<span class="hljs-number">1</span>为自身大小<br></code></pre></td></tr></table></figure><p>设置为数字的时候从左上角开始计算，只设一个值时就是X轴</p><h3 id="旋转-rotate"><a href="#旋转-rotate" class="headerlink" title="旋转 - rotate"></a>旋转 - rotate</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">transform</span>: <span class="hljs-built_in">rotate</span>(<span class="hljs-number">90deg</span>)<br></code></pre></td></tr></table></figure><h2 id="形变起点"><a href="#形变起点" class="headerlink" title="形变起点"></a>形变起点</h2><ul><li>transform-origin：</li><li>默认为center center</li></ul><h2 id="倾斜-skew"><a href="#倾斜-skew" class="headerlink" title="倾斜 - skew"></a>倾斜 - skew</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">transform</span>: <span class="hljs-built_in">skew</span>(Xdge,Ydge)<br></code></pre></td></tr></table></figure><h2 id="transform设置多个值"><a href="#transform设置多个值" class="headerlink" title="transform设置多个值"></a>transform设置多个值</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">transform</span>: <span class="hljs-built_in">skew</span>(Xdge,Ydge)<br>transform: <span class="hljs-built_in">rotate</span>(<span class="hljs-number">90deg</span>)<br>transform: <span class="hljs-built_in">scale</span>(<span class="hljs-number">1</span>,<span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure><p>这样写的话后面的会覆盖前面，使前两行代码无效</p><p>正确的是</p><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">transform</span>: translate(<span class="hljs-number">50</span>px) scale(<span class="hljs-number">1</span>.<span class="hljs-number">2</span>) rotate(<span class="hljs-number">4</span>.<span class="hljs-number">5</span>deg)<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>css</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>hexo的错误</title>
+    <link href="/2022/06/21/hexo%E7%9A%84%E9%94%99%E8%AF%AF/"/>
+    <url>/2022/06/21/hexo%E7%9A%84%E9%94%99%E8%AF%AF/</url>
+    
+    <content type="html"><![CDATA[<p> err: YAMLException: can not read a block mapping entry; a multiline key may not be an implicit key (4:1)</p><p>可能是开头的title之类的 : 后面要加空格</p><h3 id="加本地图片"><a href="#加本地图片" class="headerlink" title="加本地图片"></a>加本地图片</h3><ul><li><p>要在source文件夹下创建一个images文件夹，把图片放在里面，在引用图片时</p><figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arcade">![](<span class="hljs-regexp">/images/</span>图片名称)<br></code></pre></td></tr></table></figure><p>在本地文本中不显示图片，但在服务器上会显示</p></li></ul>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>error</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>flex</title>
+    <link href="/2022/06/21/flex/"/>
+    <url>/2022/06/21/flex/</url>
+    
+    <content type="html"><![CDATA[<h2 id="flex基本特性"><a href="#flex基本特性" class="headerlink" title="flex基本特性"></a>flex基本特性</h2><h3 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h3><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs arduino">display: flex;<br>display: <span class="hljs-keyword">inline</span>-flex <span class="hljs-comment">//行内元素</span><br></code></pre></td></tr></table></figure><h3 id="排列布局"><a href="#排列布局" class="headerlink" title="排列布局"></a>排列布局</h3><ul><li><p>在里面的块级元素会按照主轴方向排列一排，在添加换行代码前不会换行，目前已知内部的块级元素宽度相同时，在内部宽度超过当前元素的宽度时，内部元素的宽度会改变成适应当前元素均等宽度</p></li><li><p>主轴方向默认左到右，可以上到下，也可以将主轴头尾置换</p></li></ul><h3 id="改变主轴方向"><a href="#改变主轴方向" class="headerlink" title="改变主轴方向"></a>改变主轴方向</h3>  <figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">flex-direction: <span class="hljs-keyword">row</span> | <span class="hljs-keyword">row</span>-<span class="hljs-keyword">reverse</span> | <span class="hljs-keyword">column</span> | <span class="hljs-keyword">column</span>-<span class="hljs-keyword">reverse</span><br></code></pre></td></tr></table></figure><p>  reverse是将主轴头尾置换</p><h3 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h3><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs lua">flex-<span class="hljs-built_in">wrap</span>: newrap | <span class="hljs-built_in">wrap</span> | <span class="hljs-built_in">wrap</span>-<span class="hljs-built_in">reverse</span>;<br></code></pre></td></tr></table></figure><h3 id="对齐"><a href="#对齐" class="headerlink" title="对齐"></a>对齐</h3><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coq">justify-content: flex-start | <span class="hljs-type">flex</span>-<span class="hljs-keyword">end</span> | <span class="hljs-type">center</span> | <span class="hljs-type">space</span>-between | <span class="hljs-type">space_around</span><br></code></pre></td></tr></table></figure><p>start ： 左对齐(头)</p><p>end ： 右对齐(尾)</p><p>center： 居中对齐</p><p>between：两边对齐</p><h2 id="简写"><a href="#简写" class="headerlink" title="简写"></a>简写</h2><h3 id="flex-flow"><a href="#flex-flow" class="headerlink" title="flex-flow"></a>flex-flow</h3><figure class="highlight sml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sml">flex-flow: &lt; <span class="hljs-symbol">&#x27;flex</span>-direction&#x27; &gt; || &lt; <span class="hljs-symbol">&#x27;flex</span>-wrap&#x27; &gt;<br></code></pre></td></tr></table></figure><ul><li>顺序任意，且都可以省略</li></ul><h3 id="Y轴对齐"><a href="#Y轴对齐" class="headerlink" title="Y轴对齐"></a>Y轴对齐</h3><h3 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h3><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coq">align-items: stretch | <span class="hljs-type">flex</span>-start | <span class="hljs-type">flex</span>-<span class="hljs-keyword">end</span> | <span class="hljs-type">center</span> | <span class="hljs-type">baseline</span><br></code></pre></td></tr></table></figure><ul><li>stretch： 在元素高度为auto的情况下，该元素会被拉伸</li><li>start: 顶端对齐</li><li>end：低端对齐</li><li>center：居中对齐</li><li>baseline：基线对齐（文本底部？）</li></ul><h2 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h2><p><img src="/images/content.jpg" alt="content"></p><h3 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h3><ul><li>在子元素的宽度总和未达到父元素宽度时，给flex的子元素设置</li></ul><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">flex-grow</span>: X<br></code></pre></td></tr></table></figure><p>X为数字，会将父元素剩余的宽度分给子元素，分配机制为，子元素的X加起来，将剩余宽度分为X份，在根据子元素的X在分配宽度。当所有子元素X一样时，均分。</p><h3 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h3><ul><li><p>在子元素宽度总和超过父元素宽度时使用，默认为1，所以在不设置的情况下会出现子元素被压缩的情景。当设置为0时，子元素可以溢出父元素宽度，不在压缩。</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">flex-shrink</span>: X<br></code></pre></td></tr></table></figure><p>分配机制和grow一样。</p><p>flex itmes 压缩后的最终size不能小于min-width\min-height</p></li></ul><h3 id="少用"><a href="#少用" class="headerlink" title="少用"></a>少用</h3><h4 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex-basis"></a>flex-basis</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">flex-basis</span>:X<br></code></pre></td></tr></table></figure><p>在内容不多时和width一样，但当内容超出宽度是，可以将盒子的宽度延申。</p><h2 id="flex简写"><a href="#flex简写" class="headerlink" title="flex简写"></a>flex简写</h2><figure class="highlight sml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sml">flex: none | &lt;<span class="hljs-symbol">&#x27;flex</span>-grow&#x27;&gt; &lt; <span class="hljs-symbol">&#x27;flex</span>-shrink&#x27;&gt;? || &lt;<span class="hljs-symbol">&#x27;flex</span>-basis&#x27;&gt;<br></code></pre></td></tr></table></figure><p>无单位的值就是gorw或shrink，且输入的第一个无单位值默认为gorw</p><h2 id="也许有用"><a href="#也许有用" class="headerlink" title="也许有用"></a>也许有用</h2><ul><li><p>在flex布局中使用 </p><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs http"><span class="hljs-attribute">display</span><span class="hljs-punctuation">: </span>flex<br><span class="hljs-attribute">flex-wrap</span><span class="hljs-punctuation">: </span>wrap<br><span class="hljs-attribute">justify-conent</span><span class="hljs-punctuation">: </span>space-between<br></code></pre></td></tr></table></figure><p>的情况下，最后一行元素不够时，会两端对齐，这样中间就没有内容，不够雅观。为了最后一行也可以按顺序排列，我们可以这样做</p><ul><li>在flex盒子的最下层添加个数为（列数-2）的span（i也可以），并将赋予他们宽度，宽度可以为flex内盒子的宽度，这样，span就会将最后一行剩余的盒子数填充，而且不显示，在视图中，则是最后一行是按顺序排列的，达到了我们想要的效果。因为span并没有设置高度和内容，所以他不会破坏flex结构。</li></ul></li></ul><h2 id="当flex设为0时"><a href="#当flex设为0时" class="headerlink" title="当flex设为0时"></a>当flex设为0时</h2><ul><li><p>会发现盒子的宽度变得很小</p></li><li><p>当给flex一个自然数时，flex-basis的值会变为0.而flex的值为1时，盒子的宽度还会增长，就没有问题。当flex为0时就出现了问题</p></li></ul><h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3>  <figure class="highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vbnet"><span class="hljs-symbol">flex:</span> <span class="hljs-number">0</span> <span class="hljs-keyword">auto</span><br></code></pre></td></tr></table></figure><h2 id="内容溢出盒子"><a href="#内容溢出盒子" class="headerlink" title="内容溢出盒子"></a>内容溢出盒子</h2><ul><li><p>有时会出现给盒子设置文本时会溢出盒子，此时设置宽度也无效。</p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-selector-class">.father</span> &#123;<br>dusplay: <span class="hljs-attribute">flex</span><br>&#125;<br><span class="hljs-selector-class">.son</span> &#123;<br><span class="hljs-attribute">flex</span>: <span class="hljs-number">1</span><br>&#125;<br></code></pre></td></tr></table></figure><p>此时无效的话可给子元素加个</p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-selector-class">.son</span> &#123;<br><span class="hljs-attribute">flex</span>: <span class="hljs-number">1</span><br><span class="hljs-attribute">width</span>: <span class="hljs-number">0</span><br>&#125;<br></code></pre></td></tr></table></figure><p>在网上看到第二个解决办法，是加个overf：hidden 但我那个本来也要加，就不知道有没有效果。还有在检查样式时发现用外部引入的样式可能会用不了，在浏览器的检查模式中是灰的。不知道什么问题，不过只要在style里添加就可以了</p><ul><li><p>第二种办法</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.son</span> &#123;<br><span class="hljs-attribute">flex</span>: <span class="hljs-number">1</span>;<br><span class="hljs-attribute">overflow</span>: hidden<br>&#125;<br></code></pre></td></tr></table></figure></li></ul></li></ul>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>css</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>emmet语法</title>
+    <link href="/2022/06/20/emmet%E8%AF%AD%E6%B3%95/"/>
+    <url>/2022/06/20/emmet%E8%AF%AD%E6%B3%95/</url>
+    
+    <content type="html"><![CDATA[<p><img src="/images/emmet1.jpg" alt="avatar"></p><p><img src="/images/emmet2.jpg" alt="avatar"></p><p><img src="/images/emmet3.jpg" alt="avatar"></p><p><img src="/images/emmet4.jpg" alt="avatar"></p><p><img src="/images/emmet5.jpg" alt="avatar"></p><p><img src="/images/emmet6.jpg" alt="avatar"></p><p>![avatar](&#x2F;images&#x2F;css emmet.jpg)</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>ccs</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>CSS基础</title>
+    <link href="/2022/06/20/CSS%E5%9F%BA%E7%A1%80/"/>
+    <url>/2022/06/20/CSS%E5%9F%BA%E7%A1%80/</url>
+    
+    <content type="html"><![CDATA[<h3 id="margin元素的传递"><a href="#margin元素的传递" class="headerlink" title="margin元素的传递"></a>margin元素的传递</h3><ul><li>当块级子元素和父元素的顶端对齐时，对子元素的margin-top会生效到父元素上</li></ul><h4 id="防止"><a href="#防止" class="headerlink" title="防止"></a>防止</h4><ul><li><p>不使用margin而是使用padding</p></li><li><p>给父元素设置border</p></li><li><p>触发BFC： 设置overflow为auto</p></li></ul><h2 id="快速均等排列"><a href="#快速均等排列" class="headerlink" title="快速均等排列"></a>快速均等排列</h2><ul><li>在父盒子输入display flex属性时在子盒子添加一个相同的类，并在类中添加flex：1的属性便会实现盒子平均横向排列</li></ul><h2 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h2><ul><li><p>clear属性可以指定一个元素是否必须移动（清除浮动后）到在它之前的浮动元素下面；</p></li><li><p>left：顶部低于左浮动元素底部</p></li><li><p>right：右浮动</p></li><li><p>both： 所有</p></li></ul><h3 id="伪元素清除浮动"><a href="#伪元素清除浮动" class="headerlink" title="伪元素清除浮动"></a>伪元素清除浮动</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.X</span><span class="hljs-selector-pseudo">::after</span> &#123;<br><span class="hljs-attribute">display</span>: block;<br><span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;&quot;</span><br>clear: both<br>&#125;<br></code></pre></td></tr></table></figure><h2 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h2><ul><li>align-items 属性为弹性容器内的项目指定默认对齐方式。</li></ul><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">div</span> &#123;<br>  <span class="hljs-attribute">display</span>: flex;<br>  <span class="hljs-attribute">align-items</span>: center;<br>&#125;<br></code></pre></td></tr></table></figure><p>将弹性 <div> 元素的所有项目的居中对齐</p><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coq">align-items: stretch|<span class="hljs-type">center</span>|<span class="hljs-type">flex</span>-start|<span class="hljs-type">flex</span>-<span class="hljs-keyword">end</span>|<span class="hljs-type">baseline</span>|<span class="hljs-type">initial</span>|<span class="hljs-type">inherit</span>;<br></code></pre></td></tr></table></figure><ul><li>stretch  默认。项目被拉伸以适合容器。</li><li>center  项目位于容器中央</li><li>flex-start 开头</li><li>flex-end  末端</li><li>baseline   基线</li></ul>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>css</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>定位</title>
+    <link href="/2022/06/20/%E5%AE%9A%E4%BD%8D/"/>
+    <url>/2022/06/20/%E5%AE%9A%E4%BD%8D/</url>
+    
+    <content type="html"><![CDATA[<h2 id="相对定位"><a href="#相对定位" class="headerlink" title="相对定位"></a>相对定位</h2><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arduino">position: relative<br></code></pre></td></tr></table></figure><ul><li>依旧在文档流占据位置</li><li>移动时参照自身原本的位置</li></ul><h4 id="保持图片在中心位置"><a href="#保持图片在中心位置" class="headerlink" title="保持图片在中心位置"></a>保持图片在中心位置</h4><ul><li><p>在改变浏览器宽度时，让图片的中心跟随浏览器中心的改变而改变</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html">position: relative<br>left: -(图片一半)px<br>margin-left: 50%<br></code></pre></td></tr></table></figure><p>上面的margin-left继承于父元素</p></li></ul><h2 id="绝对定位"><a href="#绝对定位" class="headerlink" title="绝对定位"></a>绝对定位</h2><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arduino">position: absolute<br></code></pre></td></tr></table></figure><ul><li>不占据文档流的位置</li><li>移动时参照最近的定位祖先元素</li></ul><h2 id="固定定位"><a href="#固定定位" class="headerlink" title="固定定位"></a>固定定位</h2><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arduino">position: fixed<br></code></pre></td></tr></table></figure><ul><li>不占据文档流位置</li><li>参照为浏览器视口</li></ul><h2 id="粘性定位"><a href="#粘性定位" class="headerlink" title="粘性定位"></a>粘性定位</h2><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arduino">position: sticky<br></code></pre></td></tr></table></figure><ul><li>在移动到某个阈值点前和相对定位表现一样</li><li>在达到阈值点后便固定于视口</li></ul>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>css</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>CSS注意事项</title>
+    <link href="/2022/06/20/CSS%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/"/>
+    <url>/2022/06/20/CSS%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</url>
+    
+    <content type="html"><![CDATA[<h1 id="结构伪类"><a href="#结构伪类" class="headerlink" title="结构伪类"></a>结构伪类</h1><h2 id="nth-child"><a href="#nth-child" class="headerlink" title="nth-child"></a>nth-child</h2><ul><li>nth-child(2n) 选择所有偶数后代  </li><li>可以使用::after并在里面添加</li></ul><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver">.<span class="hljs-literal">right</span>-area <span class="hljs-keyword">a</span>:<span class="hljs-keyword">first</span>-child<br></code></pre></td></tr></table></figure><ul><li>用的时候请精确到具体元素</li></ul><h2 id="margin-top"><a href="#margin-top" class="headerlink" title="margin-top"></a>margin-top</h2><p>百分比是相对于父元素的<code>**宽度**</code></p><h3 id="行内级元素无法用transform"><a href="#行内级元素无法用transform" class="headerlink" title="行内级元素无法用transform"></a>行内级元素无法用transform</h3><p>标签与标签之间换行的话中间有个空格，会占据宽度，影响布局</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>CSS</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="/2022/06/19/hello-world/"/>
+    <url>/2022/06/19/hello-world/</url>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  
+</search>
