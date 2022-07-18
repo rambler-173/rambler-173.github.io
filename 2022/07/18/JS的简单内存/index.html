@@ -16,22 +16,22 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="w  有时候会有要在一行文字的前面加一个小图片的需求。  一般有两种方法，一种是添加一个:hover样式。还有一种就是添加个。   i 在文字前加个i标签，并给i标签设置样式。 1234567891011121314151617&lt;a href&#x3D;&quot;#&quot;&gt;     &lt;i class&#x3D;&quot;icon_type icon_type_hot&quot;&gt;&amp;">
+    <meta name="description" content="栈和堆 对象内容保存在堆中，而其他的属性，比如变量，常量,函数保存在栈中  其实栈中也存在对象，不过只是指向对象的内存地址。 123456var info &#x3D; &amp;#123;	name: &amp;#x27;why&amp;#x27;,	friend: &amp;#123;		name: &amp;#x27;kobe&amp;#x27;	&amp;#125;&amp;#125;  在这个info对象里面保存的friend也是一个指针，指向新的内存地址">
 <meta property="og:type" content="article">
-<meta property="og:title" content="文字前加小图标">
-<meta property="og:url" content="http://example.com/2022/07/07/%E6%96%87%E5%AD%97%E5%89%8D%E5%8A%A0%E5%B0%8F%E5%9B%BE%E6%A0%87/index.html">
+<meta property="og:title" content="JS的简单内存">
+<meta property="og:url" content="http://example.com/2022/07/18/JS%E7%9A%84%E7%AE%80%E5%8D%95%E5%86%85%E5%AD%98/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="w  有时候会有要在一行文字的前面加一个小图片的需求。  一般有两种方法，一种是添加一个:hover样式。还有一种就是添加个。   i 在文字前加个i标签，并给i标签设置样式。 1234567891011121314151617&lt;a href&#x3D;&quot;#&quot;&gt;     &lt;i class&#x3D;&quot;icon_type icon_type_hot&quot;&gt;&amp;">
+<meta property="og:description" content="栈和堆 对象内容保存在堆中，而其他的属性，比如变量，常量,函数保存在栈中  其实栈中也存在对象，不过只是指向对象的内存地址。 123456var info &#x3D; &amp;#123;	name: &amp;#x27;why&amp;#x27;,	friend: &amp;#123;		name: &amp;#x27;kobe&amp;#x27;	&amp;#125;&amp;#125;  在这个info对象里面保存的friend也是一个指针，指向新的内存地址">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-07-06T16:05:27.000Z">
-<meta property="article:modified_time" content="2022-07-14T12:38:48.074Z">
+<meta property="article:published_time" content="2022-07-18T12:49:06.000Z">
+<meta property="article:modified_time" content="2022-07-18T13:36:05.791Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>文字前加小图标 - Hexo</title>
+  <title>JS的简单内存 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="文字前加小图标"></span>
+            <span id="subtitle" data-typed-text="JS的简单内存"></span>
           
         </div>
 
@@ -207,8 +207,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-07-07 00:05" pubdate>
-          2022年7月7日 凌晨
+        <time datetime="2022-07-18 20:49" pubdate>
+          2022年7月18日 晚上
         </time>
       </span>
     
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          960 字
+          614 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          9 分钟
+          6 分钟
         
       </span>
     
@@ -268,40 +268,45 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">文字前加小图标</h1>
+            <h1 style="display: none">JS的简单内存</h1>
             
             
               <div class="markdown-body">
                 
-                <ul>
-<li><p>w</p>
+                <h2 id="栈和堆"><a href="#栈和堆" class="headerlink" title="栈和堆"></a>栈和堆</h2><ul>
+<li><p>对象内容保存在堆中，而其他的属性，比如变量，常量,函数保存在栈中</p>
 </li>
-<li><p>有时候会有要在一行文字的前面加一个小图片的需求。</p>
+<li><p>其实栈中也存在对象，不过只是指向对象的内存地址。</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">var <span class="hljs-keyword">info</span> = &#123;<br>	<span class="hljs-type">name</span>: <span class="hljs-string">&#x27;why&#x27;</span>,<br>	friend: &#123;<br>		<span class="hljs-type">name</span>: <span class="hljs-string">&#x27;kobe&#x27;</span><br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 </li>
-<li><p>一般有两种方法，一种是添加一个:hover样式。还有一种就是添加个<i>。</p>
+<li><p>在这个info对象里面保存的friend也是一个指针，指向新的内存地址</p>
 </li>
-</ul>
-<h3 id="i"><a href="#i" class="headerlink" title="i"></a>i</h3><ul>
-<li><p>在文字前加个i标签，并给i标签设置样式。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;icon_type icon_type_hot&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span> 游戏介绍<br><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="language-css"></span><br><span class="language-css"><span class="hljs-selector-class">.icon_type</span> &#123;</span><br><span class="language-css">  <span class="hljs-attribute">display</span>: inline-block;</span><br><span class="language-css">  <span class="hljs-attribute">height</span>: <span class="hljs-number">24px</span>;</span><br><span class="language-css">  <span class="hljs-attribute">width</span>: <span class="hljs-number">24px</span>;</span><br><span class="language-css">  <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">2px</span>;</span><br><span class="language-css">  <span class="hljs-comment">/* vertical-align: middle; */</span></span><br><span class="language-css">  <span class="hljs-attribute">background</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">../../img/main_sprite.png</span>) no-repeat;</span><br><span class="language-css">&#125;</span><br><span class="language-css"><span class="hljs-selector-class">.icon_type_hot</span> &#123;</span><br><span class="language-css">  <span class="hljs-attribute">background-position</span>: -<span class="hljs-number">161px</span> -<span class="hljs-number">67px</span>;</span><br><span class="language-css">&#125;</span><br><span class="language-css"></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<li><p>所以下面的obj才不会变，因为指向了新的内存地址</p>
 </li>
-<li><ul>
-<li><p>先给i设置个块级元素以便设置宽高，给右边距和文字有间隔。用background引入图片。要是只有只有一张图片且只用一部分可以直接在background里面设置位置。上面是因为在这个精灵图中要引用几个不同的图标所有才位置分开设置。</p>
+<li><pre><code class="hljs">  值传递
+  function foo(a) &#123;
+    a = 200
+  &#125;
+  let num = 100
+  foo(num)
+  console.log(num) //100
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><br>- ```<br>  function <span class="hljs-built_in">foo</span>(a) &#123;<br>      <span class="hljs-selector-tag">a</span> = &#123;<br>        name: <span class="hljs-string">&#x27;why&#x27;</span><br>      &#125;<br>    &#125;<br>  <br>    <span class="hljs-selector-tag">var</span> obj = &#123;<br>      name: <span class="hljs-string">&#x27;obj&#x27;</span><br>    &#125;<br>    <span class="hljs-built_in">foo</span>(obj)<br>    console<span class="hljs-selector-class">.log</span>(obj.name) <span class="hljs-comment">//obj</span><br>    <span class="hljs-comment">//引用传递，在函数中创建一个新对象，没有对传入对象进行修改</span><br></code></pre></td></tr></table></figure>
+</code></pre>
 </li>
-<li><p>设置后可能会发现图片没有垂直居中显示。这是因为图片默认设置为基线对齐，基线为文字的底部。这时候我们可以给图片加个vertical-align: middle来改变他的基线对齐。</p>
+<li><p>以上两个都是函数里面指向了一个新的内存地址，但原本的地址并没有更改</p>
 </li>
-<li><p>也可以不设置vertical-align: middle。这时候我们可以给a标签加个flex布局</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">a</span> &#123;<br>      <span class="hljs-attribute">display</span>: flex;<br>      <span class="hljs-attribute">align-items</span>: center;<br>      <span class="hljs-comment">/* justify-content: center; */</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<li><pre><code class="hljs">function foo(a) &#123;
+      a.name = &#39;why&#39;
+  &#125;
+
+  var obj = &#123;
+    name: &#39;obj&#39;
+  &#125;
+  foo(obj)
+  console.log(obj.name) //why
+</code></pre>
 </li>
-<li><p>这样也可以做到图片垂直居中对齐，不过可能会影响相同class的布局，使他们的居中对齐失效。那我们可以给他加个 justify-content: center;使他们恢复居中对齐</p>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="after"><a href="#after" class="headerlink" title="::after"></a>::after</h2><h3 id="必须先设置一个content-39-39"><a href="#必须先设置一个content-39-39" class="headerlink" title="必须先设置一个content: &#39;&#39;;"></a>必须先设置一个<code>content: &#39;&#39;;</code></h3><ul>
-<li>给父元素加个相对定位，因为这个要设置绝对定位</li>
-<li>设置宽高，给上下和左或右为0，要对齐那边就哪边为0.</li>
-<li>设置margin：auto 0；来居中</li>
+<li></li>
 </ul>
 
                 
@@ -315,7 +320,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/CSS/">#CSS</a>
+        <a href="/tags/JS/">#JS</a>
       
     </div>
   
@@ -327,8 +332,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>文字前加小图标</div>
-      <div>http://example.com/2022/07/07/文字前加小图标/</div>
+      <div>JS的简单内存</div>
+      <div>http://example.com/2022/07/18/JS的简单内存/</div>
     </div>
     <div class="license-meta">
       
@@ -340,7 +345,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年7月7日</div>
+          <div>2022年7月18日</div>
         </div>
       
       
@@ -370,18 +375,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/07/10/meta/" title="meta">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">meta</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/07/06/%E5%9B%BE%E5%B1%82%E8%A6%86%E7%9B%96/" title="图层覆盖">
-                        <span class="hidden-mobile">图层覆盖</span>
+                      <a href="/2022/07/18/%E5%AF%B9%E8%B1%A1%E7%9A%84%E9%81%8D%E5%8E%86/" title="对象的遍历">
+                        <span class="hidden-mobile">对象的遍历</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
