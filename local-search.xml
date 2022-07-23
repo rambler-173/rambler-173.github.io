@@ -4,6 +4,44 @@
   
   
   <entry>
+    <title>DOM初步了解</title>
+    <link href="/2022/07/23/DOM%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3/"/>
+    <url>/2022/07/23/DOM%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3/</url>
+    
+    <content type="html"><![CDATA[<h2 id="DOM-文档对象模型（Document-Object-Model）"><a href="#DOM-文档对象模型（Document-Object-Model）" class="headerlink" title="DOM: 文档对象模型（Document Object Model）"></a>DOM: 文档对象模型（Document Object Model）</h2><ul><li>简称DOM，将页面所有内容表示为可以修改的对象</li><li>将HTML中的元素抽象成我们可以编辑的对象就叫文档对象模型</li><li>DOMtree（尚未理解）</li></ul><h2 id="BOM：浏览器对象模型（Browser-Object-Model）"><a href="#BOM：浏览器对象模型（Browser-Object-Model）" class="headerlink" title="BOM：浏览器对象模型（Browser Object Model）"></a>BOM：浏览器对象模型（Browser Object Model）</h2><ul><li>由浏览器提供的用于处理文档之外的所有内容的其他对象</li><li>比如navigator，location，history等</li></ul><h2 id="获取对象"><a href="#获取对象" class="headerlink" title="获取对象"></a>获取对象</h2><figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(document.doctype) <span class="hljs-comment">//文档声明</span><br><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(document.documentElement) <span class="hljs-comment">//html元素</span><br><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(document.body) <span class="hljs-comment">//body元素</span><br><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(document.head) <span class="hljs-comment">//head元素</span><br></code></pre></td></tr></table></figure><h3 id="Node（节点）之间的导航-navigator"><a href="#Node（节点）之间的导航-navigator" class="headerlink" title="Node（节点）之间的导航(navigator)"></a>Node（节点）之间的导航(navigator)</h3><h3 id="节点之间的导航"><a href="#节点之间的导航" class="headerlink" title="节点之间的导航"></a>节点之间的导航</h3><ul><li>获取一个节点（node）后，可以根据其获取其他节点</li><li> 父节点：parentNode </li><li> 前兄弟节点：previousSibling </li><li> 后兄弟节点：nextSibling </li><li> 子节点：childNodes </li><li> 第一个子节点：firstChild</li><li> 第二个子节点：lastChild</li></ul><h3 id="元素"><a href="#元素" class="headerlink" title="元素"></a>元素</h3><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs openscad"> 父元素：parentElement<br> 前兄弟节点：previousElementSibling<br> 后兄弟节点：nextElementSibling<br> 子节点：<span class="hljs-built_in">children</span><br> 第一个子节点：firstElementChild<br> 第二个子节点：lastElementChild<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>JS</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>JS高阶函数</title>
+    <link href="/2022/07/21/JS%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/"/>
+    <url>/2022/07/21/JS%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/</url>
+    
+    <content type="html"><![CDATA[<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><ul><li>能在函数中运行另一个函数的被称为高阶函数</li></ul><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><ul><li><p>forEach函数是一个高阶函数，他的作用对数组中的每个元素执行命令</p><p><code>arr.forEach(function)</code></p></li><li><pre><code class="hljs"> var item = [1, 2, 3, 4]var foo = function(fn)&#123;      for(i = 0; i &lt; item.length; i++)&#123;        fn(item[i], i, item)      &#125;    &#125;<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><br>- 这也可以实现和forEach一样的效果，但是函数无法便利的获取数组名，不具有复用性<br><br>- 可以将自制的方法放到原型中，这样方便<span class="hljs-keyword">this</span>指向<br><br>- ```<br>  Array.prototype.foo = function(fn) &#123;<br>        <span class="hljs-keyword">for</span>(i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-keyword">this</span>.length; i++)&#123;<br>          fn(<span class="hljs-keyword">this</span>[i], i, <span class="hljs-keyword">this</span>)<br>        &#125;<br>     &#125;<br></code></pre></td></tr></table></figure></code></pre></li><li></li></ul>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>JS</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>JS的简单内存</title>
     <link href="/2022/07/18/JS%E7%9A%84%E7%AE%80%E5%8D%95%E5%86%85%E5%AD%98/"/>
     <url>/2022/07/18/JS%E7%9A%84%E7%AE%80%E5%8D%95%E5%86%85%E5%AD%98/</url>
