@@ -16,22 +16,22 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="7月27 原本在用JS给导航栏添加active时，鼠标移出的时候思路都是添加一个移出事件。  但今天发现一个更方便的写法 12345678910111213141516171819202122&#x2F;&#x2F; 1.获取元素var tabControl &#x3D; document.querySelector(&quot;.tab_control&quot;)  &#x2F;&#x2F; 2.监听鼠标进入(事件委托)var activeL">
+    <meta name="description" content="初级只能触碰下面的导航来更换图片123456789101112131415161718192021222324252627282930&lt;script&gt;    var titleListEl &#x3D; document.querySelector(&quot;.title-list&quot;)    var activeItemEl &#x3D; document.querySelector(&amp;quo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS导航栏切换">
-<meta property="og:url" content="http://example.com/2022/07/27/JS%E5%AF%BC%E8%88%AA%E6%A0%8F%E5%88%87%E6%8D%A2/index.html">
+<meta property="og:title" content="JS轮播图">
+<meta property="og:url" content="http://example.com/2022/07/27/JS%E8%BD%AE%E6%92%AD%E5%9B%BE/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="7月27 原本在用JS给导航栏添加active时，鼠标移出的时候思路都是添加一个移出事件。  但今天发现一个更方便的写法 12345678910111213141516171819202122&#x2F;&#x2F; 1.获取元素var tabControl &#x3D; document.querySelector(&quot;.tab_control&quot;)  &#x2F;&#x2F; 2.监听鼠标进入(事件委托)var activeL">
+<meta property="og:description" content="初级只能触碰下面的导航来更换图片123456789101112131415161718192021222324252627282930&lt;script&gt;    var titleListEl &#x3D; document.querySelector(&quot;.title-list&quot;)    var activeItemEl &#x3D; document.querySelector(&amp;quo">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-07-27T08:44:11.000Z">
-<meta property="article:modified_time" content="2022-07-27T11:05:43.566Z">
+<meta property="article:published_time" content="2022-07-27T12:02:21.000Z">
+<meta property="article:modified_time" content="2022-07-27T12:09:02.914Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>JS导航栏切换 - Hexo</title>
+  <title>JS轮播图 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="JS导航栏切换"></span>
+            <span id="subtitle" data-typed-text="JS轮播图"></span>
           
         </div>
 
@@ -207,8 +207,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-07-27 16:44" pubdate>
-          2022年7月27日 下午
+        <time datetime="2022-07-27 20:02" pubdate>
+          2022年7月27日 晚上
         </time>
       </span>
     
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          680 字
+          871 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          6 分钟
+          8 分钟
         
       </span>
     
@@ -268,24 +268,15 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">JS导航栏切换</h1>
+            <h1 style="display: none">JS轮播图</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="7月27"><a href="#7月27" class="headerlink" title="7月27"></a>7月27</h2><ul>
-<li><p>原本在用JS给导航栏添加active时，鼠标移出的时候思路都是添加一个移出事件。</p>
-</li>
-<li><p>但今天发现一个更方便的写法</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-comment">// 1.获取元素</span><br><span class="hljs-selector-tag">var</span> tabControl = document<span class="hljs-selector-class">.querySelector</span>(<span class="hljs-string">&quot;.tab_control&quot;</span>)<br>  <br><span class="hljs-comment">// 2.监听鼠标进入(事件委托)</span><br><span class="hljs-selector-tag">var</span> activeLiEl = tabControl<span class="hljs-selector-class">.querySelector</span>(<span class="hljs-string">&quot;.active&quot;</span>)<br>tabControl<span class="hljs-selector-class">.onmouseover</span> = <span class="hljs-built_in">function</span>(event) &#123;<br>  <span class="hljs-comment">// 1.拿到事件发生的对象</span><br>  <span class="hljs-selector-tag">var</span> itemEl = event<span class="hljs-selector-class">.target</span><br>  <span class="hljs-keyword">if</span> (itemEl<span class="hljs-selector-class">.classList</span><span class="hljs-selector-class">.contains</span>(<span class="hljs-string">&quot;item&quot;</span>)) &#123;<br>    <span class="hljs-comment">// 其他的取消active</span><br>    <span class="hljs-comment">// 1.for循环所有的item</span><br>    <span class="hljs-comment">// 2.querySelector(&quot;.active&quot;)</span><br>    <span class="hljs-comment">// 3.记录当前的active对应的item</span><br>    activeLiEl<span class="hljs-selector-class">.classList</span><span class="hljs-selector-class">.remove</span>(<span class="hljs-string">&quot;active&quot;</span>)<br>  <br>    <span class="hljs-comment">// 当前进入的item变成active</span><br>    itemEl<span class="hljs-selector-class">.classList</span><span class="hljs-selector-class">.add</span>(<span class="hljs-string">&quot;active&quot;</span>)<br>  <br>    <span class="hljs-comment">// 将最新的itemEl变成activeLiEl</span><br>    activeLiEl = itemEl<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-</li>
-<li><p>在鼠标进入时给目标添加一个标记，当鼠标移入另一个导航栏时令标记的导航栏移除active</p>
-</li>
-<li><p>记得标记先在上面获取</p>
-</li>
-<li><p>简便的代码才是好代码</p>
-</li>
-</ul>
+                <h2 id="初级"><a href="#初级" class="headerlink" title="初级"></a>初级</h2><h3 id="只能触碰下面的导航来更换图片"><a href="#只能触碰下面的导航来更换图片" class="headerlink" title="只能触碰下面的导航来更换图片"></a>只能触碰下面的导航来更换图片</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">    <span class="hljs-keyword">var</span> titleListEl = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&quot;.title-list&quot;</span>)</span><br><span class="language-javascript">    <span class="hljs-keyword">var</span> activeItemEl = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&quot;.active&quot;</span>)</span><br><span class="language-javascript"></span><br><span class="language-javascript">    <span class="hljs-keyword">var</span> imageListEl = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;.image-list&#x27;</span>)</span><br><span class="language-javascript"></span><br><span class="language-javascript">    titleListEl.<span class="hljs-property">onmouseover</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params">event</span>) &#123;</span><br><span class="language-javascript">      <span class="hljs-keyword">var</span> itemEl = event.<span class="hljs-property">target</span>.<span class="hljs-property">parentElement</span></span><br><span class="language-javascript"></span><br><span class="language-javascript">      <span class="hljs-keyword">if</span>(!itemEl.<span class="hljs-property">classList</span>.<span class="hljs-title function_">contains</span>(<span class="hljs-string">&#x27;item&#x27;</span>)) <span class="hljs-keyword">return</span></span><br><span class="language-javascript">      </span><br><span class="language-javascript">      activeItemEl.<span class="hljs-property">classList</span>.<span class="hljs-title function_">remove</span>(<span class="hljs-string">&quot;active&quot;</span>)</span><br><span class="language-javascript"></span><br><span class="language-javascript">      itemEl.<span class="hljs-property">classList</span>.<span class="hljs-title function_">add</span>(<span class="hljs-string">&#x27;active&#x27;</span>)</span><br><span class="language-javascript"></span><br><span class="language-javascript">      activeItemEl = itemEl</span><br><span class="language-javascript"></span><br><span class="language-javascript">      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; titleListEl.<span class="hljs-property">children</span>.<span class="hljs-property">length</span>; i++)&#123;</span><br><span class="language-javascript">        <span class="hljs-keyword">if</span> (titleListEl.<span class="hljs-property">children</span>[i] == itemEl) <span class="hljs-keyword">break</span></span><br><span class="language-javascript">      &#125; <span class="hljs-comment">//感觉要用var有点难受</span></span><br><span class="language-javascript">      </span><br><span class="language-javascript">      <span class="hljs-keyword">var</span> index = <span class="hljs-title class_">Array</span>.<span class="hljs-title function_">from</span>(titleListEl.<span class="hljs-property">children</span>).<span class="hljs-title function_">findIndex</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params">item</span>) &#123;</span><br><span class="language-javascript">        <span class="hljs-keyword">return</span> item === itemEl</span><br><span class="language-javascript">      &#125;) <span class="hljs-comment">//另一种获取索引的方法</span></span><br><span class="language-javascript">      </span><br><span class="language-javascript">      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(i)</span><br><span class="language-javascript">      imageListEl.<span class="hljs-property">style</span>.<span class="hljs-property">transform</span> = <span class="hljs-string">`translateX(<span class="hljs-subst">$&#123;-<span class="hljs-number">604</span> * i&#125;</span>px)`</span></span><br><span class="language-javascript">      imageListEl.<span class="hljs-property">style</span>.<span class="hljs-property">transition</span> = <span class="hljs-string">`all 300ms ease`</span></span><br><span class="language-javascript">    &#125;</span><br><span class="language-javascript">  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+
 
                 
               </div>
@@ -310,8 +301,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>JS导航栏切换</div>
-      <div>http://example.com/2022/07/27/JS导航栏切换/</div>
+      <div>JS轮播图</div>
+      <div>http://example.com/2022/07/27/JS轮播图/</div>
     </div>
     <div class="license-meta">
       
@@ -353,18 +344,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/07/27/JS%E8%BD%AE%E6%92%AD%E5%9B%BE/" title="JS轮播图">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">JS轮播图</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/07/26/JS%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6/" title="JS鼠标事件">
-                        <span class="hidden-mobile">JS鼠标事件</span>
+                      <a href="/2022/07/27/JS%E5%AF%BC%E8%88%AA%E6%A0%8F%E5%88%87%E6%8D%A2/" title="JS导航栏切换">
+                        <span class="hidden-mobile">JS导航栏切换</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
