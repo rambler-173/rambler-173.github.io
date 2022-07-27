@@ -16,22 +16,22 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="DOM: 文档对象模型（Document Object Model） 简称DOM，将页面所有内容表示为可以修改的对象 将HTML中的元素抽象成我们可以编辑的对象就叫文档对象模型 DOMtree（尚未理解）  BOM：浏览器对象模型（Browser Object Model） 由浏览器提供的用于处理文档之外的所有内容的其他对象 比如navigator，location，history等  获取对象1">
+    <meta name="description" content="7月27 原本在用JS给导航栏添加active时，鼠标移出的时候思路都是添加一个移出事件。  但今天发现一个更方便的写法 12345678910111213141516171819202122&#x2F;&#x2F; 1.获取元素var tabControl &#x3D; document.querySelector(&quot;.tab_control&quot;)  &#x2F;&#x2F; 2.监听鼠标进入(事件委托)var activeL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DOM初步了解">
-<meta property="og:url" content="http://example.com/2022/07/23/DOM%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3/index.html">
+<meta property="og:title" content="JS导航栏切换">
+<meta property="og:url" content="http://example.com/2022/07/27/JS%E5%AF%BC%E8%88%AA%E6%A0%8F%E5%88%87%E6%8D%A2/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="DOM: 文档对象模型（Document Object Model） 简称DOM，将页面所有内容表示为可以修改的对象 将HTML中的元素抽象成我们可以编辑的对象就叫文档对象模型 DOMtree（尚未理解）  BOM：浏览器对象模型（Browser Object Model） 由浏览器提供的用于处理文档之外的所有内容的其他对象 比如navigator，location，history等  获取对象1">
+<meta property="og:description" content="7月27 原本在用JS给导航栏添加active时，鼠标移出的时候思路都是添加一个移出事件。  但今天发现一个更方便的写法 12345678910111213141516171819202122&#x2F;&#x2F; 1.获取元素var tabControl &#x3D; document.querySelector(&quot;.tab_control&quot;)  &#x2F;&#x2F; 2.监听鼠标进入(事件委托)var activeL">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-07-23T13:30:00.000Z">
-<meta property="article:modified_time" content="2022-07-23T13:44:56.560Z">
+<meta property="article:published_time" content="2022-07-27T08:44:11.000Z">
+<meta property="article:modified_time" content="2022-07-27T08:49:07.480Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>DOM初步了解 - Hexo</title>
+  <title>JS导航栏切换 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="DOM初步了解"></span>
+            <span id="subtitle" data-typed-text="JS导航栏切换"></span>
           
         </div>
 
@@ -207,8 +207,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-07-23 21:30" pubdate>
-          2022年7月23日 晚上
+        <time datetime="2022-07-27 16:44" pubdate>
+          2022年7月27日 下午
         </time>
       </span>
     
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          640 字
+          670 字
         
       </span>
     
@@ -268,35 +268,22 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">DOM初步了解</h1>
+            <h1 style="display: none">JS导航栏切换</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="DOM-文档对象模型（Document-Object-Model）"><a href="#DOM-文档对象模型（Document-Object-Model）" class="headerlink" title="DOM: 文档对象模型（Document Object Model）"></a>DOM: 文档对象模型（Document Object Model）</h2><ul>
-<li>简称DOM，将页面所有内容表示为可以修改的对象</li>
-<li>将HTML中的元素抽象成我们可以编辑的对象就叫文档对象模型</li>
-<li>DOMtree（尚未理解）</li>
+                <h2 id="7月27"><a href="#7月27" class="headerlink" title="7月27"></a>7月27</h2><ul>
+<li><p>原本在用JS给导航栏添加active时，鼠标移出的时候思路都是添加一个移出事件。</p>
+</li>
+<li><p>但今天发现一个更方便的写法</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-comment">// 1.获取元素</span><br><span class="hljs-selector-tag">var</span> tabControl = document<span class="hljs-selector-class">.querySelector</span>(<span class="hljs-string">&quot;.tab_control&quot;</span>)<br>  <br><span class="hljs-comment">// 2.监听鼠标进入(事件委托)</span><br><span class="hljs-selector-tag">var</span> activeLiEl = tabControl<span class="hljs-selector-class">.querySelector</span>(<span class="hljs-string">&quot;.active&quot;</span>)<br>tabControl<span class="hljs-selector-class">.onmouseover</span> = <span class="hljs-built_in">function</span>(event) &#123;<br>  <span class="hljs-comment">// 1.拿到事件发生的对象</span><br>  <span class="hljs-selector-tag">var</span> itemEl = event<span class="hljs-selector-class">.target</span><br>  <span class="hljs-keyword">if</span> (itemEl<span class="hljs-selector-class">.classList</span><span class="hljs-selector-class">.contains</span>(<span class="hljs-string">&quot;item&quot;</span>)) &#123;<br>    <span class="hljs-comment">// 其他的取消active</span><br>    <span class="hljs-comment">// 1.for循环所有的item</span><br>    <span class="hljs-comment">// 2.querySelector(&quot;.active&quot;)</span><br>    <span class="hljs-comment">// 3.记录当前的active对应的item</span><br>    activeLiEl<span class="hljs-selector-class">.classList</span><span class="hljs-selector-class">.remove</span>(<span class="hljs-string">&quot;active&quot;</span>)<br>  <br>    <span class="hljs-comment">// 当前进入的item变成active</span><br>    itemEl<span class="hljs-selector-class">.classList</span><span class="hljs-selector-class">.add</span>(<span class="hljs-string">&quot;active&quot;</span>)<br>  <br>    <span class="hljs-comment">// 将最新的itemEl变成activeLiEl</span><br>    activeLiEl = itemEl<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>在鼠标进入时给目标添加一个标记，当鼠标移入另一个导航栏时令标记的导航栏移除active</p>
+</li>
+<li><p>简便的代码才是好代码</p>
+</li>
 </ul>
-<h2 id="BOM：浏览器对象模型（Browser-Object-Model）"><a href="#BOM：浏览器对象模型（Browser-Object-Model）" class="headerlink" title="BOM：浏览器对象模型（Browser Object Model）"></a>BOM：浏览器对象模型（Browser Object Model）</h2><ul>
-<li>由浏览器提供的用于处理文档之外的所有内容的其他对象</li>
-<li>比如navigator，location，history等</li>
-</ul>
-<h2 id="获取对象"><a href="#获取对象" class="headerlink" title="获取对象"></a>获取对象</h2><figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(document.doctype) <span class="hljs-comment">//文档声明</span><br><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(document.documentElement) <span class="hljs-comment">//html元素</span><br><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(document.body) <span class="hljs-comment">//body元素</span><br><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(document.head) <span class="hljs-comment">//head元素</span><br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="Node（节点）之间的导航-navigator"><a href="#Node（节点）之间的导航-navigator" class="headerlink" title="Node（节点）之间的导航(navigator)"></a>Node（节点）之间的导航(navigator)</h3><h3 id="节点之间的导航"><a href="#节点之间的导航" class="headerlink" title="节点之间的导航"></a>节点之间的导航</h3><ul>
-<li>获取一个节点（node）后，可以根据其获取其他节点</li>
-<li> 父节点：parentNode </li>
-<li> 前兄弟节点：previousSibling </li>
-<li> 后兄弟节点：nextSibling </li>
-<li> 子节点：childNodes </li>
-<li> 第一个子节点：firstChild</li>
-<li> 第二个子节点：lastChild</li>
-</ul>
-<h3 id="元素"><a href="#元素" class="headerlink" title="元素"></a>元素</h3><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs openscad"> 父元素：parentElement<br> 前兄弟节点：previousElementSibling<br> 后兄弟节点：nextElementSibling<br> 子节点：<span class="hljs-built_in">children</span><br> 第一个子节点：firstElementChild<br> 第二个子节点：lastElementChild<br></code></pre></td></tr></table></figure>
-
 
                 
               </div>
@@ -321,8 +308,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>DOM初步了解</div>
-      <div>http://example.com/2022/07/23/DOM初步了解/</div>
+      <div>JS导航栏切换</div>
+      <div>http://example.com/2022/07/27/JS导航栏切换/</div>
     </div>
     <div class="license-meta">
       
@@ -334,7 +321,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年7月23日</div>
+          <div>2022年7月27日</div>
         </div>
       
       
@@ -364,18 +351,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/07/25/JS%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/" title="JS事件委托">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">JS事件委托</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/07/21/JS%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/" title="JS高阶函数">
-                        <span class="hidden-mobile">JS高阶函数</span>
+                      <a href="/2022/07/26/JS%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6/" title="JS鼠标事件">
+                        <span class="hidden-mobile">JS鼠标事件</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
