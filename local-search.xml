@@ -4,6 +4,82 @@
   
   
   <entry>
+    <title>解构</title>
+    <link href="/2022/08/06/%E8%A7%A3%E6%9E%84/"/>
+    <url>/2022/08/06/%E8%A7%A3%E6%9E%84/</url>
+    
+    <content type="html"><![CDATA[<h2 id="解构Destructuring"><a href="#解构Destructuring" class="headerlink" title="解构Destructuring"></a>解构<strong>Destructuring</strong></h2><ul><li><p><strong>解构赋值</strong> 是一种特殊的语法，它使我们可以将数组或对象“拆包”至一系列变量中。</p></li><li><p>拆分对象内容</p></li></ul><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-selector-tag">var</span> names = <span class="hljs-selector-attr">[<span class="hljs-string">&quot;abc&quot;</span>, <span class="hljs-string">&quot;cba&quot;</span>, undefined, <span class="hljs-string">&quot;nba&quot;</span>, <span class="hljs-string">&quot;mba&quot;</span>]</span><br><span class="hljs-selector-tag">var</span> obj = &#123; name: <span class="hljs-string">&#x27;why&#x27;</span>, age: <span class="hljs-number">18</span>, <span class="hljs-attribute">height</span>: <span class="hljs-number">1.88</span> &#125;<br> <span class="hljs-comment">// 1.数组的解构 没使用</span><br> <span class="hljs-selector-tag">var</span> name1 = names<span class="hljs-selector-attr">[0]</span><br> <span class="hljs-selector-tag">var</span> name2 = names<span class="hljs-selector-attr">[1]</span><br> <span class="hljs-selector-tag">var</span> name3 = names<span class="hljs-selector-attr">[2]</span><br> <br> <span class="hljs-comment">//使用解构</span><br> <span class="hljs-selector-tag">var</span> <span class="hljs-selector-attr">[name1, name2, name3]</span> = names<br> <br> <span class="hljs-comment">//对象的解构</span><br> <span class="hljs-selector-tag">var</span> &#123; name, age, <span class="hljs-attribute">height</span> &#125; = obj<br> <br> <span class="hljs-comment">//1.3. 解构出数组</span><br> <span class="hljs-selector-tag">var</span> <span class="hljs-selector-attr">[name1, name2, ...newNames]</span> = names<br> console<span class="hljs-selector-class">.log</span>(name1, name2, newNames)<br> <br> <span class="hljs-comment">// 1.4. 解构的默认值</span><br> <span class="hljs-selector-tag">var</span> <span class="hljs-selector-attr">[name1, name2, name3 = <span class="hljs-string">&quot;default&quot;</span>]</span> = names<br> console<span class="hljs-selector-class">.log</span>(name1, name2, name3)<br></code></pre></td></tr></table></figure><ul><li>解构数组时要有严格的顺序</li></ul><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gcode">var [<span class="hljs-symbol">name1</span>, , <span class="hljs-symbol">name3</span>] = <span class="hljs-symbol">names</span><br></code></pre></td></tr></table></figure><ul><li>获取第一个和第三个数组值时，第二个不能忽略，要留个空</li></ul>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>JS</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>字面量增强</title>
+    <link href="/2022/08/06/%E5%AD%97%E9%9D%A2%E9%87%8F%E5%A2%9E%E5%BC%BA/"/>
+    <url>/2022/08/06/%E5%AD%97%E9%9D%A2%E9%87%8F%E5%A2%9E%E5%BC%BA/</url>
+    
+    <content type="html"><![CDATA[<h2 id="对象字面量增强"><a href="#对象字面量增强" class="headerlink" title="对象字面量增强"></a>对象字面量增强</h2><h3 id="属性的增强"><a href="#属性的增强" class="headerlink" title="属性的增强"></a>属性的增强</h3><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs actionscript"><span class="hljs-keyword">var</span> name = <span class="hljs-string">&#x27;s&#x27;</span><br><span class="hljs-keyword">var</span> age = <span class="hljs-number">4</span><br><br><span class="hljs-keyword">var</span> obj = &#123;<br>  name, <span class="hljs-comment">//name: name</span><br>  age <span class="hljs-comment">//age: age</span><br>&#125;<br></code></pre></td></tr></table></figure><h3 id="方法的增强"><a href="#方法的增强" class="headerlink" title="方法的增强"></a>方法的增强</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> obj = &#123;<br>  name,<br>  age,<br>  <span class="hljs-attr">running</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;  &#125;,<br>  <span class="hljs-title function_">swimming</span>(<span class="hljs-params"></span>) &#123; &#125; <span class="hljs-comment">//有this，增强</span><br>&#125;<br></code></pre></td></tr></table></figure><h3 id="计算属性的增强"><a href="#计算属性的增强" class="headerlink" title="计算属性的增强"></a>计算属性的增强</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> key = <span class="hljs-string">&#x27;address&#x27;</span><br><br><span class="hljs-keyword">var</span> obj = &#123;<br>  name,<br>  age,<br>  <span class="hljs-attr">running</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;&#125;,<br>  <span class="hljs-title function_">swimming</span>(<span class="hljs-params"></span>) &#123;&#125;,<br>  <span class="hljs-attr">address</span>: <span class="hljs-string">&#x27;广州&#x27;</span>,<br>  [key]:<span class="hljs-string">&#x27;广州&#x27;</span> <span class="hljs-comment">//可以引入外部变量</span><br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>JS</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>JS多态</title>
+    <link href="/2022/08/06/JS%E5%A4%9A%E6%80%81/"/>
+    <url>/2022/08/06/JS%E5%A4%9A%E6%80%81/</url>
+    
+    <content type="html"><![CDATA[<h2 id="wiki"><a href="#wiki" class="headerlink" title="wiki"></a>wiki</h2><ul><li>维基百科对多态的定义：<strong>多态</strong>（英语：polymorphism）指为不同数据类型的实体提供统一的接口，或使用一个单一的符号来表示多个不同的类型。</li></ul><h2 id="存在条件"><a href="#存在条件" class="headerlink" title="存在条件"></a>存在条件</h2><ul><li>必须有继承</li><li>父类引用指向子类对象</li></ul><figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-keyword">function</span> <span class="hljs-title function_">sum</span>(<span class="hljs-params">a, b</span>) &#123;<br>  <span class="hljs-keyword">return</span> a + b<br>&#125;<br><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-built_in">sum</span>(<span class="hljs-number">20</span>, <span class="hljs-number">30</span>))<br><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-built_in">sum</span>(<span class="hljs-string">&#x27;abc&#x27;</span>, <span class="hljs-string">&#x27;nhc&#x27;</span>))<br></code></pre></td></tr></table></figure><ul><li>这算多态，有单一符号表示多个不同类型（继承？）</li></ul>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>JS</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>JS闭包</title>
+    <link href="/2022/08/05/JS%E9%97%AD%E5%8C%85/"/>
+    <url>/2022/08/05/JS%E9%97%AD%E5%8C%85/</url>
+    
+    <content type="html"><![CDATA[<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><h3 id="MDN解释"><a href="#MDN解释" class="headerlink" title="MDN解释"></a>MDN解释</h3><ul><li><p>一个函数和对其周围状态（lexical environment，词法环境）的引用捆绑在一起（或者说函数被引用包围），这样的组合就是闭包（closure）；</p></li><li><p>也就是说，闭包让你可以在一个内层函数中访问到其外层函数的作用域；</p></li><li><p>在 JavaScript 中，每当创建一个函数，闭包就会在函数创建的同时被创建出来；</p></li></ul><h3 id="Feel"><a href="#Feel" class="headerlink" title="Feel"></a>Feel</h3><ul><li>感觉你只要在函数中访问了作用域链，那么你就使用了闭包</li><li>从广义的角度来说：JavaScript中的函数都是闭包；</li><li>从狭义的角度来说：JavaScript中一个函数，如果访问了外层作用域的变量，那么它是一个闭包；</li></ul><h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><ul><li>请理解作用域链</li><li>还有内存泄漏的问题，主要是影响性能。</li></ul>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>JS</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>JS原型</title>
     <link href="/2022/08/05/JS%E5%8E%9F%E5%9E%8B/"/>
     <url>/2022/08/05/JS%E5%8E%9F%E5%9E%8B/</url>
@@ -21,7 +97,7 @@
     <link href="/2022/08/03/JS%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86/"/>
     <url>/2022/08/03/JS%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86/</url>
     
-    <content type="html"><![CDATA[<h2 id="代码执行过程"><a href="#代码执行过程" class="headerlink" title="代码执行过程"></a>代码执行过程</h2><h3 id="初始化全局对象"><a href="#初始化全局对象" class="headerlink" title="初始化全局对象"></a>初始化全局对象</h3><ul><li>js引擎会在执行代码之前，会在<strong>堆</strong>内存中创建一个<strong>全局对象</strong>：Global Object（GO）<ul><li>该对象所有的作用域（scope）都可以访问；</li><li>里面会包含Date、Array、String、Number、setTimeout、setInterval等等；</li><li>其中还有一个window属性指向自己； &#x2F;&#x2F;window居然是属性嘛</li></ul></li></ul><h3 id="执行上下文（-Execution-Contexts-）"><a href="#执行上下文（-Execution-Contexts-）" class="headerlink" title="执行上下文（ Execution Contexts ）"></a>执行上下文（ Execution Contexts ）</h3><ul><li><p>他是执行代码的调用<strong>栈</strong></p></li><li><p>栈是执行代码的地方，堆是存放内存的地方</p></li><li><p>在栈的最底层是GO：Global Object；</p></li><li><p>在执行函数（fn）时，函数会创建一个新的对象，然后入栈，执行完毕后会出栈。</p></li><li><p>栈 先入后出</p></li><li><p>或许作用域链跟栈结构息息相关</p></li></ul><h3 id="VO对象（Variable-Object）"><a href="#VO对象（Variable-Object）" class="headerlink" title="VO对象（Variable Object）"></a>VO对象（Variable Object）</h3><ul><li><p>每一个执行上下文会关联一个VO（Variable Object，变量对象），变量和函数声明会被添加到这个VO对象中。</p></li><li><p>每一个函数调用时都会创建一个AO，与GO相对应。GO是全局，AO是函数个体。</p></li></ul><h3 id="作用域和作用域链（Scope-Chain）"><a href="#作用域和作用域链（Scope-Chain）" class="headerlink" title="作用域和作用域链（Scope Chain）"></a>作用域和作用域链（Scope Chain）</h3><ul><li>当进入到一个执行上下文(栈)时，执行上下文也会关联一个作用域链（Scope Chain）<ul><li>作用域链是一个对象列表，用于变量标识符的求值；</li></ul></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="代码执行过程"><a href="#代码执行过程" class="headerlink" title="代码执行过程"></a>代码执行过程</h2><h3 id="初始化全局对象"><a href="#初始化全局对象" class="headerlink" title="初始化全局对象"></a>初始化全局对象</h3><ul><li>js引擎会在执行代码之前，会在<strong>堆</strong>内存中创建一个<strong>全局对象</strong>：Global Object（GO）<ul><li>该对象所有的作用域（scope）都可以访问；</li><li>里面会包含Date、Array、String、Number、setTimeout、setInterval等等；</li><li>其中还有一个window属性指向自己； &#x2F;&#x2F;window居然是属性嘛</li></ul></li></ul><h3 id="执行上下文（-Execution-Contexts-）"><a href="#执行上下文（-Execution-Contexts-）" class="headerlink" title="执行上下文（ Execution Contexts ）"></a>执行上下文（ Execution Contexts ）</h3><ul><li><p>他是执行代码的调用<strong>栈</strong></p></li><li><p>栈是执行代码的地方，堆是存放内存的地方</p></li><li><p>在栈的最底层是GO：Global Object；</p></li><li><p>在执行函数（fn）时，函数会创建一个新的对象，然后入栈，执行完毕后会出栈。</p></li><li><p>栈 先入后出</p></li><li><p>或许作用域链跟栈结构息息相关</p></li></ul><h3 id="VO对象（Variable-Object）"><a href="#VO对象（Variable-Object）" class="headerlink" title="VO对象（Variable Object）"></a>VO对象（Variable Object）</h3><ul><li><p>每一个执行上下文会关联一个VO（Variable Object，变量对象），变量和函数声明会被添加到这个VO对象中。</p></li><li><p>每一个函数调用时都会创建一个AO，与GO相对应。GO是全局，AO是函数个体。</p></li></ul><h3 id="作用域和作用域链（Scope-Chain）"><a href="#作用域和作用域链（Scope-Chain）" class="headerlink" title="作用域和作用域链（Scope Chain）"></a>作用域和作用域链（Scope Chain）</h3><ul><li>当进入到一个执行上下文(栈)时，执行上下文也会关联一个作用域链（Scope Chain）<ul><li>作用域链是一个对象列表，用于变量标识符的求值；</li><li>当建立作用域链时，变量的指向久已被确定。即使之后在不同位置被调用，建立作用域链时指定的变量不变，函数内的值也不变</li></ul></li></ul><h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-selector-tag">var</span> message = <span class="hljs-string">&quot;Global Message&quot;</span><br>function <span class="hljs-built_in">foo</span>() &#123;<br>  console<span class="hljs-selector-class">.log</span>(message)<br>  <span class="hljs-selector-tag">var</span> message = <span class="hljs-string">&#x27;foo&#x27;</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-title">foo</span><span class="hljs-params">()</span></span> <span class="hljs-comment">//undefind </span><br></code></pre></td></tr></table></figure><ul><li>需要message -&gt; 寻找自身 -&gt; 有 -&gt; 就不会去上层寻找</li></ul><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-selector-tag">var</span> message = <span class="hljs-string">&quot;Global Message&quot;</span><br>function <span class="hljs-built_in">foo</span>() &#123;<br>  <span class="hljs-selector-tag">var</span> message = <span class="hljs-string">&#x27;foo&#x27;</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-title">foo</span><span class="hljs-params">()</span></span><br><br><span class="hljs-selector-tag">var</span> obj = &#123;<br>  name: <span class="hljs-string">&quot;obj&quot;</span>,<br>  bar: <span class="hljs-built_in">function</span>() &#123;<br>    <span class="hljs-selector-tag">var</span> message = <span class="hljs-string">&quot;bar message&quot;</span><br>    <span class="hljs-built_in">foo</span>() <span class="hljs-comment">//</span><br>  &#125;<br>&#125;<br><br>obj<span class="hljs-selector-class">.bar</span>() <span class="hljs-comment">//Global Message</span><br><br></code></pre></td></tr></table></figure><ul><li>我们看到 obj.bar()调用，会先寻找函数内有没有message，然后看看obj里有没有message找到了，这时候就是忽略了作用域链的规则，当定义（创建？）函数时，作用域链已被确定。</li><li>函数被定义时，作用域链已经确定，message指向的是第一个message</li></ul><figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-keyword">var</span> n = <span class="hljs-number">100</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">foo</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(n)<br>  <span class="hljs-keyword">return</span><br>  <span class="hljs-keyword">var</span> n = <span class="hljs-number">200</span><br>&#125;<br>foo() <span class="hljs-comment">//undefined</span><br></code></pre></td></tr></table></figure><ul><li>在解析函数时，就直接把n提升了。遇到return是解析完后调用时的事。</li></ul>]]></content>
     
     
     
@@ -40,9 +116,15 @@
     <link href="/2022/08/03/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93/"/>
     <url>/2022/08/03/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93/</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<h2 id="网页解析"><a href="#网页解析" class="headerlink" title="网页解析"></a>网页解析</h2><h3 id="常用的浏览器内核"><a href="#常用的浏览器内核" class="headerlink" title="常用的浏览器内核"></a>常用的浏览器内核</h3><ul><li>Trident （ 三叉戟）：IE、360安全浏览器、搜狗高速浏览器、百度浏览器、UC浏览器；</li><li>Gecko（ 壁虎） ：Mozilla Firefox；  Presto（急板乐曲）-&gt; Blink （眨眼）：Opera</li><li>Webkit ：Safari、360极速浏览器、搜狗高速浏览器、移动端浏览器（Android、iOS）</li><li>Webkit -&gt; Blink ：Google Chrome，Edge</li></ul><h5 id="我们经常说的浏览器内核指的是浏览器的排版引擎："><a href="#我们经常说的浏览器内核指的是浏览器的排版引擎：" class="headerlink" title="我们经常说的浏览器内核指的是浏览器的排版引擎："></a>我们经常说的浏览器内核指的是浏览器的排版引擎：</h5><ul><li>排版引擎（layout engine），也称为浏览器引擎（browser engine）、页面渲染引擎（rendering engine）或样版引擎。</li><li>也就是一个网页下载下来后，就是由我们的渲染引擎来帮助我们解析的</li></ul><h4 id="渲染引擎在拿到一个页面后，如何解析整个页面并且最终呈现出我们的网页呢？"><a href="#渲染引擎在拿到一个页面后，如何解析整个页面并且最终呈现出我们的网页呢？" class="headerlink" title="渲染引擎在拿到一个页面后，如何解析整个页面并且最终呈现出我们的网页呢？"></a>渲染引擎在拿到一个页面后，如何解析整个页面并且最终呈现出我们的网页呢？</h4><p>![](C:\Users\admin\Desktop\vue\blog\hexoblog\source\images\DOM node.png)</p><ul><li>更详细</li></ul><p><img src="C:\Users\admin\Desktop\vue\blog\hexoblog\source\images\DOMnodeMore.png"></p><h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><ul><li><p>在解析HTML文件时，会生成DOM Tree</p></li><li><p>如果遇到CSS的link元素，那么会由浏览器负责下载对应的CSS文件：不会停止解析</p></li><li><p>浏览器下载完CSS后，会生成CSSOM（CSS Object Model，CSS对象模型）</p></li><li><p>当有了DOM Tree和 CSSOM Tree后，就可以两个结合来构建Render Tree了</p></li><li><p>![](C:\Users\admin\Desktop\vue\blog\hexoblog\source\images\Render Tree.png)</p></li><li><p>布局</p><ul><li>布局是确定呈现树中所有节点的宽度、高度和位置信息；</li></ul></li><li><p>绘制</p><ul><li>在绘制阶段，浏览器将布局阶段计算的每个frame转为屏幕上实际的像素点；</li><li>包括将元素的可见部分进行绘制，比如文本、颜色、边框、阴影、替换元素（比如img）</li></ul></li></ul><h3 id="回流"><a href="#回流" class="headerlink" title="回流"></a>回流</h3><ul><li><p>在布局后改变节点布局那就称为回流</p></li><li><p>引起</p><ul><li>比如DOM结构发生改变（添加新的节点或者移除节点）；</li><li>比如改变了布局（修改了width、height、padding、font-size等值） </li><li>比如窗口resize（修改了窗口的尺寸等）</li><li>比如调用getComputedStyle方法获取尺寸、位置信息；</li></ul></li><li><p>重绘</p><ul><li>和回流一样，再次绘制就是重绘</li><li>比如修改背景色、文字颜色、边框颜色、样式等；会引起重绘</li></ul></li></ul><h3 id="影响"><a href="#影响" class="headerlink" title="影响"></a>影响</h3><ul><li>消耗性能</li><li>尽量避免</li><li>1.修改样式时尽量一次性修改  比如通过cssText修改，比如通过添加class修改 </li><li>◼ 2.尽量避免频繁的操作DOM </li><li> 我们可以在一个DocumentFragment或者父元素中 将要操作的DOM操作完成，再一次性的操作；</li><li>◼ 3.尽量避免通过getComputedStyle获取尺寸、位置等信 息；</li><li>◼ 4.对某些元素使用position的absolute或者fixed  并不是不会引起回流，而是开销相对较小，不会对 其他元素造成影响。</li></ul><h2 id="script元素和页面解析的关系"><a href="#script元素和页面解析的关系" class="headerlink" title="script元素和页面解析的关系"></a>script元素和页面解析的关系</h2><ul><li><p>事实上，浏览器在解析HTML的过程中，遇到了script元素是不能继续构建DOM树的；</p></li><li><p>它会停止继续构建，首先下载JavaScript代码，并且执行JavaScript的脚本；</p></li><li><p>只有等到JavaScript脚本执行结束后，才会继续解析HTML，构建DOM树；</p></li><li><p>这是因为JavaScript的作用之一就是操作DOM，并且可以修改DOM；</p></li><li><p>如果我们等到DOM树构建完成并且渲染再执行JavaScript，会造成严重的回流和重绘，影响页面的性能； </p></li><li><p>所以会在遇到script元素时，优先下载和执行JavaScript代码，再继续构建DOM树；</p></li></ul><h3 id="defer和async"><a href="#defer和async" class="headerlink" title="defer和async"></a>defer和async</h3><h4 id="defer"><a href="#defer" class="headerlink" title="defer"></a>defer</h4><ul><li>defer 属性告诉浏览器不要等待脚本下载，而继续解析HTML，构建DOM Tree。</li><li>如果脚本提前下载好了，它会等待DOM Tree构建完成，在DOMContentLoaded事件之前先执行defer中的代码；</li><li>从某种角度来说，defer可以提高页面的性能，并且推荐放到head元素中；</li><li>注意：defer仅适用于外部脚本，对于script默认内容会被忽略。</li></ul><h4 id="async"><a href="#async" class="headerlink" title="async"></a>async</h4><ul><li><p>async 特性与 defer 有些类似，它也能够让脚本不阻塞页面。</p></li><li><p>async脚本不能保证顺序，它是独立下载、独立运行，不会等待其他脚本；</p></li><li><p>async不会能保证在DOMContentLoaded之前或者之后执行；</p></li><li><p>async通常用于独立的脚本，对其他脚本，甚至DOM没有依赖的；</p></li></ul>]]></content>
     
     
+    
+    <tags>
+      
+      <tag>JS</tag>
+      
+    </tags>
     
   </entry>
   

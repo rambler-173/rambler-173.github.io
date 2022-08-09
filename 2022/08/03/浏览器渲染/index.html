@@ -16,15 +16,20 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="article">
+    <meta name="description" content="网页解析常用的浏览器内核 Trident （ 三叉戟）：IE、360安全浏览器、搜狗高速浏览器、百度浏览器、UC浏览器； Gecko（ 壁虎） ：Mozilla Firefox；  Presto（急板乐曲）-&gt; Blink （眨眼）：Opera Webkit ：Safari、360极速浏览器、搜狗高速浏览器、移动端浏览器（Android、iOS） Webkit -&gt; Blink ：G">
+<meta property="og:type" content="article">
 <meta property="og:title" content="浏览器渲染">
 <meta property="og:url" content="http://example.com/2022/08/03/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="网页解析常用的浏览器内核 Trident （ 三叉戟）：IE、360安全浏览器、搜狗高速浏览器、百度浏览器、UC浏览器； Gecko（ 壁虎） ：Mozilla Firefox；  Presto（急板乐曲）-&gt; Blink （眨眼）：Opera Webkit ：Safari、360极速浏览器、搜狗高速浏览器、移动端浏览器（Android、iOS） Webkit -&gt; Blink ：G">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="c:/Users/admin/Desktop/vue/blog/hexoblog/source/images/DOMnodeMore.png">
 <meta property="article:published_time" content="2022-08-03T06:52:30.000Z">
-<meta property="article:modified_time" content="2022-08-03T06:52:30.382Z">
+<meta property="article:modified_time" content="2022-08-05T09:21:55.500Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="c:/Users/admin/Desktop/vue/blog/hexoblog/source/images/DOMnodeMore.png">
   
   
   
@@ -216,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 字
+          1.8k 字
         
       </span>
     
@@ -227,7 +232,7 @@
         
         
         
-          1 分钟
+          15 分钟
         
       </span>
     
@@ -270,7 +275,102 @@
             
               <div class="markdown-body">
                 
-                
+                <h2 id="网页解析"><a href="#网页解析" class="headerlink" title="网页解析"></a>网页解析</h2><h3 id="常用的浏览器内核"><a href="#常用的浏览器内核" class="headerlink" title="常用的浏览器内核"></a>常用的浏览器内核</h3><ul>
+<li>Trident （ 三叉戟）：IE、360安全浏览器、搜狗高速浏览器、百度浏览器、UC浏览器；</li>
+<li>Gecko（ 壁虎） ：Mozilla Firefox；  Presto（急板乐曲）-&gt; Blink （眨眼）：Opera</li>
+<li>Webkit ：Safari、360极速浏览器、搜狗高速浏览器、移动端浏览器（Android、iOS）</li>
+<li>Webkit -&gt; Blink ：Google Chrome，Edge</li>
+</ul>
+<h5 id="我们经常说的浏览器内核指的是浏览器的排版引擎："><a href="#我们经常说的浏览器内核指的是浏览器的排版引擎：" class="headerlink" title="我们经常说的浏览器内核指的是浏览器的排版引擎："></a>我们经常说的浏览器内核指的是浏览器的排版引擎：</h5><ul>
+<li>排版引擎（layout engine），也称为浏览器引擎（browser engine）、页面渲染引擎（rendering engine）或样版引擎。</li>
+<li>也就是一个网页下载下来后，就是由我们的渲染引擎来帮助我们解析的</li>
+</ul>
+<h4 id="渲染引擎在拿到一个页面后，如何解析整个页面并且最终呈现出我们的网页呢？"><a href="#渲染引擎在拿到一个页面后，如何解析整个页面并且最终呈现出我们的网页呢？" class="headerlink" title="渲染引擎在拿到一个页面后，如何解析整个页面并且最终呈现出我们的网页呢？"></a>渲染引擎在拿到一个页面后，如何解析整个页面并且最终呈现出我们的网页呢？</h4><p>![](C:\Users\admin\Desktop\vue\blog\hexoblog\source\images\DOM node.png)</p>
+<ul>
+<li>更详细</li>
+</ul>
+<p><img src="C:\Users\admin\Desktop\vue\blog\hexoblog\source\images\DOMnodeMore.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><ul>
+<li><p>在解析HTML文件时，会生成DOM Tree</p>
+</li>
+<li><p>如果遇到CSS的link元素，那么会由浏览器负责下载对应的CSS文件：不会停止解析</p>
+</li>
+<li><p>浏览器下载完CSS后，会生成CSSOM（CSS Object Model，CSS对象模型）</p>
+</li>
+<li><p>当有了DOM Tree和 CSSOM Tree后，就可以两个结合来构建Render Tree了</p>
+</li>
+<li><p>![](C:\Users\admin\Desktop\vue\blog\hexoblog\source\images\Render Tree.png)</p>
+</li>
+<li><p>布局</p>
+<ul>
+<li>布局是确定呈现树中所有节点的宽度、高度和位置信息；</li>
+</ul>
+</li>
+<li><p>绘制</p>
+<ul>
+<li>在绘制阶段，浏览器将布局阶段计算的每个frame转为屏幕上实际的像素点；</li>
+<li>包括将元素的可见部分进行绘制，比如文本、颜色、边框、阴影、替换元素（比如img）</li>
+</ul>
+</li>
+</ul>
+<h3 id="回流"><a href="#回流" class="headerlink" title="回流"></a>回流</h3><ul>
+<li><p>在布局后改变节点布局那就称为回流</p>
+</li>
+<li><p>引起</p>
+<ul>
+<li>比如DOM结构发生改变（添加新的节点或者移除节点）；</li>
+<li>比如改变了布局（修改了width、height、padding、font-size等值） </li>
+<li>比如窗口resize（修改了窗口的尺寸等）</li>
+<li>比如调用getComputedStyle方法获取尺寸、位置信息；</li>
+</ul>
+</li>
+<li><p>重绘</p>
+<ul>
+<li>和回流一样，再次绘制就是重绘</li>
+<li>比如修改背景色、文字颜色、边框颜色、样式等；会引起重绘</li>
+</ul>
+</li>
+</ul>
+<h3 id="影响"><a href="#影响" class="headerlink" title="影响"></a>影响</h3><ul>
+<li>消耗性能</li>
+<li>尽量避免</li>
+<li>1.修改样式时尽量一次性修改  比如通过cssText修改，比如通过添加class修改 </li>
+<li>◼ 2.尽量避免频繁的操作DOM </li>
+<li> 我们可以在一个DocumentFragment或者父元素中 将要操作的DOM操作完成，再一次性的操作；</li>
+<li>◼ 3.尽量避免通过getComputedStyle获取尺寸、位置等信 息；</li>
+<li>◼ 4.对某些元素使用position的absolute或者fixed  并不是不会引起回流，而是开销相对较小，不会对 其他元素造成影响。</li>
+</ul>
+<h2 id="script元素和页面解析的关系"><a href="#script元素和页面解析的关系" class="headerlink" title="script元素和页面解析的关系"></a>script元素和页面解析的关系</h2><ul>
+<li><p>事实上，浏览器在解析HTML的过程中，遇到了script元素是不能继续构建DOM树的；</p>
+</li>
+<li><p>它会停止继续构建，首先下载JavaScript代码，并且执行JavaScript的脚本；</p>
+</li>
+<li><p>只有等到JavaScript脚本执行结束后，才会继续解析HTML，构建DOM树；</p>
+</li>
+<li><p>这是因为JavaScript的作用之一就是操作DOM，并且可以修改DOM；</p>
+</li>
+<li><p>如果我们等到DOM树构建完成并且渲染再执行JavaScript，会造成严重的回流和重绘，影响页面的性能； </p>
+</li>
+<li><p>所以会在遇到script元素时，优先下载和执行JavaScript代码，再继续构建DOM树；</p>
+</li>
+</ul>
+<h3 id="defer和async"><a href="#defer和async" class="headerlink" title="defer和async"></a>defer和async</h3><h4 id="defer"><a href="#defer" class="headerlink" title="defer"></a>defer</h4><ul>
+<li>defer 属性告诉浏览器不要等待脚本下载，而继续解析HTML，构建DOM Tree。</li>
+<li>如果脚本提前下载好了，它会等待DOM Tree构建完成，在DOMContentLoaded事件之前先执行defer中的代码；</li>
+<li>从某种角度来说，defer可以提高页面的性能，并且推荐放到head元素中；</li>
+<li>注意：defer仅适用于外部脚本，对于script默认内容会被忽略。</li>
+</ul>
+<h4 id="async"><a href="#async" class="headerlink" title="async"></a>async</h4><ul>
+<li><p>async 特性与 defer 有些类似，它也能够让脚本不阻塞页面。</p>
+</li>
+<li><p>async脚本不能保证顺序，它是独立下载、独立运行，不会等待其他脚本；</p>
+</li>
+<li><p>async不会能保证在DOMContentLoaded之前或者之后执行；</p>
+</li>
+<li><p>async通常用于独立的脚本，对其他脚本，甚至DOM没有依赖的；</p>
+</li>
+</ul>
+
                 
               </div>
             
@@ -278,6 +378,13 @@
             <div>
               <div class="post-metas my-3">
   
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/JS/">#JS</a>
+      
+    </div>
   
 </div>
 

@@ -16,22 +16,22 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="代码执行过程初始化全局对象 js引擎会在执行代码之前，会在堆内存中创建一个全局对象：Global Object（GO） 该对象所有的作用域（scope）都可以访问； 里面会包含Date、Array、String、Number、setTimeout、setInterval等等； 其中还有一个window属性指向自己； &#x2F;&#x2F;window居然是属性嘛    执行上下文（ Execut">
+    <meta name="description" content="解构Destructuring 解构赋值 是一种特殊的语法，它使我们可以将数组或对象“拆包”至一系列变量中。  拆分对象内容   1234567891011121314151617181920var names &#x3D; [&quot;abc&quot;, &quot;cba&quot;, undefined, &quot;nba&quot;, &quot;mba&quot;]var obj &#x3D; &amp;#1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS执行原理">
-<meta property="og:url" content="http://example.com/2022/08/03/JS%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86/index.html">
+<meta property="og:title" content="解构">
+<meta property="og:url" content="http://example.com/2022/08/06/%E8%A7%A3%E6%9E%84/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="代码执行过程初始化全局对象 js引擎会在执行代码之前，会在堆内存中创建一个全局对象：Global Object（GO） 该对象所有的作用域（scope）都可以访问； 里面会包含Date、Array、String、Number、setTimeout、setInterval等等； 其中还有一个window属性指向自己； &#x2F;&#x2F;window居然是属性嘛    执行上下文（ Execut">
+<meta property="og:description" content="解构Destructuring 解构赋值 是一种特殊的语法，它使我们可以将数组或对象“拆包”至一系列变量中。  拆分对象内容   1234567891011121314151617181920var names &#x3D; [&quot;abc&quot;, &quot;cba&quot;, undefined, &quot;nba&quot;, &quot;mba&quot;]var obj &#x3D; &amp;#1">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-08-03T06:55:33.000Z">
-<meta property="article:modified_time" content="2022-08-05T09:40:36.151Z">
+<meta property="article:published_time" content="2022-08-06T13:11:10.000Z">
+<meta property="article:modified_time" content="2022-08-06T13:29:21.293Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>JS执行原理 - Hexo</title>
+  <title>解构 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="JS执行原理"></span>
+            <span id="subtitle" data-typed-text="解构"></span>
           
         </div>
 
@@ -207,8 +207,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-03 14:55" pubdate>
-          2022年8月3日 下午
+        <time datetime="2022-08-06 21:11" pubdate>
+          2022年8月6日 晚上
         </time>
       </span>
     
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.2k 字
+          599 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          11 分钟
+          5 分钟
         
       </span>
     
@@ -268,61 +268,26 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">JS执行原理</h1>
+            <h1 style="display: none">解构</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="代码执行过程"><a href="#代码执行过程" class="headerlink" title="代码执行过程"></a>代码执行过程</h2><h3 id="初始化全局对象"><a href="#初始化全局对象" class="headerlink" title="初始化全局对象"></a>初始化全局对象</h3><ul>
-<li>js引擎会在执行代码之前，会在<strong>堆</strong>内存中创建一个<strong>全局对象</strong>：Global Object（GO）<ul>
-<li>该对象所有的作用域（scope）都可以访问；</li>
-<li>里面会包含Date、Array、String、Number、setTimeout、setInterval等等；</li>
-<li>其中还有一个window属性指向自己； &#x2F;&#x2F;window居然是属性嘛</li>
-</ul>
+                <h2 id="解构Destructuring"><a href="#解构Destructuring" class="headerlink" title="解构Destructuring"></a>解构<strong>Destructuring</strong></h2><ul>
+<li><p><strong>解构赋值</strong> 是一种特殊的语法，它使我们可以将数组或对象“拆包”至一系列变量中。</p>
+</li>
+<li><p>拆分对象内容</p>
 </li>
 </ul>
-<h3 id="执行上下文（-Execution-Contexts-）"><a href="#执行上下文（-Execution-Contexts-）" class="headerlink" title="执行上下文（ Execution Contexts ）"></a>执行上下文（ Execution Contexts ）</h3><ul>
-<li><p>他是执行代码的调用<strong>栈</strong></p>
-</li>
-<li><p>栈是执行代码的地方，堆是存放内存的地方</p>
-</li>
-<li><p>在栈的最底层是GO：Global Object；</p>
-</li>
-<li><p>在执行函数（fn）时，函数会创建一个新的对象，然后入栈，执行完毕后会出栈。</p>
-</li>
-<li><p>栈 先入后出</p>
-</li>
-<li><p>或许作用域链跟栈结构息息相关</p>
-</li>
-</ul>
-<h3 id="VO对象（Variable-Object）"><a href="#VO对象（Variable-Object）" class="headerlink" title="VO对象（Variable Object）"></a>VO对象（Variable Object）</h3><ul>
-<li><p>每一个执行上下文会关联一个VO（Variable Object，变量对象），变量和函数声明会被添加到这个VO对象中。</p>
-</li>
-<li><p>每一个函数调用时都会创建一个AO，与GO相对应。GO是全局，AO是函数个体。</p>
-</li>
-</ul>
-<h3 id="作用域和作用域链（Scope-Chain）"><a href="#作用域和作用域链（Scope-Chain）" class="headerlink" title="作用域和作用域链（Scope Chain）"></a>作用域和作用域链（Scope Chain）</h3><ul>
-<li>当进入到一个执行上下文(栈)时，执行上下文也会关联一个作用域链（Scope Chain）<ul>
-<li>作用域链是一个对象列表，用于变量标识符的求值；</li>
-<li>当建立作用域链时，变量的指向久已被确定。即使之后在不同位置被调用，建立作用域链时指定的变量不变，函数内的值也不变</li>
-</ul>
-</li>
-</ul>
-<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-selector-tag">var</span> message = <span class="hljs-string">&quot;Global Message&quot;</span><br>function <span class="hljs-built_in">foo</span>() &#123;<br>  console<span class="hljs-selector-class">.log</span>(message)<br>  <span class="hljs-selector-tag">var</span> message = <span class="hljs-string">&#x27;foo&#x27;</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-title">foo</span><span class="hljs-params">()</span></span> <span class="hljs-comment">//undefind </span><br></code></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-selector-tag">var</span> names = <span class="hljs-selector-attr">[<span class="hljs-string">&quot;abc&quot;</span>, <span class="hljs-string">&quot;cba&quot;</span>, undefined, <span class="hljs-string">&quot;nba&quot;</span>, <span class="hljs-string">&quot;mba&quot;</span>]</span><br><span class="hljs-selector-tag">var</span> obj = &#123; name: <span class="hljs-string">&#x27;why&#x27;</span>, age: <span class="hljs-number">18</span>, <span class="hljs-attribute">height</span>: <span class="hljs-number">1.88</span> &#125;<br> <span class="hljs-comment">// 1.数组的解构 没使用</span><br> <span class="hljs-selector-tag">var</span> name1 = names<span class="hljs-selector-attr">[0]</span><br> <span class="hljs-selector-tag">var</span> name2 = names<span class="hljs-selector-attr">[1]</span><br> <span class="hljs-selector-tag">var</span> name3 = names<span class="hljs-selector-attr">[2]</span><br> <br> <span class="hljs-comment">//使用解构</span><br> <span class="hljs-selector-tag">var</span> <span class="hljs-selector-attr">[name1, name2, name3]</span> = names<br> <br> <span class="hljs-comment">//对象的解构</span><br> <span class="hljs-selector-tag">var</span> &#123; name, age, <span class="hljs-attribute">height</span> &#125; = obj<br> <br> <span class="hljs-comment">//1.3. 解构出数组</span><br> <span class="hljs-selector-tag">var</span> <span class="hljs-selector-attr">[name1, name2, ...newNames]</span> = names<br> console<span class="hljs-selector-class">.log</span>(name1, name2, newNames)<br> <br> <span class="hljs-comment">// 1.4. 解构的默认值</span><br> <span class="hljs-selector-tag">var</span> <span class="hljs-selector-attr">[name1, name2, name3 = <span class="hljs-string">&quot;default&quot;</span>]</span> = names<br> console<span class="hljs-selector-class">.log</span>(name1, name2, name3)<br></code></pre></td></tr></table></figure>
 
 <ul>
-<li>需要message -&gt; 寻找自身 -&gt; 有 -&gt; 就不会去上层寻找</li>
+<li>解构数组时要有严格的顺序</li>
 </ul>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-selector-tag">var</span> message = <span class="hljs-string">&quot;Global Message&quot;</span><br>function <span class="hljs-built_in">foo</span>() &#123;<br>  <span class="hljs-selector-tag">var</span> message = <span class="hljs-string">&#x27;foo&#x27;</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-title">foo</span><span class="hljs-params">()</span></span><br><br><span class="hljs-selector-tag">var</span> obj = &#123;<br>  name: <span class="hljs-string">&quot;obj&quot;</span>,<br>  bar: <span class="hljs-built_in">function</span>() &#123;<br>    <span class="hljs-selector-tag">var</span> message = <span class="hljs-string">&quot;bar message&quot;</span><br>    <span class="hljs-built_in">foo</span>() <span class="hljs-comment">//</span><br>  &#125;<br>&#125;<br><br>obj<span class="hljs-selector-class">.bar</span>() <span class="hljs-comment">//Global Message</span><br><br></code></pre></td></tr></table></figure>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gcode">var [<span class="hljs-symbol">name1</span>, , <span class="hljs-symbol">name3</span>] = <span class="hljs-symbol">names</span><br></code></pre></td></tr></table></figure>
 
 <ul>
-<li>我们看到 obj.bar()调用，会先寻找函数内有没有message，然后看看obj里有没有message找到了，这时候就是忽略了作用域链的规则，当定义（创建？）函数时，作用域链已被确定。</li>
-<li>函数被定义时，作用域链已经确定，message指向的是第一个message</li>
-</ul>
-<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-keyword">var</span> n = <span class="hljs-number">100</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">foo</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(n)<br>  <span class="hljs-keyword">return</span><br>  <span class="hljs-keyword">var</span> n = <span class="hljs-number">200</span><br>&#125;<br>foo() <span class="hljs-comment">//undefined</span><br></code></pre></td></tr></table></figure>
-
-<ul>
-<li>在解析函数时，就直接把n提升了。遇到return是解析完后调用时的事。</li>
+<li>获取第一个和第三个数组值时，第二个不能忽略，要留个空</li>
 </ul>
 
                 
@@ -348,8 +313,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>JS执行原理</div>
-      <div>http://example.com/2022/08/03/JS执行原理/</div>
+      <div>解构</div>
+      <div>http://example.com/2022/08/06/解构/</div>
     </div>
     <div class="license-meta">
       
@@ -361,7 +326,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年8月3日</div>
+          <div>2022年8月6日</div>
         </div>
       
       
@@ -391,18 +356,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/08/05/JS%E5%8E%9F%E5%9E%8B/" title="JS原型">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">JS原型</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/08/03/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93/" title="浏览器渲染">
-                        <span class="hidden-mobile">浏览器渲染</span>
+                      <a href="/2022/08/06/%E5%AD%97%E9%9D%A2%E9%87%8F%E5%A2%9E%E5%BC%BA/" title="字面量增强">
+                        <span class="hidden-mobile">字面量增强</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

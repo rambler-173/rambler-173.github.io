@@ -16,22 +16,22 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="代码执行过程初始化全局对象 js引擎会在执行代码之前，会在堆内存中创建一个全局对象：Global Object（GO） 该对象所有的作用域（scope）都可以访问； 里面会包含Date、Array、String、Number、setTimeout、setInterval等等； 其中还有一个window属性指向自己； &#x2F;&#x2F;window居然是属性嘛    执行上下文（ Execut">
+    <meta name="description" content="对象字面量增强属性的增强1234567var name &#x3D; &amp;#x27;s&amp;#x27;var age &#x3D; 4var obj &#x3D; &amp;#123;  name, &#x2F;&#x2F;name: name  age &#x2F;&#x2F;age: age&amp;#125;  方法的增强123456var obj &#x3D; &amp;#123;  name,  age,  running: function() &amp;#123;  &amp;#125;,  swimmin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS执行原理">
-<meta property="og:url" content="http://example.com/2022/08/03/JS%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86/index.html">
+<meta property="og:title" content="字面量增强">
+<meta property="og:url" content="http://example.com/2022/08/06/%E5%AD%97%E9%9D%A2%E9%87%8F%E5%A2%9E%E5%BC%BA/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="代码执行过程初始化全局对象 js引擎会在执行代码之前，会在堆内存中创建一个全局对象：Global Object（GO） 该对象所有的作用域（scope）都可以访问； 里面会包含Date、Array、String、Number、setTimeout、setInterval等等； 其中还有一个window属性指向自己； &#x2F;&#x2F;window居然是属性嘛    执行上下文（ Execut">
+<meta property="og:description" content="对象字面量增强属性的增强1234567var name &#x3D; &amp;#x27;s&amp;#x27;var age &#x3D; 4var obj &#x3D; &amp;#123;  name, &#x2F;&#x2F;name: name  age &#x2F;&#x2F;age: age&amp;#125;  方法的增强123456var obj &#x3D; &amp;#123;  name,  age,  running: function() &amp;#123;  &amp;#125;,  swimmin">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-08-03T06:55:33.000Z">
-<meta property="article:modified_time" content="2022-08-05T09:40:36.151Z">
+<meta property="article:published_time" content="2022-08-06T13:00:06.000Z">
+<meta property="article:modified_time" content="2022-08-06T13:10:25.623Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>JS执行原理 - Hexo</title>
+  <title>字面量增强 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="JS执行原理"></span>
+            <span id="subtitle" data-typed-text="字面量增强"></span>
           
         </div>
 
@@ -207,8 +207,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-03 14:55" pubdate>
-          2022年8月3日 下午
+        <time datetime="2022-08-06 21:00" pubdate>
+          2022年8月6日 晚上
         </time>
       </span>
     
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.2k 字
+          376 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          11 分钟
+          4 分钟
         
       </span>
     
@@ -268,62 +268,17 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">JS执行原理</h1>
+            <h1 style="display: none">字面量增强</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="代码执行过程"><a href="#代码执行过程" class="headerlink" title="代码执行过程"></a>代码执行过程</h2><h3 id="初始化全局对象"><a href="#初始化全局对象" class="headerlink" title="初始化全局对象"></a>初始化全局对象</h3><ul>
-<li>js引擎会在执行代码之前，会在<strong>堆</strong>内存中创建一个<strong>全局对象</strong>：Global Object（GO）<ul>
-<li>该对象所有的作用域（scope）都可以访问；</li>
-<li>里面会包含Date、Array、String、Number、setTimeout、setInterval等等；</li>
-<li>其中还有一个window属性指向自己； &#x2F;&#x2F;window居然是属性嘛</li>
-</ul>
-</li>
-</ul>
-<h3 id="执行上下文（-Execution-Contexts-）"><a href="#执行上下文（-Execution-Contexts-）" class="headerlink" title="执行上下文（ Execution Contexts ）"></a>执行上下文（ Execution Contexts ）</h3><ul>
-<li><p>他是执行代码的调用<strong>栈</strong></p>
-</li>
-<li><p>栈是执行代码的地方，堆是存放内存的地方</p>
-</li>
-<li><p>在栈的最底层是GO：Global Object；</p>
-</li>
-<li><p>在执行函数（fn）时，函数会创建一个新的对象，然后入栈，执行完毕后会出栈。</p>
-</li>
-<li><p>栈 先入后出</p>
-</li>
-<li><p>或许作用域链跟栈结构息息相关</p>
-</li>
-</ul>
-<h3 id="VO对象（Variable-Object）"><a href="#VO对象（Variable-Object）" class="headerlink" title="VO对象（Variable Object）"></a>VO对象（Variable Object）</h3><ul>
-<li><p>每一个执行上下文会关联一个VO（Variable Object，变量对象），变量和函数声明会被添加到这个VO对象中。</p>
-</li>
-<li><p>每一个函数调用时都会创建一个AO，与GO相对应。GO是全局，AO是函数个体。</p>
-</li>
-</ul>
-<h3 id="作用域和作用域链（Scope-Chain）"><a href="#作用域和作用域链（Scope-Chain）" class="headerlink" title="作用域和作用域链（Scope Chain）"></a>作用域和作用域链（Scope Chain）</h3><ul>
-<li>当进入到一个执行上下文(栈)时，执行上下文也会关联一个作用域链（Scope Chain）<ul>
-<li>作用域链是一个对象列表，用于变量标识符的求值；</li>
-<li>当建立作用域链时，变量的指向久已被确定。即使之后在不同位置被调用，建立作用域链时指定的变量不变，函数内的值也不变</li>
-</ul>
-</li>
-</ul>
-<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-selector-tag">var</span> message = <span class="hljs-string">&quot;Global Message&quot;</span><br>function <span class="hljs-built_in">foo</span>() &#123;<br>  console<span class="hljs-selector-class">.log</span>(message)<br>  <span class="hljs-selector-tag">var</span> message = <span class="hljs-string">&#x27;foo&#x27;</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-title">foo</span><span class="hljs-params">()</span></span> <span class="hljs-comment">//undefind </span><br></code></pre></td></tr></table></figure>
+                <h2 id="对象字面量增强"><a href="#对象字面量增强" class="headerlink" title="对象字面量增强"></a>对象字面量增强</h2><h3 id="属性的增强"><a href="#属性的增强" class="headerlink" title="属性的增强"></a>属性的增强</h3><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs actionscript"><span class="hljs-keyword">var</span> name = <span class="hljs-string">&#x27;s&#x27;</span><br><span class="hljs-keyword">var</span> age = <span class="hljs-number">4</span><br><br><span class="hljs-keyword">var</span> obj = &#123;<br>  name, <span class="hljs-comment">//name: name</span><br>  age <span class="hljs-comment">//age: age</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
-<ul>
-<li>需要message -&gt; 寻找自身 -&gt; 有 -&gt; 就不会去上层寻找</li>
-</ul>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-selector-tag">var</span> message = <span class="hljs-string">&quot;Global Message&quot;</span><br>function <span class="hljs-built_in">foo</span>() &#123;<br>  <span class="hljs-selector-tag">var</span> message = <span class="hljs-string">&#x27;foo&#x27;</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-title">foo</span><span class="hljs-params">()</span></span><br><br><span class="hljs-selector-tag">var</span> obj = &#123;<br>  name: <span class="hljs-string">&quot;obj&quot;</span>,<br>  bar: <span class="hljs-built_in">function</span>() &#123;<br>    <span class="hljs-selector-tag">var</span> message = <span class="hljs-string">&quot;bar message&quot;</span><br>    <span class="hljs-built_in">foo</span>() <span class="hljs-comment">//</span><br>  &#125;<br>&#125;<br><br>obj<span class="hljs-selector-class">.bar</span>() <span class="hljs-comment">//Global Message</span><br><br></code></pre></td></tr></table></figure>
+<h3 id="方法的增强"><a href="#方法的增强" class="headerlink" title="方法的增强"></a>方法的增强</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> obj = &#123;<br>  name,<br>  age,<br>  <span class="hljs-attr">running</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;  &#125;,<br>  <span class="hljs-title function_">swimming</span>(<span class="hljs-params"></span>) &#123; &#125; <span class="hljs-comment">//有this，增强</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
-<ul>
-<li>我们看到 obj.bar()调用，会先寻找函数内有没有message，然后看看obj里有没有message找到了，这时候就是忽略了作用域链的规则，当定义（创建？）函数时，作用域链已被确定。</li>
-<li>函数被定义时，作用域链已经确定，message指向的是第一个message</li>
-</ul>
-<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-keyword">var</span> n = <span class="hljs-number">100</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">foo</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(n)<br>  <span class="hljs-keyword">return</span><br>  <span class="hljs-keyword">var</span> n = <span class="hljs-number">200</span><br>&#125;<br>foo() <span class="hljs-comment">//undefined</span><br></code></pre></td></tr></table></figure>
+<h3 id="计算属性的增强"><a href="#计算属性的增强" class="headerlink" title="计算属性的增强"></a>计算属性的增强</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> key = <span class="hljs-string">&#x27;address&#x27;</span><br><br><span class="hljs-keyword">var</span> obj = &#123;<br>  name,<br>  age,<br>  <span class="hljs-attr">running</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;&#125;,<br>  <span class="hljs-title function_">swimming</span>(<span class="hljs-params"></span>) &#123;&#125;,<br>  <span class="hljs-attr">address</span>: <span class="hljs-string">&#x27;广州&#x27;</span>,<br>  [key]:<span class="hljs-string">&#x27;广州&#x27;</span> <span class="hljs-comment">//可以引入外部变量</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
-<ul>
-<li>在解析函数时，就直接把n提升了。遇到return是解析完后调用时的事。</li>
-</ul>
 
                 
               </div>
@@ -348,8 +303,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>JS执行原理</div>
-      <div>http://example.com/2022/08/03/JS执行原理/</div>
+      <div>字面量增强</div>
+      <div>http://example.com/2022/08/06/字面量增强/</div>
     </div>
     <div class="license-meta">
       
@@ -361,7 +316,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年8月3日</div>
+          <div>2022年8月6日</div>
         </div>
       
       
@@ -391,9 +346,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/08/05/JS%E5%8E%9F%E5%9E%8B/" title="JS原型">
+                      <a href="/2022/08/06/%E8%A7%A3%E6%9E%84/" title="解构">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">JS原型</span>
+                        <span class="hidden-mobile">解构</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -401,8 +356,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/08/03/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93/" title="浏览器渲染">
-                        <span class="hidden-mobile">浏览器渲染</span>
+                      <a href="/2022/08/06/JS%E5%A4%9A%E6%80%81/" title="JS多态">
+                        <span class="hidden-mobile">JS多态</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

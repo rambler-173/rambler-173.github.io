@@ -16,21 +16,32 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="website">
-<meta property="og:title" content="归档">
-<meta property="og:url" content="http://example.com/archives/page/2/index.html">
+    <meta name="description" content="闭包MDN解释 一个函数和对其周围状态（lexical environment，词法环境）的引用捆绑在一起（或者说函数被引用包围），这样的组合就是闭包（closure）；  也就是说，闭包让你可以在一个内层函数中访问到其外层函数的作用域；  在 JavaScript 中，每当创建一个函数，闭包就会在函数创建的同时被创建出来；   Feel 感觉你只要在函数中访问了作用域链，那么你就使用了闭包 从广">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS闭包">
+<meta property="og:url" content="http://example.com/2022/08/05/JS%E9%97%AD%E5%8C%85/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="闭包MDN解释 一个函数和对其周围状态（lexical environment，词法环境）的引用捆绑在一起（或者说函数被引用包围），这样的组合就是闭包（closure）；  也就是说，闭包让你可以在一个内层函数中访问到其外层函数的作用域；  在 JavaScript 中，每当创建一个函数，闭包就会在函数创建的同时被创建出来；   Feel 感觉你只要在函数中访问了作用域链，那么你就使用了闭包 从广">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-08-05T09:40:53.000Z">
+<meta property="article:modified_time" content="2022-08-06T09:32:12.135Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>归档 - Hexo</title>
+  <title>JS闭包 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 
@@ -80,7 +91,7 @@
   <header>
     
 
-<div class="header-inner" style="height: 60vh;">
+<div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -185,9 +196,49 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="归档"></span>
+            <span id="subtitle" data-typed-text="JS闭包"></span>
           
         </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-08-05 17:40" pubdate>
+          2022年8月5日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          288 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          3 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
 
         
       </div>
@@ -203,100 +254,181 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 45 篇文章</p>
-  <hr>
-  
-  
-    
       
-      <p class="h5">2022</p>
-    
-    <a href="/2022/07/27/JS%E5%AF%BC%E8%88%AA%E6%A0%8F%E5%88%87%E6%8D%A2/" class="list-group-item list-group-item-action">
-      <time>07-27</time>
-      <div class="list-group-item-title">JS导航栏切换</div>
-    </a>
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">JS闭包</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><h3 id="MDN解释"><a href="#MDN解释" class="headerlink" title="MDN解释"></a>MDN解释</h3><ul>
+<li><p>一个函数和对其周围状态（lexical environment，词法环境）的引用捆绑在一起（或者说函数被引用包围），这样的组合就是闭包（closure）；</p>
+</li>
+<li><p>也就是说，闭包让你可以在一个内层函数中访问到其外层函数的作用域；</p>
+</li>
+<li><p>在 JavaScript 中，每当创建一个函数，闭包就会在函数创建的同时被创建出来；</p>
+</li>
+</ul>
+<h3 id="Feel"><a href="#Feel" class="headerlink" title="Feel"></a>Feel</h3><ul>
+<li>感觉你只要在函数中访问了作用域链，那么你就使用了闭包</li>
+<li>从广义的角度来说：JavaScript中的函数都是闭包；</li>
+<li>从狭义的角度来说：JavaScript中一个函数，如果访问了外层作用域的变量，那么它是一个闭包；</li>
+</ul>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><ul>
+<li>请理解作用域链</li>
+<li>还有内存泄漏的问题，主要是影响性能。</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
   
-    
-    <a href="/2022/07/26/JS%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6/" class="list-group-item list-group-item-action">
-      <time>07-26</time>
-      <div class="list-group-item-title">JS鼠标事件</div>
-    </a>
   
-    
-    <a href="/2022/07/25/JS%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/" class="list-group-item list-group-item-action">
-      <time>07-25</time>
-      <div class="list-group-item-title">JS事件委托</div>
-    </a>
-  
-    
-    <a href="/2022/07/23/DOM%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3/" class="list-group-item list-group-item-action">
-      <time>07-23</time>
-      <div class="list-group-item-title">DOM初步了解</div>
-    </a>
-  
-    
-    <a href="/2022/07/21/JS%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/" class="list-group-item list-group-item-action">
-      <time>07-21</time>
-      <div class="list-group-item-title">JS高阶函数</div>
-    </a>
-  
-    
-    <a href="/2022/07/18/JS%E7%9A%84%E7%AE%80%E5%8D%95%E5%86%85%E5%AD%98/" class="list-group-item list-group-item-action">
-      <time>07-18</time>
-      <div class="list-group-item-title">JS的简单内存</div>
-    </a>
-  
-    
-    <a href="/2022/07/18/%E5%AF%B9%E8%B1%A1%E7%9A%84%E9%81%8D%E5%8E%86/" class="list-group-item list-group-item-action">
-      <time>07-18</time>
-      <div class="list-group-item-title">对象的遍历</div>
-    </a>
-  
-    
-    <a href="/2022/07/14/JS%E5%85%A5%E9%97%A8/" class="list-group-item list-group-item-action">
-      <time>07-14</time>
-      <div class="list-group-item-title">JS入门</div>
-    </a>
-  
-    
-    <a href="/2022/07/12/Less/" class="list-group-item list-group-item-action">
-      <time>07-12</time>
-      <div class="list-group-item-title">Less</div>
-    </a>
-  
-    
-    <a href="/2022/07/10/BFC/" class="list-group-item list-group-item-action">
-      <time>07-10</time>
-      <div class="list-group-item-title">BFC</div>
-    </a>
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/JS/">#JS</a>
+      
+    </div>
   
 </div>
 
 
-  <nav aria-label="navigation">
-    <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/archives/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/#board">3</a><a class="page-number" href="/archives/page/4/#board">4</a><a class="page-number" href="/archives/page/5/#board">5</a><a class="extend next" rel="next" href="/archives/page/3/#board"><i class="iconfont icon-arrowright"></i></a>
-    </span>
-  </nav>
+              
+  
 
-
-
-
-              </div>
-            </div>
-          </div>
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>JS闭包</div>
+      <div>http://example.com/2022/08/05/JS闭包/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年8月5日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
         </div>
       </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/08/06/JS%E5%A4%9A%E6%80%81/" title="JS多态">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">JS多态</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/08/05/JS%E5%8E%9F%E5%9E%8B/" title="JS原型">
+                        <span class="hidden-mobile">JS原型</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
     
 
     
@@ -390,6 +522,72 @@
 
 
 
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
 
   <script  src="/js/local-search.js" ></script>
 
