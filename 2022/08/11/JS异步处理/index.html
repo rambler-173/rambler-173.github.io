@@ -16,22 +16,22 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Proxy响应式 施工中  监听 就是属性改变时，我们可以获取到其改变及其改变的值 ES5  1234567891011121314const keys &#x3D; Object.keys(obj)for (const key of keys) &amp;#123;  let value &#x3D; obj[key]  Object.defineProperty(obj, key, &amp;#123;    set: func">
+    <meta name="description" content="前提 延迟获取的值无法用return返回，所以需要异步处理来获取  代码结构12345678910111213141516171819202122232425262728293031323334353637383940414243 function requestData(url) &amp;#123;  return new Promise((resolve, reject) &#x3D;&gt; &amp;#123;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS代理">
-<meta property="og:url" content="http://example.com/2022/08/09/JS%E4%BB%A3%E7%90%86/index.html">
+<meta property="og:title" content="JS异步处理">
+<meta property="og:url" content="http://example.com/2022/08/11/JS%E5%BC%82%E6%AD%A5%E5%A4%84%E7%90%86/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Proxy响应式 施工中  监听 就是属性改变时，我们可以获取到其改变及其改变的值 ES5  1234567891011121314const keys &#x3D; Object.keys(obj)for (const key of keys) &amp;#123;  let value &#x3D; obj[key]  Object.defineProperty(obj, key, &amp;#123;    set: func">
+<meta property="og:description" content="前提 延迟获取的值无法用return返回，所以需要异步处理来获取  代码结构12345678910111213141516171819202122232425262728293031323334353637383940414243 function requestData(url) &amp;#123;  return new Promise((resolve, reject) &#x3D;&gt; &amp;#123;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-08-09T03:54:35.000Z">
-<meta property="article:modified_time" content="2022-08-09T04:06:18.610Z">
+<meta property="article:published_time" content="2022-08-11T02:43:08.000Z">
+<meta property="article:modified_time" content="2022-08-11T03:15:14.246Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="JS">
+<meta property="article:tag" content="JS高阶">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>JS代理 - Hexo</title>
+  <title>JS异步处理 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="JS代理"></span>
+            <span id="subtitle" data-typed-text="JS异步处理"></span>
           
         </div>
 
@@ -207,8 +207,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-09 11:54" pubdate>
-          2022年8月9日 中午
+        <time datetime="2022-08-11 10:43" pubdate>
+          2022年8月11日 上午
         </time>
       </span>
     
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          704 字
+          2.2k 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          6 分钟
+          19 分钟
         
       </span>
     
@@ -268,37 +268,26 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">JS代理</h1>
+            <h1 style="display: none">JS异步处理</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h2><h3 id="响应式"><a href="#响应式" class="headerlink" title="响应式"></a>响应式</h3><ul>
-<li>施工中</li>
+                <h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><ul>
+<li>延迟获取的值无法用return返回，所以需要异步处理来获取</li>
 </ul>
-<h3 id="监听"><a href="#监听" class="headerlink" title="监听"></a>监听</h3><ul>
-<li>就是属性改变时，我们可以获取到其改变及其改变的值</li>
-<li>ES5</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> keys = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">keys</span>(obj)<br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> key <span class="hljs-keyword">of</span> keys) &#123;<br>  <span class="hljs-keyword">let</span> value = obj[key]<br>  <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">defineProperty</span>(obj, key, &#123;<br>    <span class="hljs-attr">set</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params">newValue</span>) &#123;<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`监听: 给<span class="hljs-subst">$&#123;key&#125;</span>设置了新的值:`</span>, newValue)<br>      value = newValue<br>    &#125;,<br>    <span class="hljs-attr">get</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`监听: 获取<span class="hljs-subst">$&#123;key&#125;</span>的值`</span>)<br>      <span class="hljs-keyword">return</span> value<br>    &#125;<br>  &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="代码结构"><a href="#代码结构" class="headerlink" title="代码结构"></a>代码结构</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs awk"> <span class="hljs-keyword">function</span> requestData(url) &#123;<br>  return new Promise((resolve, reject) =&gt; &#123;<br>    setTimeout(() =&gt; &#123;<br>      resolve(url)<br>    &#125;, <span class="hljs-number">2000</span>)<br>  &#125;)<br>&#125;   <br>需求: <br>    <span class="hljs-number">1</span>.发送一次网络请求, 等到这次网络请求的结果<br>    <span class="hljs-number">2</span>.发送第二次网络请求, 等待这次网络请求的结果<br>    <span class="hljs-number">3</span>.发送第三次网络请求, 等待这次网络请求的结果<br>*/<br><span class="hljs-regexp">//</span> 方式一: 层层嵌套(回调地狱 callback hell)<br><span class="hljs-regexp">//</span> <span class="hljs-keyword">function</span> getData() &#123;<br><span class="hljs-regexp">//</span>   <span class="hljs-regexp">//</span> <span class="hljs-number">1</span>.第一次请求<br><span class="hljs-regexp">//</span>   requestData(<span class="hljs-string">&quot;why&quot;</span>).then(res1 =&gt; &#123;<br><span class="hljs-regexp">//</span>     console.log(<span class="hljs-string">&quot;第一次结果:&quot;</span>, res1)<br><br><span class="hljs-regexp">//</span>     <span class="hljs-regexp">//</span> <span class="hljs-number">2</span>.第二次请求<br><span class="hljs-regexp">//</span>     requestData(res1 + <span class="hljs-string">&quot;kobe&quot;</span>).then(res2 =&gt; &#123;<br><span class="hljs-regexp">//</span>       console.log(<span class="hljs-string">&quot;第二次结果:&quot;</span>, res2)<br><br><span class="hljs-regexp">//</span>       <span class="hljs-regexp">//</span> <span class="hljs-number">3</span>.第三次请求<br><span class="hljs-regexp">//</span>       requestData(res2 + <span class="hljs-string">&quot;james&quot;</span>).then(res3 =&gt; &#123;<br><span class="hljs-regexp">//</span>         console.log(<span class="hljs-string">&quot;第三次结果:&quot;</span>, res3)<br><span class="hljs-regexp">//</span>       &#125;)<br><span class="hljs-regexp">//</span>     &#125;)<br><span class="hljs-regexp">//</span>   &#125;)<br><span class="hljs-regexp">//</span> &#125;<br><br><span class="hljs-regexp">//</span> 方式二: 使用Promise进行重构(解决回调地狱)<br><span class="hljs-regexp">//</span> 链式调用<br><span class="hljs-regexp">//</span> <span class="hljs-keyword">function</span> getData() &#123;<br><span class="hljs-regexp">//</span>   requestData(<span class="hljs-string">&quot;why&quot;</span>).then(res1 =&gt; &#123;<br><span class="hljs-regexp">//</span>     console.log(<span class="hljs-string">&quot;第一次结果:&quot;</span>, res1)<br><span class="hljs-regexp">//</span>     return requestData(res1 + <span class="hljs-string">&quot;kobe&quot;</span>)<br><span class="hljs-regexp">//</span>   &#125;).then(res2 =&gt; &#123;<br><span class="hljs-regexp">//</span>     console.log(<span class="hljs-string">&quot;第二次结果:&quot;</span>, res2)<br><span class="hljs-regexp">//</span>     return requestData(res2 + <span class="hljs-string">&quot;james&quot;</span>)<br><span class="hljs-regexp">//</span>   &#125;).then(res3 =&gt; &#123;<br><span class="hljs-regexp">//</span>     console.log(<span class="hljs-string">&quot;第三次结果:&quot;</span>, res3)<br><span class="hljs-regexp">//</span>   &#125;)<br><span class="hljs-regexp">//</span> &#125;<br></code></pre></td></tr></table></figure>
 
 <ul>
-<li><p>我们可以看到，这样很麻烦</p>
+<li><p>上面第一个没有第二个优雅，因为第一个是属于调用，就是一层层嵌套，而第二个只是返回了新的promise，属于链式调用。</p>
 </li>
-<li><p>其次，如果我们想监听更加丰富的操作，比如新增属性、删除属性，那么 Object.defineProperty是无能为力的。</p>
+<li><p>而第二种看着结构不够清晰，我们可以用生成器来进行进一步简化</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span> <span class="hljs-keyword">function</span>* getData() &#123;  <span class="hljs-regexp">//</span>*是生成器的标志<br> <span class="hljs-regexp">//</span>   const res1 = yield requestData(<span class="hljs-string">&quot;why&quot;</span>)<br> <span class="hljs-regexp">//</span>   console.log(<span class="hljs-string">&quot;res1:&quot;</span>, res1)<br>  <br> <span class="hljs-regexp">//</span>   const res2 = yield requestData(res1 + <span class="hljs-string">&quot;kobe&quot;</span>)<br> <span class="hljs-regexp">//</span>   console.log(<span class="hljs-string">&quot;res2:&quot;</span>, res2)<br>  <br> <span class="hljs-regexp">//</span>   const res3 = yield requestData(res2 + <span class="hljs-string">&quot;james&quot;</span>)<br> <span class="hljs-regexp">//</span>   console.log(<span class="hljs-string">&quot;res3:&quot;</span>, res3)<br> <span class="hljs-regexp">//</span> &#125;<br>  <br> <span class="hljs-regexp">//</span> const generator = getData()<br> <span class="hljs-regexp">//</span> generator.<span class="hljs-keyword">next</span>().value.then(res1 =&gt; &#123;  <span class="hljs-regexp">//yi</span>eld返回一个对象，value是yield后面的值<br> <span class="hljs-regexp">//</span>   generator.<span class="hljs-keyword">next</span>(res1).value.then(res2 =&gt; &#123;<br> <span class="hljs-regexp">//</span>     generator.<span class="hljs-keyword">next</span>(res2).value.then(res3 =&gt; &#123;<br> <span class="hljs-regexp">//</span>       generator.<span class="hljs-keyword">next</span>(res3)<br> <span class="hljs-regexp">//</span>     &#125;)<br> <span class="hljs-regexp">//</span>   &#125;)<br> <span class="hljs-regexp">//</span> &#125;)<br></code></pre></td></tr></table></figure>
 </li>
-<li><p>因为Object.defineProperty设计的初衷，不是为了去监听截止一个对象中 所有的属性的。</p>
+<li><p>这样的话看着就清晰多了，但感觉只是清晰了，我们可以看看有没有更好的办法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">getData</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">const</span> res1 = <span class="hljs-keyword">await</span> <span class="hljs-title function_">requestData</span>(<span class="hljs-string">&quot;why&quot;</span>)<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;res1:&quot;</span>, res1)<br>  <br>  <span class="hljs-keyword">const</span> res2 = <span class="hljs-keyword">await</span> <span class="hljs-title function_">requestData</span>(res1 + <span class="hljs-string">&quot;kobe&quot;</span>)<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;res2:&quot;</span>, res2)<br>  <br>  <span class="hljs-keyword">const</span> res3 = <span class="hljs-keyword">await</span> <span class="hljs-title function_">requestData</span>(res2 + <span class="hljs-string">&quot;james&quot;</span>)<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;res3:&quot;</span>, res3)<br>&#125;<br>  <br><span class="hljs-keyword">const</span> generator = <span class="hljs-title function_">getData</span>()<br></code></pre></td></tr></table></figure>
 </li>
-</ul>
-<h4 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h4><ul>
-<li><p>在ES6中，新增了一个Proxy类，这个类从名字就可以看出来，是用于帮助我们创建一个代理的：</p>
-</li>
-<li><p>首先，我们需要new Proxy对象，并且传入需要侦听的对象以及一个处理对象，可以称之为handler；</p>
-<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs aspectj"><span class="hljs-keyword">const</span> p = <span class="hljs-keyword">new</span> Proxy(<span class="hljs-keyword">target</span>, <span class="hljs-keyword">handler</span>)<br></code></pre></td></tr></table></figure>
-</li>
-<li><p>其次，我们之后的操作都是直接对Proxy的操作，而不是原有的对象，因为我们需要在handler里面进行侦听；</p>
-</li>
-<li><p>如果我们想要侦听某些具体的操作，那么就可以在handler中添加对应的捕捉器（Trap）：</p>
+<li><p>async和await是生成器的语法糖，使用了语法糖后的代码太优雅。太简洁了。这就是代码的艺术嘛</p>
 </li>
 </ul>
 
@@ -313,7 +302,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/JS/">#JS</a>
+        <a href="/tags/JS%E9%AB%98%E9%98%B6/">#JS高阶</a>
       
     </div>
   
@@ -325,8 +314,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>JS代理</div>
-      <div>http://example.com/2022/08/09/JS代理/</div>
+      <div>JS异步处理</div>
+      <div>http://example.com/2022/08/11/JS异步处理/</div>
     </div>
     <div class="license-meta">
       
@@ -338,7 +327,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年8月9日</div>
+          <div>2022年8月11日</div>
         </div>
       
       
@@ -368,9 +357,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/08/10/JS%E8%BF%AD%E4%BB%A3%E5%99%A8/" title="JS迭代器">
+                      <a href="/2022/08/13/JS%E9%98%B2%E6%8A%96/" title="JS防抖">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">JS迭代器</span>
+                        <span class="hidden-mobile">JS防抖</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -378,8 +367,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/08/06/%E8%A7%A3%E6%9E%84/" title="解构">
-                        <span class="hidden-mobile">解构</span>
+                      <a href="/2022/08/10/JS%E8%BF%AD%E4%BB%A3%E5%99%A8/" title="JS迭代器">
+                        <span class="hidden-mobile">JS迭代器</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

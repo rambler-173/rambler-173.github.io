@@ -16,22 +16,22 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Proxy响应式 施工中  监听 就是属性改变时，我们可以获取到其改变及其改变的值 ES5  1234567891011121314const keys &#x3D; Object.keys(obj)for (const key of keys) &amp;#123;  let value &#x3D; obj[key]  Object.defineProperty(obj, key, &amp;#123;    set: func">
+    <meta name="description" content="浅拷贝定义 只是浅层的拷贝，内部引入对象时，依然会相互影响；      const obj2 &#x3D; &amp;#123; ...info &amp;#125;     obj2.name &#x3D; &quot;james&quot;  &#x2F;&#x2F;展开运算符     obj2.friend.name &#x3D; &quot;james&quot;     console.log(info.friend.name) 12345678910">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS代理">
-<meta property="og:url" content="http://example.com/2022/08/09/JS%E4%BB%A3%E7%90%86/index.html">
+<meta property="og:title" content="JS浅拷贝深拷贝">
+<meta property="og:url" content="http://example.com/2022/08/13/JS%E6%B5%85%E6%8B%B7%E8%B4%9D%E6%B7%B1%E6%8B%B7%E8%B4%9D/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Proxy响应式 施工中  监听 就是属性改变时，我们可以获取到其改变及其改变的值 ES5  1234567891011121314const keys &#x3D; Object.keys(obj)for (const key of keys) &amp;#123;  let value &#x3D; obj[key]  Object.defineProperty(obj, key, &amp;#123;    set: func">
+<meta property="og:description" content="浅拷贝定义 只是浅层的拷贝，内部引入对象时，依然会相互影响；      const obj2 &#x3D; &amp;#123; ...info &amp;#125;     obj2.name &#x3D; &quot;james&quot;  &#x2F;&#x2F;展开运算符     obj2.friend.name &#x3D; &quot;james&quot;     console.log(info.friend.name) 12345678910">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-08-09T03:54:35.000Z">
-<meta property="article:modified_time" content="2022-08-09T04:06:18.610Z">
+<meta property="article:published_time" content="2022-08-13T09:46:43.000Z">
+<meta property="article:modified_time" content="2022-08-13T13:02:38.112Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>JS代理 - Hexo</title>
+  <title>JS浅拷贝深拷贝 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="JS代理"></span>
+            <span id="subtitle" data-typed-text="JS浅拷贝深拷贝"></span>
           
         </div>
 
@@ -207,8 +207,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-09 11:54" pubdate>
-          2022年8月9日 中午
+        <time datetime="2022-08-13 17:46" pubdate>
+          2022年8月13日 下午
         </time>
       </span>
     
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          704 字
+          1.4k 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          6 分钟
+          12 分钟
         
       </span>
     
@@ -268,38 +268,40 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">JS代理</h1>
+            <h1 style="display: none">JS浅拷贝深拷贝</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h2><h3 id="响应式"><a href="#响应式" class="headerlink" title="响应式"></a>响应式</h3><ul>
-<li>施工中</li>
-</ul>
-<h3 id="监听"><a href="#监听" class="headerlink" title="监听"></a>监听</h3><ul>
-<li>就是属性改变时，我们可以获取到其改变及其改变的值</li>
-<li>ES5</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> keys = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">keys</span>(obj)<br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> key <span class="hljs-keyword">of</span> keys) &#123;<br>  <span class="hljs-keyword">let</span> value = obj[key]<br>  <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">defineProperty</span>(obj, key, &#123;<br>    <span class="hljs-attr">set</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params">newValue</span>) &#123;<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`监听: 给<span class="hljs-subst">$&#123;key&#125;</span>设置了新的值:`</span>, newValue)<br>      value = newValue<br>    &#125;,<br>    <span class="hljs-attr">get</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`监听: 获取<span class="hljs-subst">$&#123;key&#125;</span>的值`</span>)<br>      <span class="hljs-keyword">return</span> value<br>    &#125;<br>  &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<ul>
-<li><p>我们可以看到，这样很麻烦</p>
+                <h2 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ul>
+<li><p>只是浅层的拷贝，内部引入对象时，依然会相互影响；</p>
 </li>
-<li><p>其次，如果我们想监听更加丰富的操作，比如新增属性、删除属性，那么 Object.defineProperty是无能为力的。</p>
+<li><pre><code class="hljs">    const obj2 = &#123; ...info &#125;
+    obj2.name = &quot;james&quot;  //展开运算符
+    obj2.friend.name = &quot;james&quot;
+    console.log(info.friend.name)
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs haxe"><br>- 会将info里面得内容拷贝到obj2里面，obj2改变值时info不改变。但是如果是改变拷贝过来得函数得话，info里面得也会改变。因为拷贝过来的函数只是内存地址<br><br><br><br><span class="hljs-meta">## 深拷贝</span><br><br>- 拷贝过来之后和拷贝对象没有关系。改变里面的任何值拷贝对象也不会被改变<br>- JS中没有可以直接深拷贝的方法，因为太消耗资源了。而且用的地方也不多。<br><br><span class="hljs-meta">### 实现</span><br><br>- 可以遍历对象中的数据，当遇到对象类型的时再对其进行遍历。这样的话递归是比较合适的<br><br>- ```<br>  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">deepcopy</span></span>(value) &#123;<br>        <span class="hljs-comment">// 1.如果是原始类型, 直接返回</span><br>    <span class="hljs-keyword">if</span>(!isObject(value)) &#123;<br>      <span class="hljs-keyword">return</span> value<br>    &#125;<br>  <br>  <span class="hljs-comment">// 2.如果是对象类型, 才需要创建对象</span><br>    const <span class="hljs-keyword">new</span><span class="hljs-type">Obj</span> = &#123;&#125;<br>    <span class="hljs-keyword">for</span> (const key <span class="hljs-keyword">in</span> value)&#123;<br>      <span class="hljs-keyword">new</span><span class="hljs-type">Obj</span>[key] = deepcopy(value[key])<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span><span class="hljs-type">Obj</span><br>  &#125;<br></code></pre></td></tr></table></figure>
+</code></pre>
 </li>
-<li><p>因为Object.defineProperty设计的初衷，不是为了去监听截止一个对象中 所有的属性的。</p>
+<li><p>当传入一个数组时，依旧输出一个对象。这是我们不想看到的。</p>
 </li>
-</ul>
-<h4 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h4><ul>
-<li><p>在ES6中，新增了一个Proxy类，这个类从名字就可以看出来，是用于帮助我们创建一个代理的：</p>
+<li><p>可是typeof无法判断出时对象还是数组</p>
 </li>
-<li><p>首先，我们需要new Proxy对象，并且传入需要侦听的对象以及一个处理对象，可以称之为handler；</p>
-<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs aspectj"><span class="hljs-keyword">const</span> p = <span class="hljs-keyword">new</span> Proxy(<span class="hljs-keyword">target</span>, <span class="hljs-keyword">handler</span>)<br></code></pre></td></tr></table></figure>
+<li><p>还有一个方法is.Array</p>
 </li>
-<li><p>其次，我们之后的操作都是直接对Proxy的操作，而不是原有的对象，因为我们需要在handler里面进行侦听；</p>
+<li><pre><code class="hljs">const newObj = Array.isArray(originValue) ? []: &#123;&#125;
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs haxe"><br><span class="hljs-meta">### 其他情况</span><br><br>- 遇到<span class="hljs-keyword">set</span>类型时无法正常拷贝，因为其不支持<span class="hljs-keyword">for</span> <span class="hljs-keyword">in</span>方法  <span class="hljs-comment">//set是啥来着</span><br><br>- ```<br>       <span class="hljs-keyword">if</span> (typeof originValue === <span class="hljs-string">&quot;symbol&quot;</span>) &#123;<br>          <span class="hljs-keyword">return</span> Symbol(originValue.description)<br>        &#125;<br>  	<span class="hljs-keyword">if</span> (originValue instanceof Set) &#123;<br>          const <span class="hljs-keyword">new</span><span class="hljs-type">Set</span> = <span class="hljs-keyword">new</span> <span class="hljs-type">Set</span>()<br>          <span class="hljs-keyword">for</span> (const setItem of originValue) &#123;<br>            <span class="hljs-keyword">new</span><span class="hljs-type">Set</span>.add(deepCopy(setItem))<br>          &#125;<br>          <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span><span class="hljs-type">Set</span><br>        &#125;<br>        <span class="hljs-comment">// 单独遍历symbol</span><br>        const symbolKeys = Object.getOwnPropertySymbols(originValue)<br>        <span class="hljs-keyword">for</span> (const symbolKey of symbolKeys) &#123;<br>          <span class="hljs-keyword">new</span><span class="hljs-type">Obj</span>[Symbol(symbolKey.description)] = deepCopy(originValue[symbolKey])<br>        &#125;<br></code></pre></td></tr></table></figure>
+</code></pre>
 </li>
-<li><p>如果我们想要侦听某些具体的操作，那么就可以在handler中添加对应的捕捉器（Trap）：</p>
+<li></li>
+<li><p>遇到symbol时因为其特殊性所以要加   &#x2F;&#x2F;什么特殊性我忘了</p>
 </li>
+<li><pre><code class="hljs">     if (typeof originValue === &quot;symbol&quot;) &#123;
+        return Symbol(originValue.description)
+      &#125;
+</code></pre>
+</li>
+<li></li>
 </ul>
 
                 
@@ -325,8 +327,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>JS代理</div>
-      <div>http://example.com/2022/08/09/JS代理/</div>
+      <div>JS浅拷贝深拷贝</div>
+      <div>http://example.com/2022/08/13/JS浅拷贝深拷贝/</div>
     </div>
     <div class="license-meta">
       
@@ -338,7 +340,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年8月9日</div>
+          <div>2022年8月13日</div>
         </div>
       
       
@@ -368,9 +370,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/08/10/JS%E8%BF%AD%E4%BB%A3%E5%99%A8/" title="JS迭代器">
+                      <a href="/2022/08/13/JS%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B0%81%E8%A3%85/" title="JS判断是否对象的封装">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">JS迭代器</span>
+                        <span class="hidden-mobile">JS判断是否对象的封装</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -378,8 +380,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/08/06/%E8%A7%A3%E6%9E%84/" title="解构">
-                        <span class="hidden-mobile">解构</span>
+                      <a href="/2022/08/13/JS%E9%98%B2%E6%8A%96/" title="JS防抖">
+                        <span class="hidden-mobile">JS防抖</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
