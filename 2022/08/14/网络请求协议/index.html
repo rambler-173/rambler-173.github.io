@@ -16,22 +16,22 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="12345678function isObject(value) &amp;#123;  &#x2F;&#x2F; null,object,function,array  &#x2F;&#x2F; null -&gt; object  &#x2F;&#x2F; function -&gt; function -&gt; true  &#x2F;&#x2F; object&#x2F;array -&gt; object -&gt; true  const valueType &#x3D; typeof v">
+    <meta name="description" content="什么是HTTP 什么是HTTP呢？我们来看一下维基百科的解释  超文本传输协议（英语：HyperText Transfer Protocol，缩写：HTTP）是一种用于分布式、协作式和超媒体信息系统的应用层协议；  HTTP是万维网的数据通信的基础，设计HTTP最初的目的是为了提供一种发布和接收HTML页面的方法；  通过HTTP或者HTTPS协议请求的资源由统一资源标识符（Uniform R">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS判断是否对象的封装">
-<meta property="og:url" content="http://example.com/2022/08/13/JS%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B0%81%E8%A3%85/index.html">
+<meta property="og:title" content="JS网络请求协议">
+<meta property="og:url" content="http://example.com/2022/08/14/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E5%8D%8F%E8%AE%AE/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="12345678function isObject(value) &amp;#123;  &#x2F;&#x2F; null,object,function,array  &#x2F;&#x2F; null -&gt; object  &#x2F;&#x2F; function -&gt; function -&gt; true  &#x2F;&#x2F; object&#x2F;array -&gt; object -&gt; true  const valueType &#x3D; typeof v">
+<meta property="og:description" content="什么是HTTP 什么是HTTP呢？我们来看一下维基百科的解释  超文本传输协议（英语：HyperText Transfer Protocol，缩写：HTTP）是一种用于分布式、协作式和超媒体信息系统的应用层协议；  HTTP是万维网的数据通信的基础，设计HTTP最初的目的是为了提供一种发布和接收HTML页面的方法；  通过HTTP或者HTTPS协议请求的资源由统一资源标识符（Uniform R">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-08-13T12:29:40.000Z">
-<meta property="article:modified_time" content="2022-08-13T12:33:39.931Z">
+<meta property="article:published_time" content="2022-08-14T10:14:39.000Z">
+<meta property="article:modified_time" content="2022-08-15T03:11:41.974Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="小工具">
+<meta property="article:tag" content="HTTP">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>JS判断是否对象的封装 - Hexo</title>
+  <title>JS网络请求协议 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="JS判断是否对象的封装"></span>
+            <span id="subtitle" data-typed-text="JS网络请求协议"></span>
           
         </div>
 
@@ -207,8 +207,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-13 20:29" pubdate>
-          2022年8月13日 晚上
+        <time datetime="2022-08-14 18:14" pubdate>
+          2022年8月14日 晚上
         </time>
       </span>
     
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          276 字
+          1.2k 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          3 分钟
+          10 分钟
         
       </span>
     
@@ -268,15 +268,60 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">JS判断是否对象的封装</h1>
+            <h1 style="display: none">JS网络请求协议</h1>
             
             
               <div class="markdown-body">
                 
-                <figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">function</span> isObject(<span class="hljs-keyword">value</span>) &#123;<br>  // <span class="hljs-keyword">null</span>,<span class="hljs-keyword">object</span>,<span class="hljs-keyword">function</span>,<span class="hljs-keyword">array</span><br>  // <span class="hljs-keyword">null</span> -&gt; <span class="hljs-keyword">object</span><br>  // <span class="hljs-keyword">function</span> -&gt; <span class="hljs-keyword">function</span> -&gt; <span class="hljs-keyword">true</span><br>  // <span class="hljs-keyword">object</span>/<span class="hljs-keyword">array</span> -&gt; <span class="hljs-keyword">object</span> -&gt; <span class="hljs-keyword">true</span><br>  const valueType = typeof <span class="hljs-keyword">value</span><br>  <span class="hljs-keyword">return</span> (<span class="hljs-keyword">value</span> !== <span class="hljs-keyword">null</span>) &amp;&amp; ( valueType === &quot;object&quot; || valueType === &quot;function&quot; )<br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
+                <h2 id="什么是HTTP"><a href="#什么是HTTP" class="headerlink" title="什么是HTTP"></a>什么是HTTP</h2><ul>
+<li><p>什么是HTTP呢？我们来看一下维基百科的解释</p>
+<ul>
+<li>超文本传输协议（英语：HyperText Transfer Protocol，缩写：HTTP）是一种用于分布式、协作式和超媒体信息系统的应用层协议；</li>
+<li> HTTP是万维网的数据通信的基础，设计HTTP最初的目的是为了提供一种发布和接收HTML页面的方法；</li>
+<li> 通过HTTP或者HTTPS协议请求的资源由统一资源标识符（Uniform Resource Identifiers，URI）来标识；</li>
+</ul>
+</li>
+<li><p>HTTP是一个客户端（用户）和服务端（网站）之间请求和响应的标准。</p>
+<ul>
+<li>通过使用网页浏览器、网络爬虫或者其它的工具，客户端发起一个HTTP请求到服务器上指定端口（默认端口为80）；<ul>
+<li>✓ 我们称这个客户端为用户代理程序（user agent）；</li>
+</ul>
+</li>
+<li> 响应的服务器上存储着一些资源，比如HTML文件和图像。 </li>
+<li>✓ 我们称这个响应服务器为源服务器（origin server）；</li>
+</ul>
+</li>
+</ul>
+<h2 id="HTTP的组成"><a href="#HTTP的组成" class="headerlink" title="HTTP的组成"></a>HTTP的组成</h2><ul>
+<li>一次HTTP请求主要包括：请求（Request）和响应（Response）</li>
+</ul>
+<p>![](C:\Users\admin\Desktop\vue\blog\hexoblog\source\images\HTTP R.png)</p>
+<h2 id="HTTP的请求方式"><a href="#HTTP的请求方式" class="headerlink" title="HTTP的请求方式"></a>HTTP的请求方式</h2><ul>
+<li><p> GET：GET 方法请求一个指定资源的表示形式，使用 GET 的请求应该只被用于获取数据。</p>
+</li>
+<li><p> HEAD：HEAD 方法请求一个与 GET 请求的响应相同的响应，但没有响应体。 ✓ 比如在准备下载一个文件前，先获取文件的大小，再决定是否进行下载；  POST：POST 方法用于将实体提交到指定的资源。</p>
+</li>
+<li><p> PUT：PUT 方法用请求有效载荷（payload）替换目标资源的所有当前表示；</p>
+</li>
+<li><p> DELETE：DELETE 方法删除指定的资源；</p>
+</li>
+<li><p> PATCH：PATCH 方法用于对资源应部分修改；</p>
+</li>
+<li><p> CONNECT：CONNECT 方法建立一个到目标资源标识的服务器的隧道，通常用在代理服务器，网页开发很少用到。</p>
+</li>
+<li><p> TRACE：TRACE 方法沿着到目标资源的路径执行一个消息环回测试。</p>
+</li>
+<li><p>一般都是GET和HEAD方法</p>
+</li>
+</ul>
+<h2 id="HTTP请求头"><a href="#HTTP请求头" class="headerlink" title="HTTP请求头"></a>HTTP请求头</h2><h3 id="content-type是这次请求携带的数据的类型："><a href="#content-type是这次请求携带的数据的类型：" class="headerlink" title="content-type是这次请求携带的数据的类型："></a>content-type是这次请求携带的数据的类型：</h3><ul>
+<li> application&#x2F;x-www-form-urlencoded：表示数据被编码成以 ‘&amp;’ 分隔的键 - 值对，同时以 ‘&#x3D;’ 分隔键和值 </li>
+<li> application&#x2F;json：表示是一个json类型； </li>
+<li> text&#x2F;plain：表示是文本类型； </li>
+<li> application&#x2F;xml：表示是xml类型；</li>
+<li> multipart&#x2F;form-data：表示是上传文件；</li>
+</ul>
+<h3 id="content-length：文件的大小长度"><a href="#content-length：文件的大小长度" class="headerlink" title="content-length：文件的大小长度"></a>content-length：文件的大小长度</h3><h2 id="HTTP请求头响应状态码"><a href="#HTTP请求头响应状态码" class="headerlink" title="HTTP请求头响应状态码"></a>HTTP请求头响应状态码</h2><p>![](C:\Users\admin\Desktop\vue\blog\hexoblog\source\images\HTTP code.png)</p>
 
                 
               </div>
@@ -289,7 +334,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%B0%8F%E5%B7%A5%E5%85%B7/">#小工具</a>
+        <a href="/tags/HTTP/">#HTTP</a>
       
     </div>
   
@@ -301,8 +346,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>JS判断是否对象的封装</div>
-      <div>http://example.com/2022/08/13/JS判断是否对象的封装/</div>
+      <div>JS网络请求协议</div>
+      <div>http://example.com/2022/08/14/网络请求协议/</div>
     </div>
     <div class="license-meta">
       
@@ -314,7 +359,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年8月13日</div>
+          <div>2022年8月14日</div>
         </div>
       
       
@@ -344,9 +389,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/08/14/JS%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF/" title="JS事件总线">
+                      <a href="/2022/08/15/JS%E5%8F%91%E9%80%81%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/" title="JS发送网络请求">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">JS事件总线</span>
+                        <span class="hidden-mobile">JS发送网络请求</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -354,8 +399,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/08/13/JS%E6%B5%85%E6%8B%B7%E8%B4%9D%E6%B7%B1%E6%8B%B7%E8%B4%9D/" title="JS浅拷贝深拷贝">
-                        <span class="hidden-mobile">JS浅拷贝深拷贝</span>
+                      <a href="/2022/08/14/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/" title="前后端分离">
+                        <span class="hidden-mobile">前后端分离</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

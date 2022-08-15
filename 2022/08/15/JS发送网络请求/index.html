@@ -16,22 +16,24 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="12345678function isObject(value) &amp;#123;  &#x2F;&#x2F; null,object,function,array  &#x2F;&#x2F; null -&gt; object  &#x2F;&#x2F; function -&gt; function -&gt; true  &#x2F;&#x2F; object&#x2F;array -&gt; object -&gt; true  const valueType &#x3D; typeof v">
+    <meta name="description" content="AJAX发送请求 AJAX 是异步的 JavaScript 和 XML（Asynchronous JavaScript And XML） 它可以使用 JSON，XML，HTML 和 text 文本等格式发送和接收数据；    如何来完成AJAX请求呢？  第一步：创建网络请求的AJAX对象（使用XMLHttpRequest）  第二步：监听XMLHttpRequest对象状态的变化，或者监听o">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS判断是否对象的封装">
-<meta property="og:url" content="http://example.com/2022/08/13/JS%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B0%81%E8%A3%85/index.html">
+<meta property="og:title" content="JS发送网络请求">
+<meta property="og:url" content="http://example.com/2022/08/15/JS%E5%8F%91%E9%80%81%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="12345678function isObject(value) &amp;#123;  &#x2F;&#x2F; null,object,function,array  &#x2F;&#x2F; null -&gt; object  &#x2F;&#x2F; function -&gt; function -&gt; true  &#x2F;&#x2F; object&#x2F;array -&gt; object -&gt; true  const valueType &#x3D; typeof v">
+<meta property="og:description" content="AJAX发送请求 AJAX 是异步的 JavaScript 和 XML（Asynchronous JavaScript And XML） 它可以使用 JSON，XML，HTML 和 text 文本等格式发送和接收数据；    如何来完成AJAX请求呢？  第一步：创建网络请求的AJAX对象（使用XMLHttpRequest）  第二步：监听XMLHttpRequest对象状态的变化，或者监听o">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-08-13T12:29:40.000Z">
-<meta property="article:modified_time" content="2022-08-13T12:33:39.931Z">
+<meta property="og:image" content="c:/Users/admin/Desktop/vue/blog/hexoblog/source/images/XMLstate.png">
+<meta property="article:published_time" content="2022-08-15T03:12:12.000Z">
+<meta property="article:modified_time" content="2022-08-15T04:41:15.562Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="小工具">
+<meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="c:/Users/admin/Desktop/vue/blog/hexoblog/source/images/XMLstate.png">
   
   
   
-  <title>JS判断是否对象的封装 - Hexo</title>
+  <title>JS发送网络请求 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +198,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="JS判断是否对象的封装"></span>
+            <span id="subtitle" data-typed-text="JS发送网络请求"></span>
           
         </div>
 
@@ -207,8 +209,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-13 20:29" pubdate>
-          2022年8月13日 晚上
+        <time datetime="2022-08-15 11:12" pubdate>
+          2022年8月15日 上午
         </time>
       </span>
     
@@ -219,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          276 字
+          2.3k 字
         
       </span>
     
@@ -230,7 +232,7 @@
         
         
         
-          3 分钟
+          19 分钟
         
       </span>
     
@@ -268,14 +270,53 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">JS判断是否对象的封装</h1>
+            <h1 style="display: none">JS发送网络请求</h1>
             
             
               <div class="markdown-body">
                 
-                <figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">function</span> isObject(<span class="hljs-keyword">value</span>) &#123;<br>  // <span class="hljs-keyword">null</span>,<span class="hljs-keyword">object</span>,<span class="hljs-keyword">function</span>,<span class="hljs-keyword">array</span><br>  // <span class="hljs-keyword">null</span> -&gt; <span class="hljs-keyword">object</span><br>  // <span class="hljs-keyword">function</span> -&gt; <span class="hljs-keyword">function</span> -&gt; <span class="hljs-keyword">true</span><br>  // <span class="hljs-keyword">object</span>/<span class="hljs-keyword">array</span> -&gt; <span class="hljs-keyword">object</span> -&gt; <span class="hljs-keyword">true</span><br>  const valueType = typeof <span class="hljs-keyword">value</span><br>  <span class="hljs-keyword">return</span> (<span class="hljs-keyword">value</span> !== <span class="hljs-keyword">null</span>) &amp;&amp; ( valueType === &quot;object&quot; || valueType === &quot;function&quot; )<br>&#125;<br></code></pre></td></tr></table></figure>
+                <h2 id="AJAX发送请求"><a href="#AJAX发送请求" class="headerlink" title="AJAX发送请求"></a>AJAX发送请求</h2><ul>
+<li>AJAX 是异步的 JavaScript 和 XML（Asynchronous JavaScript And XML）<ul>
+<li>它可以使用 JSON，XML，HTML 和 text 文本等格式发送和接收数据；</li>
+</ul>
+</li>
+</ul>
+<h4 id="如何来完成AJAX请求呢？"><a href="#如何来完成AJAX请求呢？" class="headerlink" title="如何来完成AJAX请求呢？"></a>如何来完成AJAX请求呢？</h4><ul>
+<li> 第一步：创建网络请求的AJAX对象（使用XMLHttpRequest）</li>
+<li> 第二步：监听XMLHttpRequest对象状态的变化，或者监听onload事件（请求完成时触发）； </li>
+<li> 第三步：配置网络请求（通过open方法）； </li>
+<li> 第四步：发送send网络请求；</li>
+</ul>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span> <span class="hljs-number">1</span>.创建XMLHttpRequest对象<br> const xhr = new XMLHttpRequest()<br><br> <span class="hljs-regexp">//</span> <span class="hljs-number">2</span>.监听状态的改变(宏任务)<br> xhr.onreadystatechange = <span class="hljs-keyword">function</span>() &#123;<br>   <span class="hljs-regexp">//</span> console.log(xhr.response)<br>   <span class="hljs-keyword">if</span> (xhr.readyState !== XMLHttpRequest.DONE) return  <span class="hljs-regexp">//</span>XMLHttpRequest共有四个状态不判断的话会进行四次<br><br>   <span class="hljs-regexp">//</span> 将字符串转成JSON对象(js对象)<br>   const resJSON = JSON.parse(xhr.response)<br>   const banners = resJSON.data.banner.list<br>   console.log(banners)<br> &#125;<br><br> <span class="hljs-regexp">//</span> <span class="hljs-number">3</span>.配置请求open<br> <span class="hljs-regexp">//</span> method: 请求的方式(get<span class="hljs-regexp">/post/</span><span class="hljs-keyword">delete</span><span class="hljs-regexp">/put/</span>patch...)<br> <span class="hljs-regexp">//</span> url: 请求的地址<br> xhr.open(<span class="hljs-string">&quot;get&quot;</span>, <span class="hljs-string">&quot;http://123.207.32.32:8000/home/multidata&quot;</span>)<br><br> <span class="hljs-regexp">//</span> <span class="hljs-number">4</span>.发送请求(浏览器帮助发送对应请求)<br> xhr.send()<br><br></code></pre></td></tr></table></figure>
 
-
+<h4 id="XMLHttpRequest的state（状态）"><a href="#XMLHttpRequest的state（状态）" class="headerlink" title="XMLHttpRequest的state（状态）"></a>XMLHttpRequest的state（状态）</h4><ul>
+<li>事实上，我们在一次网络请求中看到状态发生了很多次变化，这是因为对于一次请求来说包括如下的状态：</li>
+</ul>
+<p><img src="C:\Users\admin\Desktop\vue\blog\hexoblog\source\images\XMLstate.png" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li><p>发送同步请求：</p>
+<ul>
+<li>将open的第三个参数设置为false</li>
+</ul>
+</li>
+</ul>
+<h3 id="XMLHttpRequest其他事件监听"><a href="#XMLHttpRequest其他事件监听" class="headerlink" title="XMLHttpRequest其他事件监听"></a>XMLHttpRequest其他事件监听</h3><h5 id="除了onreadystatechange还有其他的事件可以监听"><a href="#除了onreadystatechange还有其他的事件可以监听" class="headerlink" title="除了onreadystatechange还有其他的事件可以监听"></a>除了onreadystatechange还有其他的事件可以监听</h5><ul>
+<li> loadstart：请求开始。 </li>
+<li> progress： 一个响应数据包到达，此时整个 response body 都在 response 中。 </li>
+<li> abort：调用 xhr.abort() 取消了请求。 </li>
+<li> error：发生连接错误，例如，域错误。不会发生诸如 404 这类的 HTTP 错误。 </li>
+<li> load：请求成功完成。 </li>
+<li> timeout：由于请求超时而取消了该请求（仅发生在设置了 timeout 的情况下）。</li>
+<li> loadend：在 load，error，timeout 或 abort 之后触发。</li>
+</ul>
+<h4 id="HTTP响应的状态status"><a href="#HTTP响应的状态status" class="headerlink" title="HTTP响应的状态status"></a>HTTP响应的状态status</h4><p>![](C:\Users\admin\Desktop\vue\blog\hexoblog\source\images\HTTP code.png)</p>
+<h4 id="GET-x2F-POST请求传递参数"><a href="#GET-x2F-POST请求传递参数" class="headerlink" title="GET&#x2F;POST请求传递参数"></a>GET&#x2F;POST请求传递参数</h4><ul>
+<li>方式一：GET请求的query参数</li>
+<li>方式二：POST请求 x-www-form-urlencoded 格式  </li>
+<li>方式三：POST请求 FormData 格式  </li>
+<li>方式四：POST请求 JSON 格式</li>
+</ul>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span> <span class="hljs-number">1</span>.传递参数方式一: get -&gt; query<br><span class="hljs-regexp">//</span> xhr.open(<span class="hljs-string">&quot;get&quot;</span>, <span class="hljs-string">&quot;http://123.207.32.32:1888/02_param/get?name=why&amp;age=18&amp;address=广州市&quot;</span>)<br><br><span class="hljs-regexp">//</span> <span class="hljs-number">2</span>.传递参数方式二: post -&gt; urlencoded<br><span class="hljs-regexp">//</span> xhr.open(<span class="hljs-string">&quot;post&quot;</span>, <span class="hljs-string">&quot;http://123.207.32.32:1888/02_param/posturl&quot;</span>)<br><span class="hljs-regexp">//</span> <span class="hljs-regexp">//</span> 发送请求(请求体body)<br><span class="hljs-regexp">//</span> xhr.setRequestHeader(<span class="hljs-string">&quot;Content-type&quot;</span>, <span class="hljs-string">&quot;application/x-www-form-urlencoded&quot;</span>)<br><span class="hljs-regexp">//</span> xhr.send(<span class="hljs-string">&quot;name=why&amp;age=18&amp;address=广州市&quot;</span>)<br><br><span class="hljs-regexp">//</span> <span class="hljs-number">3</span>.传递参数方式三: post -&gt; formdata<br><span class="hljs-regexp">//</span> xhr.open(<span class="hljs-string">&quot;post&quot;</span>, <span class="hljs-string">&quot;http://123.207.32.32:1888/02_param/postform&quot;</span>)<br><span class="hljs-regexp">//</span> <span class="hljs-regexp">//</span> formElement对象转成FormData对象<br><span class="hljs-regexp">//</span> const formData = new FormData(formEl)<br><span class="hljs-regexp">//</span> xhr.send(formData)<br><br><span class="hljs-regexp">//</span> <span class="hljs-number">4</span>.传递参数方式四: post -&gt; json<br>xhr.open(<span class="hljs-string">&quot;post&quot;</span>, <span class="hljs-string">&quot;http://123.207.32.32:1888/02_param/postjson&quot;</span>)<br>xhr.setRequestHeader(<span class="hljs-string">&quot;Content-type&quot;</span>, <span class="hljs-string">&quot;application/json&quot;</span>)<br>xhr.send(JSON.stringify(&#123;name: <span class="hljs-string">&quot;why&quot;</span>, age: <span class="hljs-number">18</span>, height: <span class="hljs-number">1.88</span>&#125;))<br></code></pre></td></tr></table></figure>
 
 
                 
@@ -289,7 +330,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%B0%8F%E5%B7%A5%E5%85%B7/">#小工具</a>
+        <a href="/tags/JS/">#JS</a>
       
     </div>
   
@@ -301,8 +342,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>JS判断是否对象的封装</div>
-      <div>http://example.com/2022/08/13/JS判断是否对象的封装/</div>
+      <div>JS发送网络请求</div>
+      <div>http://example.com/2022/08/15/JS发送网络请求/</div>
     </div>
     <div class="license-meta">
       
@@ -314,7 +355,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年8月13日</div>
+          <div>2022年8月15日</div>
         </div>
       
       
@@ -344,9 +385,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/08/14/JS%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF/" title="JS事件总线">
+                      <a href="/2022/08/15/JS%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E5%B0%81%E8%A3%85/" title="JS网络请求封装">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">JS事件总线</span>
+                        <span class="hidden-mobile">JS网络请求封装</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -354,8 +395,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/08/13/JS%E6%B5%85%E6%8B%B7%E8%B4%9D%E6%B7%B1%E6%8B%B7%E8%B4%9D/" title="JS浅拷贝深拷贝">
-                        <span class="hidden-mobile">JS浅拷贝深拷贝</span>
+                      <a href="/2022/08/14/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E5%8D%8F%E8%AE%AE/" title="JS网络请求协议">
+                        <span class="hidden-mobile">JS网络请求协议</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
