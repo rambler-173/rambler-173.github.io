@@ -16,22 +16,22 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="系统课的123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657&#x2F;&#x2F; 练习hyajax -&gt; axiosfunction hyajax(&amp;#123;  url,  method &#x3D; &quot;get&quot;,  data &#x3D; &amp;#12">
+    <meta name="description" content="What’s it是一个快速、小型且功能丰富的 JavaScript 库，官网对jQuery的描述： 使HTML文档遍历、操作、事件处理、动画和 Ajax 之类的事情变得更加简单。 具有易于使用的 API，可在多种浏览器中使用。 jQuery 结合多功能性和可扩展性，改变了数百万人编写 JavaScript 的方式。  官网 https:&#x2F;&#x2F;jquery.com&#x2F;  源码下载地址 https:&#x2F;&#x2F;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS网络请求封装">
-<meta property="og:url" content="http://example.com/2022/08/15/JS%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E5%B0%81%E8%A3%85/index.html">
+<meta property="og:title" content="认识jQuery">
+<meta property="og:url" content="http://example.com/2022/08/16/jQuery/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="系统课的123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657&#x2F;&#x2F; 练习hyajax -&gt; axiosfunction hyajax(&amp;#123;  url,  method &#x3D; &quot;get&quot;,  data &#x3D; &amp;#12">
+<meta property="og:description" content="What’s it是一个快速、小型且功能丰富的 JavaScript 库，官网对jQuery的描述： 使HTML文档遍历、操作、事件处理、动画和 Ajax 之类的事情变得更加简单。 具有易于使用的 API，可在多种浏览器中使用。 jQuery 结合多功能性和可扩展性，改变了数百万人编写 JavaScript 的方式。  官网 https:&#x2F;&#x2F;jquery.com&#x2F;  源码下载地址 https:&#x2F;&#x2F;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-08-15T04:41:25.000Z">
-<meta property="article:modified_time" content="2022-08-15T05:24:22.242Z">
+<meta property="article:published_time" content="2022-08-16T10:00:49.000Z">
+<meta property="article:modified_time" content="2022-08-16T14:41:57.922Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="JS高级">
+<meta property="article:tag" content="jQuery">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>JS网络请求封装 - Hexo</title>
+  <title>认识jQuery - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="JS网络请求封装"></span>
+            <span id="subtitle" data-typed-text="认识jQuery"></span>
           
         </div>
 
@@ -207,8 +207,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-15 12:41" pubdate>
-          2022年8月15日 下午
+        <time datetime="2022-08-16 18:00" pubdate>
+          2022年8月16日 晚上
         </time>
       </span>
     
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.6k 字
+          934 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          14 分钟
+          8 分钟
         
       </span>
     
@@ -268,33 +268,58 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">JS网络请求封装</h1>
+            <h1 style="display: none">认识jQuery</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="系统课的"><a href="#系统课的" class="headerlink" title="系统课的"></a>系统课的</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 练习hyajax -&gt; axios</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">hyajax</span>(<span class="hljs-params">&#123;</span><br><span class="hljs-params">  url,</span><br><span class="hljs-params">  method = <span class="hljs-string">&quot;get&quot;</span>,</span><br><span class="hljs-params">  data = &#123;&#125;,</span><br><span class="hljs-params">  headers = &#123;&#125;, // token</span><br><span class="hljs-params">  success,</span><br><span class="hljs-params">  failure</span><br><span class="hljs-params">&#125; = &#123;&#125;</span>) &#123;  <span class="hljs-comment">//= &#123;&#125;是为了默认值？ 默认对象，解构</span><br>  <span class="hljs-comment">// 1.创建对象</span><br>  <span class="hljs-keyword">const</span> xhr = <span class="hljs-keyword">new</span> <span class="hljs-title class_">XMLHttpRequest</span>()<br><br>  <span class="hljs-comment">// 2.监听数据</span><br>  xhr.<span class="hljs-property">onload</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">if</span> (xhr.<span class="hljs-property">status</span> &gt;= <span class="hljs-number">200</span> &amp;&amp; xhr.<span class="hljs-property">status</span> &lt; <span class="hljs-number">300</span>) &#123;<br>      success &amp;&amp; <span class="hljs-title function_">success</span>(xhr.<span class="hljs-property">response</span>)  <span class="hljs-comment">//&amp;&amp;防止没有传入success参数</span><br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>      failure &amp;&amp; <span class="hljs-title function_">failure</span>(&#123; <span class="hljs-attr">status</span>: xhr.<span class="hljs-property">status</span>, <span class="hljs-attr">message</span>: xhr.<span class="hljs-property">statusText</span> &#125;)<br>    &#125;<br>  &#125;<br><br>  <span class="hljs-comment">// 3.设置类型</span><br>  xhr.<span class="hljs-property">responseType</span> = <span class="hljs-string">&quot;json&quot;</span>  <span class="hljs-comment">//一般都要转json格式，因为好解析</span><br><br>  <span class="hljs-comment">// 4.open方法</span><br>  <span class="hljs-keyword">if</span> (method.<span class="hljs-title function_">toUpperCase</span>() === <span class="hljs-string">&quot;GET&quot;</span>) &#123;  <span class="hljs-comment">//防止调用者用小写的get</span><br>    <span class="hljs-keyword">const</span> queryStrings = []<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> key <span class="hljs-keyword">in</span> data) &#123;<br>      queryStrings.<span class="hljs-title function_">push</span>(<span class="hljs-string">`<span class="hljs-subst">$&#123;key&#125;</span>=<span class="hljs-subst">$&#123;data[key]&#125;</span>`</span>)<br>    &#125;<br>    url = url + <span class="hljs-string">&quot;?&quot;</span> + queryStrings.<span class="hljs-title function_">join</span>(<span class="hljs-string">&quot;&amp;&quot;</span>)<br>    xhr.<span class="hljs-title function_">open</span>(method, url)<br>    xhr.<span class="hljs-title function_">send</span>()<br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    xhr.<span class="hljs-title function_">open</span>(method, url)<br>    xhr.<span class="hljs-title function_">setRequestHeader</span>(<span class="hljs-string">&quot;Content-type&quot;</span>, <span class="hljs-string">&quot;application/json&quot;</span>)<br>    xhr.<span class="hljs-title function_">send</span>(<span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(data))<br>  &#125;<br><br>  <span class="hljs-keyword">return</span> xhr<br>&#125;<br><br><span class="hljs-comment">// 调用者</span><br><span class="hljs-title function_">hyajax</span>(&#123;<br>  <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;http://123.207.32.32:1888/02_param/get&quot;</span>,<br>  <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;GET&quot;</span>,<br>  <span class="hljs-attr">data</span>: &#123;<br>    <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;why&quot;</span>,<br>    <span class="hljs-attr">age</span>: <span class="hljs-number">18</span><br>  &#125;,<br>  <span class="hljs-attr">success</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;res:&quot;</span>, res)<br>  &#125;,<br>  <span class="hljs-attr">failure</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>) &#123;<br>    <span class="hljs-comment">// alert(err.message)</span><br>  &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
-
-
-
-<ul>
-<li><p>因为函数的形参太多了，所以给参数设置默认值。</p>
-</li>
-<li><p>XMLHttpRequest是ajax的网络请求类方法</p>
-</li>
-<li><p>然后编写监听函数，要判断是否请求成功，所以要进行状态判定。当成功时执行success函数，为了防止调用者没有传入success函数，所以要判断</p>
-</li>
-<li><p>记得把获得的类型转换成json</p>
-</li>
-<li><p>接下来就是调用open方法，但是使用get和用post他们传入的参数格式不一样。所以也要加个判断。？？什么格式不一样？？</p>
-<ul>
-<li>调用者在使用get方法时，可能将data放在对象中的data里面，而不是放在url里，所以要拼接</li>
+                <h2 id="What’s-it"><a href="#What’s-it" class="headerlink" title="What’s it"></a>What’s it</h2><h4 id="是一个快速、小型且功能丰富的-JavaScript-库，官网对jQuery的描述："><a href="#是一个快速、小型且功能丰富的-JavaScript-库，官网对jQuery的描述：" class="headerlink" title="是一个快速、小型且功能丰富的 JavaScript 库，官网对jQuery的描述："></a><strong>是一个</strong>快速、小型且功能丰富的 JavaScript 库，官网对jQuery的描述：</h4><ul>
+<li>使HTML文档遍历、操作、事件处理、动画和 Ajax 之类的事情变得更加简单。</li>
+<li>具有易于使用的 API，可在多种浏览器中使用。</li>
+<li>jQuery 结合多功能性和可扩展性，改变了数百万人编写 JavaScript 的方式。</li>
+</ul>
+<h4 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h4><ul>
+<li><strong><a target="_blank" rel="noopener" href="https://jquery.com/">https://jquery.com/</a></strong></li>
+</ul>
+<h4 id="源码下载地址"><a href="#源码下载地址" class="headerlink" title="源码下载地址"></a>源码下载地址</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://code.jquery.com/jquery-3.6.0.js">https://code.jquery.com/jquery-3.6.0.js</a></li>
+</ul>
+<h2 id="库-library-和框架-framework-的概念"><a href="#库-library-和框架-framework-的概念" class="headerlink" title="库(library)和框架(framework)的概念"></a>库(library)和框架(framework)的概念</h2><ul>
+<li><strong>随着</strong>JavaScript<strong>的普及，以及越来越多人使用</strong>JavaScript<strong>来构建网站和应用程序</strong><ul>
+<li>JavaScript社区认识到代码中存在非常多相同的逻辑是可复用的。</li>
+<li>因此社区就开始对这些相同的逻辑的代码封装到一个JavaScript文件中。</li>
+<li>这个封装好的JavaScript文件就可称为JavaScript库或JavaScript框架。</li>
 </ul>
 </li>
-<li><p>判断完open后就要调用sent来完成网络请求</p>
+<li><strong>库</strong>(library)<ul>
+<li>JavaScript库是一个预先编写好并实现了一些特定功能的代码片段的集合。</li>
+<li>一个库中会包含许多的函数、变量等，可根据需求引入到项目中使用。</li>
+<li>一些常见的库有jQuery、Day.js、Lodash和React等</li>
+</ul>
 </li>
-<li><p>最后将其返回就完成了</p>
+<li><strong>框架（framework）</strong><ul>
+<li>JavaScript框架是一个完整的工具集，可帮助塑造和组织您的网站或应用程序。</li>
+<li>提供一个结构来构建整个应用程序，开发人员可以在结构的规则内更安全、更高效地工作。</li>
+<li>一些更常见的框架有：Bootstrap、Angular、Vue、Next.js等。</li>
+</ul>
 </li>
+</ul>
+<h2 id="优点与缺点"><a href="#优点与缺点" class="headerlink" title="优点与缺点"></a>优点与缺点</h2><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ul>
+<li><p>易于学习：相对于其它的前端框架，jQuery 更易于学习，它支持 JavaScript 的编码风格。</p>
+</li>
+<li><p>少写多做（Write less, do more）</p>
+<ul>
+<li>jQuery提供了丰富的功能(DOM操作、过滤器、事件、动画、Ajax等)。</li>
+<li>可以编写更少可读的代码来提高开发人员的工作效率。</li>
+</ul>
+<p>优秀的 API 文档：jQuery 提供了优秀的在线 API 文档。</p>
+<p>跨浏览器支持：提供出色的跨浏览器支持 (IE9+)，无需编写额外代码。</p>
+</li>
+</ul>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ul>
+<li>jQuery代码库一直在增长（自 jQuery 1.5 起超过 200KB）</li>
+<li>不支持组件化开发</li>
+<li>jQuery 更适合DOM操作，当涉及到开发复杂的项目时，jQuery能力有限。</li>
 </ul>
 
                 
@@ -308,7 +333,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/JS%E9%AB%98%E7%BA%A7/">#JS高级</a>
+        <a href="/tags/jQuery/">#jQuery</a>
       
     </div>
   
@@ -320,8 +345,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>JS网络请求封装</div>
-      <div>http://example.com/2022/08/15/JS网络请求封装/</div>
+      <div>认识jQuery</div>
+      <div>http://example.com/2022/08/16/jQuery/</div>
     </div>
     <div class="license-meta">
       
@@ -333,7 +358,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年8月15日</div>
+          <div>2022年8月16日</div>
         </div>
       
       
@@ -363,9 +388,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/08/16/jQuery/" title="认识jQuery">
+                      <a href="/2022/08/16/%E6%93%8D%E4%BD%9CjQuery/" title="操作jQuery">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">认识jQuery</span>
+                        <span class="hidden-mobile">操作jQuery</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -373,8 +398,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/08/15/JS%E5%8F%91%E9%80%81%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/" title="JS发送网络请求">
-                        <span class="hidden-mobile">JS发送网络请求</span>
+                      <a href="/2022/08/15/JS%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E5%B0%81%E8%A3%85/" title="JS网络请求封装">
+                        <span class="hidden-mobile">JS网络请求封装</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
