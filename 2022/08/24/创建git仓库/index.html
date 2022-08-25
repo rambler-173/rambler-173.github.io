@@ -16,14 +16,17 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="article">
+    <meta name="description" content="创建git仓库 打开git bush并输入git init（要先在git bush进入目标文件夹）  方式一：初始化Git仓库    该命令将创建一个名为 .git 的子目录，这个子目录含有你初始化的 Git 仓库中所有的必须文件，这些文件是 Git 仓库的核心；   但是，在这个时候，我们仅仅是做了一个初始化的操作，你的项目里的文件还没有被跟踪；     拿取远程仓库1git clone h">
+<meta property="og:type" content="article">
 <meta property="og:title" content="创建git仓库">
 <meta property="og:url" content="http://example.com/2022/08/24/%E5%88%9B%E5%BB%BAgit%E4%BB%93%E5%BA%93/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="创建git仓库 打开git bush并输入git init（要先在git bush进入目标文件夹）  方式一：初始化Git仓库    该命令将创建一个名为 .git 的子目录，这个子目录含有你初始化的 Git 仓库中所有的必须文件，这些文件是 Git 仓库的核心；   但是，在这个时候，我们仅仅是做了一个初始化的操作，你的项目里的文件还没有被跟踪；     拿取远程仓库1git clone h">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-08-24T06:25:27.000Z">
-<meta property="article:modified_time" content="2022-08-24T06:25:27.148Z">
+<meta property="article:modified_time" content="2022-08-25T06:48:29.591Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary_large_image">
   
   
@@ -216,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 字
+          2.5k 字
         
       </span>
     
@@ -227,7 +230,7 @@
         
         
         
-          1 分钟
+          22 分钟
         
       </span>
     
@@ -270,7 +273,59 @@
             
               <div class="markdown-body">
                 
-                
+                <h2 id="创建git仓库"><a href="#创建git仓库" class="headerlink" title="创建git仓库"></a>创建git仓库</h2><ul>
+<li><p>打开git bush并输入git init（要先在git bush进入目标文件夹）</p>
+</li>
+<li><p>方式一：初始化Git仓库  </p>
+<ul>
+<li><p>该命令将创建一个名为 .git 的子目录，这个子目录含有你初始化的 Git 仓库中所有的必须文件，这些文件是 Git 仓库的核心； </p>
+</li>
+<li><p>但是，在这个时候，我们仅仅是做了一个初始化的操作，你的项目里的文件还没有被跟踪；</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="拿取远程仓库"><a href="#拿取远程仓库" class="headerlink" title="拿取远程仓库"></a>拿取远程仓库</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">git clone https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/coderwhy/</span>hy-react-web-music.git <br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="文件的状态划分"><a href="#文件的状态划分" class="headerlink" title="文件的状态划分"></a>文件的状态划分</h2><h4 id="现在我们的电脑上已经有一个Git仓库：-"><a href="#现在我们的电脑上已经有一个Git仓库：-" class="headerlink" title="现在我们的电脑上已经有一个Git仓库： "></a>现在我们的电脑上已经有一个Git仓库： </h4><ul>
+<li>在实际开发中，你需要将某些文件交由这个Git仓库来管理；  </li>
+<li>并且我们之后会修改文件的内容，当达成某一个目标时，想要记录下来这次操作，就会将它提交到仓库中；</li>
+</ul>
+<h4 id="那么我们需要对文件来划分不同的状态，以确定这个文件是否已经归于Git仓库的管理："><a href="#那么我们需要对文件来划分不同的状态，以确定这个文件是否已经归于Git仓库的管理：" class="headerlink" title="那么我们需要对文件来划分不同的状态，以确定这个文件是否已经归于Git仓库的管理："></a>那么我们需要对文件来划分不同的状态，以确定这个文件是否已经归于Git仓库的管理：</h4><ul>
+<li>未跟踪：默认情况下，Git仓库下的文件也没有添加到Git仓库管理中，我们需要通过add命令来操作；  </li>
+<li>已跟踪：添加到Git仓库管理的文件处于已跟踪状态，Git可以对其进行各种跟踪管理；</li>
+</ul>
+<h4 id="已跟踪的文件又可以进行细分状态划分：-"><a href="#已跟踪的文件又可以进行细分状态划分：-" class="headerlink" title="已跟踪的文件又可以进行细分状态划分： "></a>已跟踪的文件又可以进行细分状态划分： </h4><ul>
+<li>staged：暂缓区中的文件状态；  </li>
+<li>Unmodified：commit命令，可以将staged中文件提交到Git仓库 </li>
+<li>Modified：修改了某个文件后，会处于Modified状态；</li>
+</ul>
+<h4 id="在工作时，你可以选择性地将这些修改过的文件放入暂存区；"><a href="#在工作时，你可以选择性地将这些修改过的文件放入暂存区；" class="headerlink" title="在工作时，你可以选择性地将这些修改过的文件放入暂存区；"></a>在工作时，你可以选择性地将这些修改过的文件放入暂存区；</h4><h4 id="然后提交所有已暂存的修改，如此反复；"><a href="#然后提交所有已暂存的修改，如此反复；" class="headerlink" title="然后提交所有已暂存的修改，如此反复；"></a>然后提交所有已暂存的修改，如此反复；</h4><h2 id="git操作流程图"><a href="#git操作流程图" class="headerlink" title="git操作流程图"></a>git操作流程图</h2><p>![](C:\Users\admin\Desktop\vue\blog\hexoblog\source\images\git index.png)</p>
+<h2 id="检测文件的状态-git-status"><a href="#检测文件的状态-git-status" class="headerlink" title="检测文件的状态 - git status"></a>检测文件的状态 - git status</h2><ul>
+<li><p>我们在有Git仓库的目录下新建一个文件，查看文件的状态：</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">git status</span><br></code></pre></td></tr></table></figure>
+
+<p>![](C:\Users\admin\Desktop\vue\blog\hexoblog\source\images\git status.png)</p>
+</li>
+<li><p>◼ Untracked files：未跟踪的文件  </p>
+<ul>
+<li>未跟踪的文件意味着 Git 在之前的提交中没有这些文件；  </li>
+<li>Git 不会自动将之纳入跟踪范围，除非你明明白白地告诉它“我需要跟踪该文件”；</li>
+</ul>
+</li>
+<li><p>我们也可以查看更加简洁的状态信息：</p>
+<ul>
+<li>左栏指明了暂存区的状态，右栏指明了工作区的状态；</li>
+</ul>
+<p>![](C:\Users\admin\Desktop\vue\blog\hexoblog\source\images\git status-2.png)</p>
+</li>
+</ul>
+<h2 id="文件添加到暂存区-–-git-add"><a href="#文件添加到暂存区-–-git-add" class="headerlink" title="文件添加到暂存区 – git add"></a>文件添加到暂存区 – git add</h2><h4 id="跟踪新文件命令："><a href="#跟踪新文件命令：" class="headerlink" title="跟踪新文件命令："></a>跟踪新文件命令：</h4><ul>
+<li>&#96;&#96;&#96;<br>git add aaa.js<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><br><span class="hljs-bullet">-</span> 使用命令 git add 开始跟踪一个文件<br><br><span class="hljs-bullet">-</span> 通过git add . 将所有的文件添加到暂存区中<br><br><br><br><span class="hljs-section">### git忽略文件</span><br><br><span class="hljs-section">##### 一般我们总会有些文件无需纳入 Git 的管理，也不希望它们总出现在 未跟踪文件列表。  </span><br><br><span class="hljs-bullet">-</span> 通常都是些自动生成的文件，比如日志文件，或者编译过程中创建 的临时文件等；  <br><span class="hljs-bullet">-</span> 我们可以创建一个名为 .gitignore 的文件，列出要忽略的文件的模 式；<br><br><span class="hljs-section">##### 在实际开发中，这个文件通常不需要手动创建，在必须的时候添加自 己的忽略内容即可；</span><br><br><br><br><span class="hljs-section">## 文件更新提交 – git commit</span><br><br><span class="hljs-section">#####  现在的暂存区已经准备就绪，可以提交了。  </span><br><br><span class="hljs-bullet">-</span> 每次准备提交前，先用 git status 看下，你所需要的文件是不是都已暂存起来了；  <br><span class="hljs-bullet">-</span> 再运行提交命令 git commit；  <br><span class="hljs-bullet">-</span> 可以在 commit 命令后添加 -m 选项，将提交信息与命令放在同一行;<br><span class="hljs-bullet">-</span> git commit –m &quot;提交信息&quot;<br><br>![](<span class="hljs-link">C:\Users\admin\Desktop\vue\blog\hexoblog\source\images\git commit.png</span>)<br><br><span class="hljs-section">##### 如果我们修改文件的add操作，加上commit的操作有点繁琐，那么可以将两个命令结合来使用：</span><br><br><br><br><span class="hljs-section">### Git的校验和</span><br><br><span class="hljs-bullet">-</span> Git 中所有的数据在存储前都计算校验和，然后以 校验和 来引用。  <br><span class="hljs-bullet">  -</span> Git 用以计算校验和的机制叫做 SHA-1 散列（hash，哈希）；  <br><span class="hljs-bullet">  -</span> 这是一个由 40 个十六进制字符（0-9 和 a-f）组成的字符串，基于 Git 中文件的内容或目录结构计算出来；<br><br><br><br><span class="hljs-section">### 查看提交的历史 – git log</span><br><br><span class="hljs-bullet">-</span> 在提交了若干更新，又或者克隆了某个项目之后，有时候我们想要查看一下所有的历史提交记录。 ◼ <br><span class="hljs-bullet">-</span> 这个时候我们可以使用git log命令：<br><span class="hljs-bullet">  -</span> 不传入任何参数的默认情况下，git log 会按时间先后顺序列出所有的提交，最近的更新排在最上面；  <br><span class="hljs-bullet">  -</span> 这个命令会列出每个提交的 SHA-1 校验和、作者的名字和电子邮件地址、提交时间以及提交说明；<br><br>![](<span class="hljs-link">C:\Users\admin\Desktop\vue\blog\hexoblog\source\images\git log.png</span>)<br><br><span class="hljs-bullet">-</span> 这样看感觉很复杂，不够清晰<br><span class="hljs-bullet">-</span> git log --pretty=oneline<br><span class="hljs-bullet">-</span> ![](<span class="hljs-link">C:\Users\admin\Desktop\vue\blog\hexoblog\source\images\git log --pretty.png</span>)<br><br><span class="hljs-bullet">-</span> 这看起来就舒服很多了<br><br><br><br><span class="hljs-section">### 版本回退 – git reset</span><br><br><span class="hljs-bullet">-</span> 如果想要进行版本回退，我们需要先知道目前处于哪一个版本：Git通过HEAD指针记录当前版本。  <br><span class="hljs-bullet">  -</span> HEAD 是当前分支引用的指针，它总是指向该分支上的最后一次提交；  <br><span class="hljs-bullet">  -</span> 理解 HEAD 的最简方式，就是将它看做 该分支上的最后一次提交 的快照；<br><br><span class="hljs-bullet">-</span> 我们可以通过HEAD来改变Git目前的版本指向：  <br><br><span class="hljs-bullet">  -</span> 上一个版本就是HEAD^，上上一个版本就是HEAD^^； <br><span class="hljs-bullet">  -</span>  如果是上1000个版本，我们可以使用HEAD~1000；  <br><span class="hljs-bullet">  -</span> 我们可以可以指定某一个commit id；<br><br><span class="hljs-bullet">-</span> <span class="hljs-code">```</span><br><span class="hljs-code">  git reset --hard HEAD^</span><br><span class="hljs-code">  git reset --hard HEAD~1000</span><br><span class="hljs-code">  git reset --hard 2d44982</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+
                 
               </div>
             
@@ -278,6 +333,13 @@
             <div>
               <div class="post-metas my-3">
   
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/git/">#git</a>
+      
+    </div>
   
 </div>
 
@@ -329,6 +391,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2022/08/25/%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/" title="远程仓库">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">远程仓库</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
