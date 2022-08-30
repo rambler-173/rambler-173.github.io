@@ -1,0 +1,672 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="v-model的基本使用 表单提交是开发中非常常见的功能，也是和用户交互的重要手段：  比如用户在登录、注册时需要提交账号密码； 比如用户在检索、创建、更新信息时，需要提交一些数据；   这些都要求我们可以在代码逻辑中获取到用户提交的数据，我们通常会使用v-model指令来完成：  v-model指令可以在表单 input、textarea以及select元素上创建双向数据绑定； 它会根据控件类型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="v-model">
+<meta property="og:url" content="http://example.com/2022/08/30/v-model/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="v-model的基本使用 表单提交是开发中非常常见的功能，也是和用户交互的重要手段：  比如用户在登录、注册时需要提交账号密码； 比如用户在检索、创建、更新信息时，需要提交一些数据；   这些都要求我们可以在代码逻辑中获取到用户提交的数据，我们通常会使用v-model指令来完成：  v-model指令可以在表单 input、textarea以及select元素上创建双向数据绑定； 它会根据控件类型">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-08-30T06:30:41.000Z">
+<meta property="article:modified_time" content="2022-08-30T07:20:19.489Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Vue">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>v-model - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="v-model"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-08-30 14:30" pubdate>
+          2022年8月30日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          31 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">v-model</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="v-model的基本使用"><a href="#v-model的基本使用" class="headerlink" title="v-model的基本使用"></a><strong>v</strong>-model的基本使用</h2><ul>
+<li><p><strong>表单提交</strong>是开发中非常常见的功能，也是和用户交互的重要手段：</p>
+<ul>
+<li>比如用户在登录、注册时需要提交账号密码；</li>
+<li>比如用户在检索、创建、更新信息时，需要提交一些数据；</li>
+</ul>
+</li>
+<li><p>这些都要求我们可以在<strong>代码逻辑中获取到用户提交的数据</strong>，我们通常会使用<strong>v-model</strong>指令来完成：</p>
+<ul>
+<li>v-model指令可以在表单 input、textarea以及select元素上创建双向数据绑定；</li>
+<li>它会根据控件类型自动选取正确的方法来更新元素；</li>
+<li>尽管有些神奇，但 v-model 本质上不过是语法糖，它负责监听用户的输入事件来更新数据，并在某种极端场景下进行一些特殊处理；</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs dust"><span class="language-xml">1.手动的实现了双向绑定</span><br><span class="language-xml"> <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">:value</span>=<span class="hljs-string">&quot;message&quot;</span> @<span class="hljs-attr">input</span>=<span class="hljs-string">&quot;inputChange&quot;</span>&gt;</span></span><br><span class="language-xml">       methods: </span><span class="hljs-template-variable">&#123;</span><br><span class="hljs-template-variable">     inputChange(event) &#123;</span><br><span class="hljs-template-variable">       this.message = event.target.value</span><br><span class="hljs-template-variable">     &#125;</span><span class="language-xml">,</span><br><span class="language-xml">  <span class="hljs-comment">&lt;!-- 2.v-model实现双向绑定 --&gt;</span></span><br><span class="language-xml"> <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;message&quot;</span>&gt;</span>       </span><br><span class="language-xml">//双向绑定实现了用户输入将数据改变</span><br></code></pre></td></tr></table></figure>
+
+<p>![](C:\Users\admin\Desktop\vue\blog\hexoblog\source\images\Vue Model.png)</p>
+<h3 id="v-model绑定checkbox"><a href="#v-model绑定checkbox" class="headerlink" title="v-model绑定checkbox"></a><strong>v</strong>-model绑定checkbox</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs stata">&lt;<span class="hljs-keyword">label</span> <span class="hljs-keyword">for</span>=<span class="hljs-string">&quot;agree&quot;</span>&gt;<br>  &lt;<span class="hljs-keyword">input</span> id=<span class="hljs-string">&quot;agree&quot;</span> <span class="hljs-keyword">type</span>=<span class="hljs-string">&quot;checkbox&quot;</span>&gt; 同意协议<br>&lt;/<span class="hljs-keyword">label</span>&gt;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>将id和for设置成一样的值，这样当点击同意协议文字时，单选框也可以被选中</p>
+</li>
+<li><p><strong>我们来看一下</strong>v-model绑定checkbox：单个勾选框和多个勾选框</p>
+</li>
+<li><p>单个勾选框：</p>
+</li>
+<li><ul>
+<li>v-model即为布尔值。</li>
+<li>此时input的value属性并不影响v-model的值。</li>
+</ul>
+</li>
+<li><p><strong>多个复选框：</strong></p>
+</li>
+<li><ul>
+<li>当是多个复选框时，因为可以选中多个，所以对应的data中属性是一个数组。</li>
+<li>当选中某一个时，就会将input的value添加到数组中。</li>
+</ul>
+</li>
+</ul>
+<h3 id="v-model绑定radio"><a href="#v-model绑定radio" class="headerlink" title="v-model绑定radio"></a><strong>v</strong>-model绑定radio</h3><figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs handlebars"><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;male&quot;</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;male&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;radio&quot;</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;gender&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;male&quot;</span>&gt;</span> 男</span><br><span class="language-xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></span><br><span class="language-xml">  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;female&quot;</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;female&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;radio&quot;</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;gender&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;female&quot;</span>&gt;</span> 女</span><br><span class="language-xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></span><br><span class="language-xml">  <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>性别: </span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">gender</span>&#125;&#125;</span><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>v-model绑定同一个值时label也会互斥</li>
+</ul>
+<h2 id="v-model的值绑定"><a href="#v-model的值绑定" class="headerlink" title="v-model的值绑定"></a><strong>v</strong>-model的值绑定</h2><ul>
+<li><p><strong>目前我们在前面的案例中</strong>大部分的值都是在template中固定好的：</p>
+<ul>
+<li>比如gender的两个输入框值male、female；</li>
+<li>比如hobbies的三个输入框值basketball、football、tennis；</li>
+</ul>
+</li>
+<li><p>在真实开发中，我们的数据可能是来自服务器的，那么我们就可以先将值请求下来，绑定到data返回的对象中，再通过v-bind来进行值的绑定，这个过程就是<strong>值绑定</strong>。</p>
+<ul>
+<li>将里面的数据变成动态的就是值绑定</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><code class="hljs handlebars"><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span></span><br><span class="language-xml">   <span class="hljs-comment">&lt;!-- 1.select的值绑定 --&gt;</span></span><br><span class="language-xml">   <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">multiple</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;3&quot;</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;fruits&quot;</span>&gt;</span></span><br><span class="language-xml">     <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;item in allFruits&quot;</span> </span></span><br><span class="hljs-tag"><span class="language-xml">             <span class="hljs-attr">:key</span>=<span class="hljs-string">&quot;item.value&quot;</span> </span></span><br><span class="hljs-tag"><span class="language-xml">             <span class="hljs-attr">:value</span>=<span class="hljs-string">&quot;item.value&quot;</span>&gt;</span></span><br><span class="language-xml">       </span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">item.text</span>&#125;&#125;</span><span class="language-xml"></span><br><span class="language-xml">     <span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span></span><br><span class="language-xml">   <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span></span><br><span class="language-xml">   <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>多选: </span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">fruits</span>&#125;&#125;</span><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br><span class="language-xml"></span><br><span class="language-xml">   <span class="hljs-tag">&lt;<span class="hljs-name">hr</span>&gt;</span></span><br><span class="language-xml"></span><br><span class="language-xml">   <span class="hljs-comment">&lt;!-- 2.checkbox的值绑定 --&gt;</span></span><br><span class="language-xml">   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;hobbies&quot;</span>&gt;</span></span><br><span class="language-xml">     <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>请选择你的爱好:<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br><span class="language-xml">     <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;item in allHobbies&quot;</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">&quot;item.value&quot;</span>&gt;</span></span><br><span class="language-xml">       <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">:for</span>=<span class="hljs-string">&quot;item.value&quot;</span>&gt;</span></span><br><span class="language-xml">         <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">:id</span>=<span class="hljs-string">&quot;item.value&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;checkbox&quot;</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;hobbies&quot;</span> <span class="hljs-attr">:value</span>=<span class="hljs-string">&quot;item.value&quot;</span>&gt;</span> </span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">item.text</span>&#125;&#125;</span><span class="language-xml"></span><br><span class="language-xml">       <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></span><br><span class="language-xml">     <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></span><br><span class="language-xml">     <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>爱好: </span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">hobbies</span>&#125;&#125;</span><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br><span class="language-xml">   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml"> <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml"> </span><br><span class="language-xml"> <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;../lib/vue.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br><span class="language-xml"> <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="language-javascript"><span class="language-xml">   <span class="hljs-comment">// 1.创建app</span></span></span><br><span class="language-javascript"><span class="language-xml">   <span class="hljs-keyword">const</span> app = <span class="hljs-title class_">Vue</span>.<span class="hljs-title function_">createApp</span>(&#123;</span></span><br><span class="language-javascript"><span class="language-xml">     <span class="hljs-comment">// data: option api</span></span></span><br><span class="language-javascript"><span class="language-xml">     <span class="hljs-title function_">data</span>(<span class="hljs-params"></span>) &#123;</span></span><br><span class="language-javascript"><span class="language-xml">       <span class="hljs-keyword">return</span> &#123;</span></span><br><span class="language-javascript"><span class="language-xml">         <span class="hljs-comment">// 水果</span></span></span><br><span class="language-javascript"><span class="language-xml">         <span class="hljs-attr">allFruits</span>: [</span></span><br><span class="language-javascript"><span class="language-xml">           &#123; <span class="hljs-attr">value</span>: <span class="hljs-string">&quot;apple&quot;</span>, <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;苹果&quot;</span> &#125;,</span></span><br><span class="language-javascript"><span class="language-xml">           &#123; <span class="hljs-attr">value</span>: <span class="hljs-string">&quot;orange&quot;</span>, <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;橘子&quot;</span> &#125;,</span></span><br><span class="language-javascript"><span class="language-xml">           &#123; <span class="hljs-attr">value</span>: <span class="hljs-string">&quot;banana&quot;</span>, <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;香蕉&quot;</span> &#125;,</span></span><br><span class="language-javascript"><span class="language-xml">         ],</span></span><br><span class="language-javascript"><span class="language-xml">         <span class="hljs-attr">fruits</span>: [],</span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">         <span class="hljs-comment">// 爱好</span></span></span><br><span class="language-javascript"><span class="language-xml">         <span class="hljs-attr">allHobbies</span>: [</span></span><br><span class="language-javascript"><span class="language-xml">           &#123; <span class="hljs-attr">value</span>: <span class="hljs-string">&quot;sing&quot;</span>, <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;唱&quot;</span> &#125;,</span></span><br><span class="language-javascript"><span class="language-xml">           &#123; <span class="hljs-attr">value</span>: <span class="hljs-string">&quot;jump&quot;</span>, <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;跳&quot;</span> &#125;,</span></span><br><span class="language-javascript"><span class="language-xml">           &#123; <span class="hljs-attr">value</span>: <span class="hljs-string">&quot;rap&quot;</span>, <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;rap&quot;</span> &#125;,</span></span><br><span class="language-javascript"><span class="language-xml">           &#123; <span class="hljs-attr">value</span>: <span class="hljs-string">&quot;basketball&quot;</span>, <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;篮球&quot;</span> &#125;</span></span><br><span class="language-javascript"><span class="language-xml">         ],</span></span><br><span class="language-javascript"><span class="language-xml">         <span class="hljs-attr">hobbies</span>: []</span></span><br><span class="language-javascript"><span class="language-xml">       &#125;</span></span><br><span class="language-javascript"><span class="language-xml">     &#125;</span></span><br><span class="language-javascript"><span class="language-xml">   &#125;)</span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">   <span class="hljs-comment">// 2.挂载app</span></span></span><br><span class="language-javascript"><span class="language-xml">   app.<span class="hljs-title function_">mount</span>(<span class="hljs-string">&quot;#app&quot;</span>)</span></span><br><span class="language-javascript"><span class="language-xml"> </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+
+<h3 id="v-mode修饰符"><a href="#v-mode修饰符" class="headerlink" title="v-mode修饰符"></a><strong>v</strong>-mode修饰符</h3><h5 id="lazy"><a href="#lazy" class="headerlink" title="lazy"></a><strong>lazy</strong></h5><ul>
+<li>n*<em>lazy</em>***修饰符是什么作用呢？<ul>
+<li>默认情况下，v-model在进行双向绑定时，绑定的是input事件，那么会在每次内容输入后就将最新的值和绑定的属性进行同步；</li>
+<li>如果我们在v-model后跟上lazy修饰符，那么会将绑定的事件切换为 change 事件，只有在提交时（比如回车）才会触发；</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">&lt;input <span class="hljs-attribute">type</span>=<span class="hljs-string">&quot;text&quot;</span> v-model.<span class="hljs-attribute">lazy</span>=<span class="hljs-string">&quot;message&quot;</span>&gt;<br></code></pre></td></tr></table></figure>
+
+<h5 id="number"><a href="#number" class="headerlink" title="number"></a>number</h5><ul>
+<li><p><strong>我们先来看一下****v-model绑定后的值是什么类型的：</strong></p>
+<ul>
+<li>message总是string类型，即使在我们设置type为number也是string类型；</li>
+</ul>
+</li>
+<li><p><strong>如果我们希望转换为</strong>数字类型，那么可以使用 <strong>.number</strong> <strong>修饰符</strong>：</p>
+</li>
+<li><pre><code class="hljs">&lt;input type=&quot;text&quot; v-model.number=&quot;counter&quot;&gt;
+</code></pre>
+</li>
+<li><p>n<strong>另外，在我们进行****逻辑判断时，如果是一个string类型，在可以转化的情况下会进行隐式转换的：</strong></p>
+<ul>
+<li>下面的score在进行判断的过程中会进行隐式转化的；</li>
+</ul>
+</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Vue/">#Vue</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>v-model</div>
+      <div>http://example.com/2022/08/30/v-model/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年8月30日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/08/29/%E8%B4%AD%E7%89%A9%E8%BD%A6%E6%A1%88%E4%BE%8B/" title="购物车案例">
+                        <span class="hidden-mobile">购物车案例</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
