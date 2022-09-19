@@ -1,0 +1,754 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="认识前端路由 路由其实是网络工程中的一个术语：    在架构一个网络时，非常重要的两个设备就是路由器和交换机。   当然，目前在我们生活中路由器也是越来越被大家所熟知，因为我们生活中都会用到路由器：   事实上，路由器主要维护的是一个映射表；   映射表会决定数据的流向；   路由的概念在软件工程中出现，最早是在后端路由中实现的，原因是web的发展主要经历了这样一些阶段：    后端路由">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue Router">
+<meta property="og:url" content="http://example.com/2022/09/10/Vue-Router/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="认识前端路由 路由其实是网络工程中的一个术语：    在架构一个网络时，非常重要的两个设备就是路由器和交换机。   当然，目前在我们生活中路由器也是越来越被大家所熟知，因为我们生活中都会用到路由器：   事实上，路由器主要维护的是一个映射表；   映射表会决定数据的流向；   路由的概念在软件工程中出现，最早是在后端路由中实现的，原因是web的发展主要经历了这样一些阶段：    后端路由">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-09-10T07:39:40.000Z">
+<meta property="article:modified_time" content="2022-09-10T09:45:05.623Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Vue">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Vue Router - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Vue Router"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-09-10 15:39" pubdate>
+          2022年9月10日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          22 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Vue Router</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="认识前端路由"><a href="#认识前端路由" class="headerlink" title="认识前端路由"></a>认识前端路由</h2><ul>
+<li><p>路由其实是网络工程中的一个术语：  </p>
+<ul>
+<li>在架构一个网络时，非常重要的两个设备就是路由器和交换机。  </li>
+<li>当然，目前在我们生活中路由器也是越来越被大家所熟知，因为我们生活中都会用到路由器：  </li>
+<li>事实上，路由器主要维护的是一个映射表；  </li>
+<li>映射表会决定数据的流向；</li>
+</ul>
+</li>
+<li><p>路由的概念在软件工程中出现，最早是在后端路由中实现的，原因是web的发展主要经历了这样一些阶段：  </p>
+<ul>
+<li>后端路由阶段；  </li>
+<li>前后端分离阶段；  </li>
+<li>单页面富应用（SPA）；</li>
+</ul>
+</li>
+</ul>
+<h3 id="后端路由阶段"><a href="#后端路由阶段" class="headerlink" title="后端路由阶段"></a>后端路由阶段</h3><ul>
+<li><p>早期的网站开发整个HTML页面是由服务器来渲染的.  </p>
+<ul>
+<li>服务器直接<strong>生产渲染好对应的HTML页面</strong>, 返回给客户端进行展示.</li>
+</ul>
+</li>
+<li><p>但是, 一个网站, 这么多页面服务器如何处理呢?  </p>
+<ul>
+<li>一个页面有自己对应的网址, 也就是<strong>URL</strong>；  </li>
+<li>URL会发送到服务器, 服务器会通过<strong>正则对该URL进行匹配</strong>, 并且最后交给<strong>一个Controller进行处理</strong>；  </li>
+<li>Controller进行各种处理, 最终生成<strong>HTML或者数据</strong>, 返回给前端.</li>
+</ul>
+</li>
+<li><p>上面的这种操作, 就是后端路由：  </p>
+<ul>
+<li>当我们页面中需要<strong>请求不同的路径内容</strong>时, 交给服务器来进行处理, 服务器渲染好<strong>整个页面</strong>, 并且将页面<strong>返回给客户端</strong>.  </li>
+<li>这种情况下渲染好的页面, <strong>不需要单独加载任何的js和css</strong>, 可以直接交给浏览器展示, 这样也有利于SEO的优化</li>
+</ul>
+</li>
+<li><p>后端路由的缺点:  </p>
+<ul>
+<li>一种情况是整个页面的模块由后端人员来编写和维护的；  </li>
+<li>另一种情况是前端开发人员如果要开发页面, 需要通过PHP和Java等语言来编写页面代码；  </li>
+<li>而且通常情况下HTML代码和数据以及对应的逻辑会混在一起, 编写和维护都是非常糟糕的事情；</li>
+</ul>
+</li>
+</ul>
+<h2 id="前后端分离阶段"><a href="#前后端分离阶段" class="headerlink" title="前后端分离阶段"></a>前后端分离阶段</h2><ul>
+<li><p>◼ 前端渲染的理解：  </p>
+<ul>
+<li>每次请求涉及到的静态资源都会从静态资源服务器获取，这些资源包括HTML+CSS+JS，然后在前端对这些请求回来的资源进行渲染；  </li>
+<li>需要注意的是，客户端的每一次请求，都会从静态资源服务器请求文件；  </li>
+<li>同时可以看到，和之前的后端路由不同，这时后端只是负责提供API了；</li>
+</ul>
+</li>
+<li><p>前后端分离阶段：  </p>
+<ul>
+<li>随着Ajax的出现, 有了前后端分离的开发模式；  </li>
+<li>后端只提供API来返回数据，前端通过Ajax获取数据，并且可以通过JavaScript将数据渲染到页面中；  </li>
+<li>这样做最大的优点就是前后端责任的清晰，后端专注于数据上，前端专注于交互和可视化上；  </li>
+<li>并且当移动端(iOS&#x2F;Android)出现后，后端不需要进行任何处理，依然使用之前的一套API即可；  </li>
+<li>目前比较少的网站采用这种模式开发；</li>
+</ul>
+</li>
+<li><p>单页面富应用阶段:  </p>
+<ul>
+<li>其实SPA最主要的特点就是在前后端分离的基础上加了一层前端路由.  </li>
+<li>也就是前端来维护一套路由规则</li>
+</ul>
+</li>
+<li><p>前端路由的核心是什么呢？改变URL，但是页面不进行整体的刷新</p>
+</li>
+</ul>
+<h3 id="URL的hash"><a href="#URL的hash" class="headerlink" title="URL的hash"></a>URL的hash</h3><ul>
+<li>前端路由是如何做到URL和内容进行映射呢？监听URL的改变。 ◼ </li>
+<li>URL的hash  <ul>
+<li>URL的hash也就是锚点(#), 本质上是改变window.location的href属性；  </li>
+<li>我们可以通过直接赋值location.hash来改变href, 但是页面不发生刷新；</li>
+</ul>
+</li>
+</ul>
+<p>![](C:\Users\admin\Desktop\vue\blog\hexoblog\source\images\Vue RouterHash.png)</p>
+<ul>
+<li>hash的优势就是兼容性更好，在老版IE中都可以运行，但是缺陷是有一个#，显得不像一个真实的路径。</li>
+</ul>
+<h3 id="HTML5的History"><a href="#HTML5的History" class="headerlink" title="HTML5的History"></a>HTML5的History</h3><ul>
+<li>history接口是HTML5新增的, 它有六种模式改变URL而不刷新页面：<ul>
+<li>replaceState：替换原来的路径；  </li>
+<li>pushState：使用新的路径；  </li>
+<li>popState：路径的回退； </li>
+<li>go：向前或向后改变路径；  </li>
+<li>forward：向前改变路径；  </li>
+<li>back：向后改变路径；</li>
+</ul>
+</li>
+</ul>
+<h2 id="认识vue-router"><a href="#认识vue-router" class="headerlink" title="认识vue-router"></a>认识vue-router</h2><ul>
+<li><p>目前前端流行的三大框架, 都有自己的路由实现:  </p>
+<ul>
+<li>Angular的ngRouter  </li>
+<li>React的ReactRouter  </li>
+<li>Vue的vue-router</li>
+</ul>
+</li>
+<li><p>Vue Router 是 Vue.js 的官方路由：  </p>
+<ul>
+<li>它与 Vue.js 核心深度集成，让用 Vue.js 构建单页应用（SPA）变得非常容易；  </li>
+<li>目前Vue路由最新的版本是4.x版本</li>
+</ul>
+</li>
+<li><p>vue-router是基于路由和组件的  </p>
+<ul>
+<li>路由用于设定访问路径, 将路径和组件映射起来；  </li>
+<li>在vue-router的单页面应用中, 页面的路径的改变就是组件的切换；</li>
+</ul>
+</li>
+</ul>
+<h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> vue-router<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="路由的使用步骤"><a href="#路由的使用步骤" class="headerlink" title="路由的使用步骤"></a>路由的使用步骤</h2><ul>
+<li>使用vue-router的步骤: <ul>
+<li>第一步：创建路由需要映射的组件（打算显示的页面）；  </li>
+<li>第二步：通过createRouter创建路由对象，并且传入routes和history模式； ✓<ul>
+<li>配置路由映射: 组件和路径映射关系的routes数组； ✓ </li>
+<li>创建基于hash或者history的模式； </li>
+</ul>
+</li>
+<li>第三步：使用app注册路由对象（use方法）；  </li>
+<li>第四步：路由使用: 通过和；</li>
+</ul>
+</li>
+</ul>
+<p>![](C:\Users\admin\Desktop\vue\blog\hexoblog\source\images\Vue RouterUse.png)</p>
+<h2 id="路由的默认路径"><a href="#路由的默认路径" class="headerlink" title="路由的默认路径"></a>路由的默认路径</h2><ul>
+<li><p>我们这里还有一个不太好的实现:  </p>
+<ul>
+<li>默认情况下, 进入网站的首页, 我们希望渲染首页的内容；  </li>
+<li>但是我们的实现中, 默认没有显示首页组件, 必须让用户点击才可以；</li>
+</ul>
+</li>
+<li><p>如何可以让路径默认跳到到首页, 并且<router-view>渲染首页组件呢?</p>
+</li>
+</ul>
+<p>![](C:\Users\admin\Desktop\vue\blog\hexoblog\source\images\Vue RouterView.png)</p>
+<h2 id="路由懒加载"><a href="#路由懒加载" class="headerlink" title="路由懒加载"></a>路由懒加载</h2><ul>
+<li><p>当打包构建应用时，JavaScript 包会变得非常大，影响页面加载：  </p>
+<ul>
+<li>如果我们能把不同路由对应的组件分割成不同的代码块，然后当路由被访问的时候才加载对应组件，这样就会更加高效；  </li>
+<li>也可以提高首屏的渲染效率；</li>
+</ul>
+</li>
+<li><p>其实这里还是我们前面讲到过的webpack的分包知识，而Vue Router默认就支持动态来导入组件：  </p>
+<ul>
+<li>这是因为component可以传入一个组件，也可以接收一个函数，该函数需要返回一个Promise；  </li>
+<li>而import函数就是返回一个Promise；</li>
+</ul>
+</li>
+</ul>
+<p>![](C:\Users\admin\Desktop\vue\blog\hexoblog\source\images\Vue Routerpromis.png)</p>
+<h2 id="路由的其他属性"><a href="#路由的其他属性" class="headerlink" title="路由的其他属性"></a>路由的其他属性</h2><ul>
+<li>name属性：路由记录独一无二的名称； ◼ </li>
+<li>meta属性：自定义的数据</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Vue/">#Vue</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Vue Router</div>
+      <div>http://example.com/2022/09/10/Vue-Router/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年9月10日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/09/10/Vue-%E8%B7%AF%E7%94%B1%E5%AF%BC%E8%88%AA%E5%AE%88%E5%8D%AB/" title="Vue 路由导航守卫">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Vue 路由导航守卫</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/09/09/Vue3-%E4%BE%A6%E5%90%AC/" title="Vue3 侦听">
+                        <span class="hidden-mobile">Vue3 侦听</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -223,13 +223,173 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/09/04/Vue-%E6%B7%B7%E5%85%A5mixin/" target="_self">
-          Vue 混入mixin
+        <a href="/2022/09/19/Vue-%E9%9A%90%E8%97%8F%E5%AF%BC%E8%88%AA%E6%A0%8F/" target="_self">
+          Vue 隐藏导航栏
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/09/04/Vue-%E6%B7%B7%E5%85%A5mixin/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/09/19/Vue-%E9%9A%90%E8%97%8F%E5%AF%BC%E8%88%AA%E6%A0%8F/" target="_self">
+        <div>
+          使用场景 在主页需要导航栏存在，然而跳转页面后不需要导航栏，这时候我们需要将他隐藏  步骤 在router里添加meta属性并在属性中添加一个值  ![](C:\Users\admin\Desktop\vue\blog\hexoblog\source\images\Vue hideTabbar.png)  在导航栏所在位置给他添加一个v-if 引入useRoute()   &#x2F;&#x2F;
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-09-19 16:12" pubdate>
+              2022-09-19
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Vue/">#Vue</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/09/17/nvm-%E4%BD%BF%E7%94%A8/" target="_self">
+          nvm 使用
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/09/17/nvm-%E4%BD%BF%E7%94%A8/" target="_self">
+        <div>
+          WHY 通过它可以控制自己node版本。以此方便我们对不同项目node版本的随意切换、安装、查看。。。等等，与npm不同的是，npm是依赖包的管理工具。  注意 我们要先把电脑上已有的node.js删掉。  安装 (33条消息) nvm的简介、安装、使用（简单明了）_仰.的博客-CSDN博客_nvm  命令 nvm on ：                  打开node.js版本控制 nvm o
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-09-17 16:16" pubdate>
+              2022-09-17
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/nvm/">#nvm</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/09/16/Vite-%E8%8E%B7%E5%8F%96%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87/" target="_self">
+          Vite 获取本地图片
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/09/16/Vite-%E8%8E%B7%E5%8F%96%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87/" target="_self">
+        <div>
+          WHY 当引入动态图片资源的时候，webpack是用require来包裹的，但vite没有require，所以要用其他方法引入  export const getAssetURL &#x3D; (image) &#x3D;&gt; &amp;#123;   return new URL(&#96;..&#x2F;assets&#x2F;img&#x2F;$&amp;#123;image&amp;#125;&#96;, import.meta.url).href &amp;#125; 12345
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-09-16 19:28" pubdate>
+              2022-09-16
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Vite/">#Vite</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/09/13/Vue-%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE/" target="_self">
+          Vue 创建项目
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/09/13/Vue-%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE/" target="_self">
+        <div>
+          创建Vue项目 方式一：Vue CLI    基于webpack工具；   命令：vue create   方式二：create-vue    基于vite工具；   命令：npm init vue@latest   因为vite打包更快所以我使用vite来进行创建   miss error![](C:\Users\admin\Desktop\vue\blog\hexoblog\sourc
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-09-13 10:21" pubdate>
+              2022-09-13
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Vue3/">#Vue3</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/09/10/Vue-%E8%B7%AF%E7%94%B1%E5%AF%BC%E8%88%AA%E5%AE%88%E5%8D%AB/" target="_self">
+          Vue 路由导航守卫
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/09/10/Vue-%E8%B7%AF%E7%94%B1%E5%AF%BC%E8%88%AA%E5%AE%88%E5%8D%AB/" target="_self">
         <div>
           
         </div>
@@ -239,8 +399,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-09-04 10:28" pubdate>
-              2022-09-04
+            <time datetime="2022-09-10 17:45" pubdate>
+              2022-09-10
             </time>
           </div>
         
@@ -256,15 +416,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/09/03/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" target="_self">
-          生命周期
+        <a href="/2022/09/10/Vue-Router/" target="_self">
+          Vue Router
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/09/03/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/09/10/Vue-Router/" target="_self">
         <div>
-          认识生命周期 什么是生命周期呢？    生物学上，生物生命周期指得是一个生物体在生命开始到结束周而复始所历经的一系列变化过程；   每个组件都可能会经历从创建、挂载、更新、卸载等一系列的过程；   在这个过程中的某一个阶段，我们可能会想要添加一些属于自己的代码逻辑（比如组件创建完后就请求一些服务器数据）；   但是我们如何可以知道目前组件正在哪一个过程呢？Vue给我们提供了组件的生命周期函
+          认识前端路由 路由其实是网络工程中的一个术语：    在架构一个网络时，非常重要的两个设备就是路由器和交换机。   当然，目前在我们生活中路由器也是越来越被大家所熟知，因为我们生活中都会用到路由器：   事实上，路由器主要维护的是一个映射表；   映射表会决定数据的流向；   路由的概念在软件工程中出现，最早是在后端路由中实现的，原因是web的发展主要经历了这样一些阶段：    后端路由
         </div>
       </a>
 
@@ -272,8 +432,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-09-03 15:29" pubdate>
-              2022-09-03
+            <time datetime="2022-09-10 15:39" pubdate>
+              2022-09-10
             </time>
           </div>
         
@@ -296,15 +456,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/09/03/vue%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1-%E9%9D%9E%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/" target="_self">
-          vue组件通信-非父子组件通信
+        <a href="/2022/09/09/Vue3-%E4%BE%A6%E5%90%AC/" target="_self">
+          Vue3 侦听
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/09/03/vue%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1-%E9%9D%9E%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/09/09/Vue3-%E4%BE%A6%E5%90%AC/" target="_self">
         <div>
-          
+          侦听数据的变化12345678&lt;button @click&#x3D;&quot;message &#x3D; &amp;#x27;你好啊,李银河!&amp;#x27;&quot;&gt;修改message&lt;&#x2F;button&gt;import &amp;#123; reactive, ref, watch &amp;#125; from &amp;#x27;vue&amp;#x27;const message &#x3D; ref(&quot;Hello Wor
         </div>
       </a>
 
@@ -312,41 +472,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-09-03 14:36" pubdate>
-              2022-09-03
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/09/02/vue%E7%BB%84%E4%BB%B6%E5%8C%96-%E6%8F%92%E6%A7%BD/" target="_self">
-          vue组件化-插槽
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/09/02/vue%E7%BB%84%E4%BB%B6%E5%8C%96-%E6%8F%92%E6%A7%BD/" target="_self">
-        <div>
-          认识插槽Slot 在开发中，我们会经常封装一个个可复用的组件：   前面我们会通过props传递给组件一些数据，让组件来进行展示；   但是为了让这个组件具备更强的通用性，我们不能将组件中的内容限制为固定的div、span等等这些元素；   比如某种情况下我们使用组件，希望组件显示的是一个按钮，某种情况下我们使用组件希望显示的是一张图片；   我们应该让使用者可以决定某一块区域到底存放什么
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-09-02 15:38" pubdate>
-              2022-09-02
+            <time datetime="2022-09-09 16:58" pubdate>
+              2022-09-09
             </time>
           </div>
         
@@ -355,7 +482,7 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Vue/">#Vue</a>
+              <a href="/tags/Vue3/">#Vue3</a>
             
           </div>
         
@@ -369,15 +496,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/09/02/vue%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1-%E5%AD%90%E4%BC%A0%E7%88%B6/" target="_self">
-          vue组件通信-子传父
+        <a href="/2022/09/09/Vue3-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90/" target="_self">
+          Vue3 生命周期钩子
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/09/02/vue%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1-%E5%AD%90%E4%BC%A0%E7%88%B6/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/09/09/Vue3-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90/" target="_self">
         <div>
-          子组件传递给父组件 什么情况下子组件需要传递内容到父组件呢？   当子组件有一些事件发生的时候，比如在组件中发生了点击，父组件需要切换内容；   子组件有一些内容想要传递给父组件的时候；    自定义事件的流程 我们封装一个CounterOperation.vue的组件： 内部其实是监听两个按钮的点击，点击之后通过 this.$emit的方式发出去事件    12345678910111213
+          生命周期钩子 我们前面说过 setup 可以用来替代 data 、 methods 、 computed 等等这些选项，也可以替代 生命周期钩子。 ◼  那么setup中如何使用生命周期函数呢？   可以使用直接导入的 onX 函数注册生命周期钩子；    1234567  setup() &amp;#123;    &#x2F;&#x2F; 在执行setup函数的过程中, 你需要注册别的生命周期函数    onMount
         </div>
       </a>
 
@@ -385,8 +512,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-09-02 15:05" pubdate>
-              2022-09-02
+            <time datetime="2022-09-09 16:15" pubdate>
+              2022-09-09
             </time>
           </div>
         
@@ -395,7 +522,7 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Vue/">#Vue</a>
+              <a href="/tags/Vue3/">#Vue3</a>
             
           </div>
         
@@ -409,15 +536,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/09/01/vue%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/" target="_self">
-          vue组件通信
+        <a href="/2022/09/08/Vue3-Composition-two/" target="_self">
+          Vue3 Composition-two
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/09/01/vue%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/09/08/Vue3-Composition-two/" target="_self">
         <div>
-          认识组件的嵌套 子组件 &lt;template&gt;   &lt;ul&gt;     &lt;li&gt;商品列表1&lt;&#x2F;li&gt;     &lt;li&gt;商品列表2&lt;&#x2F;li&gt;     &lt;li&gt;商品列表3&lt;&#x2F;li&gt;     &lt;li&gt;商品列表4&lt;&#x2F;li&gt;   &lt;&#x2F;ul&gt; &lt;&#x2F;template&gt;  &amp;
+          Vue官方的setup语法糖 before  要写export default {setup() {return{} } 很麻烦  &#96;&#96;&#96;    import { reactive, ref } from &#39;vue&#39;    export default {     setup() {       &#x2F;&#x2F; 1.定义普通的数据: 可以正常的被使用       &#x2F;&#x2F; 缺点: 数据不
         </div>
       </a>
 
@@ -425,8 +552,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-09-01 21:54" pubdate>
-              2022-09-01
+            <time datetime="2022-09-08 19:34" pubdate>
+              2022-09-08
             </time>
           </div>
         
@@ -435,7 +562,7 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Vue/">#Vue</a>
+              <a href="/tags/Vue3/">#Vue3</a>
             
           </div>
         
@@ -449,15 +576,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/09/01/vue%E7%BB%84%E4%BB%B6%E4%BD%9C%E7%94%A8%E5%9F%9F/" target="_self">
-          vue组件作用域
+        <a href="/2022/09/07/Vue3-setup%E4%B8%AD%E7%A6%81%E7%94%A8this/" target="_self">
+          Vue3 setup中禁用this
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/09/01/vue%E7%BB%84%E4%BB%B6%E4%BD%9C%E7%94%A8%E5%9F%9F/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/09/07/Vue3-setup%E4%B8%AD%E7%A6%81%E7%94%A8this/" target="_self">
         <div>
-          在style中加入scoped
+          setup不可以使用this 官方关于this有这样一段描述：   表达的含义是this并没有指向当前组件实例；   并且在setup被调用之前，data、computed、methods等都没有被解析；   所以无法在setup中获取this；    ![](C:\Users\admin\Desktop\vue\blog\hexoblog\source\images\Vue Ref-thi
         </div>
       </a>
 
@@ -465,8 +592,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-09-01 15:26" pubdate>
-              2022-09-01
+            <time datetime="2022-09-07 19:17" pubdate>
+              2022-09-07
             </time>
           </div>
         
@@ -475,120 +602,7 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Vue/">#Vue</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/08/30/vue%E7%9B%AE%E5%BD%95%E5%88%86%E6%9E%90/" target="_self">
-          vue目录分析
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/08/30/vue%E7%9B%AE%E5%BD%95%E5%88%86%E6%9E%90/" target="_self">
-        <div>
-          
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-08-30 23:44" pubdate>
-              2022-08-30
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/08/30/vue%E8%84%9A%E6%89%8B%E6%9E%B6%E6%90%AD%E5%BB%BA/" target="_self">
-          vue脚手架搭建
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/08/30/vue%E8%84%9A%E6%89%8B%E6%9E%B6%E6%90%AD%E5%BB%BA/" target="_self">
-        <div>
-          Vue CLI脚手架 什么是Vue脚手架？  我们前面学习了如何通过webpack配置Vue的开发环境，但是在真实开发中我们不可能每一个项目从头来完成所有的webpack配置，这样显示开发的效率会大大的降低； 所以在真实开发中，我们通常会使用脚手架来创建一个项目，Vue的项目我们使用的就是Vue的脚手架； 脚手架其实是建筑工程中的一个概念，在我们软件工程中也会将一些帮助我们搭建项目的工具称之为脚手
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-08-30 22:58" pubdate>
-              2022-08-30
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Vue/">#Vue</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/08/30/vue%E7%BB%84%E4%BB%B6%E5%8C%96/" target="_self">
-          vue组件化
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/08/30/vue%E7%BB%84%E4%BB%B6%E5%8C%96/" target="_self">
-        <div>
-          认识组件化开发 如果我们将一个页面中所有的处理逻辑全部放在一起，处理起来就会变得非常复杂，而且不利于后续的管理以及扩展； 但如果，我们讲一个页面拆分成一个个小的功能块，每个功能块完成属于自己这部分独立的功能，那么之后整个页面的管理和维护就变得非常容易了； 如果我们将一个个功能块拆分后，就可以像搭建积木一下来搭建我们的项目；  注册全局组件1234567891011121314&lt;templat
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-08-30 19:32" pubdate>
-              2022-08-30
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Vue/">#Vue</a>
+              <a href="/tags/Vue3/">#Vue3</a>
             
           </div>
         
@@ -600,7 +614,7 @@
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/#board">9</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/#board">10</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 
