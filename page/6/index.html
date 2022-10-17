@@ -223,6 +223,86 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2022/08/13/JS%E6%B5%85%E6%8B%B7%E8%B4%9D%E6%B7%B1%E6%8B%B7%E8%B4%9D/" target="_self">
+          JS浅拷贝深拷贝
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/08/13/JS%E6%B5%85%E6%8B%B7%E8%B4%9D%E6%B7%B1%E6%8B%B7%E8%B4%9D/" target="_self">
+        <div>
+          浅拷贝定义 只是浅层的拷贝，内部引入对象时，依然会相互影响；      const obj2 &#x3D; &amp;#123; ...info &amp;#125;     obj2.name &#x3D; &quot;james&quot;  &#x2F;&#x2F;展开运算符     obj2.friend.name &#x3D; &quot;james&quot;     console.log(info.friend.name) 12345678910
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-08-13 17:46" pubdate>
+              2022-08-13
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/JS/">#JS</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/08/13/JS%E9%98%B2%E6%8A%96/" target="_self">
+          JS防抖
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/08/13/JS%E9%98%B2%E6%8A%96/" target="_self">
+        <div>
+          防抖 当事件触发时，相应的函数并不会立即触发，而是会等待一定的时间； 当事件密集触发时，函数的触发会被频繁的推迟； 只有等待了一段时间也没有事件触发，才会真正的执行响应函数；  手写12345678910111213141516171819function hydebounce(fn, delay) &amp;#123;  &#x2F;&#x2F; 1.用于记录上一次事件触发的timer  let timer &#x3D; null
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-08-13 10:15" pubdate>
+              2022-08-13
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/JS/">#JS</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2022/08/11/JS%E5%BC%82%E6%AD%A5%E5%A4%84%E7%90%86/" target="_self">
           JS异步处理
         </a>
@@ -311,7 +391,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2022/08/09/JS%E4%BB%A3%E7%90%86/" target="_self">
         <div>
-          Proxy响应式 施工中  监听 就是属性改变时，我们可以获取到其改变及其改变的值 ES5  1234567891011121314const keys &#x3D; Object.keys(obj)for (const key of keys) &amp;#123;  let value &#x3D; obj[key]  Object.defineProperty(obj, key, &amp;#123;    set: func
+          Proxy响应式 数据会随着其他数据的变化而变化  监听 就是属性改变时，我们可以获取到其改变及其改变的值 ES5  1234567891011121314const keys &#x3D; Object.keys(obj)for (const key of keys) &amp;#123;  let value &#x3D; obj[key]  Object.defineProperty(obj, key, &amp;#123;
         </div>
       </a>
 
@@ -525,86 +605,6 @@
           </div>
         
         
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/08/03/JS%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86/" target="_self">
-          JS执行原理
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/08/03/JS%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86/" target="_self">
-        <div>
-          代码执行过程初始化全局对象 js引擎会在执行代码之前，会在堆内存中创建一个全局对象：Global Object（GO） 该对象所有的作用域（scope）都可以访问； 里面会包含Date、Array、String、Number、setTimeout、setInterval等等； 其中还有一个window属性指向自己； &#x2F;&#x2F;window居然是属性嘛    执行上下文（ Execut
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-08-03 14:55" pubdate>
-              2022-08-03
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/JS/">#JS</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/08/03/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93/" target="_self">
-          浏览器渲染
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/08/03/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93/" target="_self">
-        <div>
-          网页解析常用的浏览器内核 Trident （ 三叉戟）：IE、360安全浏览器、搜狗高速浏览器、百度浏览器、UC浏览器； Gecko（ 壁虎） ：Mozilla Firefox；  Presto（急板乐曲）-&gt; Blink （眨眼）：Opera Webkit ：Safari、360极速浏览器、搜狗高速浏览器、移动端浏览器（Android、iOS） Webkit -&gt; Blink ：G
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-08-03 14:52" pubdate>
-              2022-08-03
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/JS/">#JS</a>
-            
-          </div>
         
       </div>
     </article>
